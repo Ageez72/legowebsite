@@ -1,0 +1,417 @@
+.hero-section {
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+    margin: 50px auto;
+    border-radius: 16px;
+    height: 487px;
+    min-height: 487px;
+    max-height: 487px;
+    overflow: visible;
+
+    // @media (max-width: 1280px) {
+    //     min-height: 600px;
+    //     max-height: 600px;
+    // }
+
+
+    @media (max-width: 992px) {
+       width: 95%;
+    }
+
+    @media (max-width: 600px) {
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .adds-title {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 30px;
+        font-family: 'Clash Display Bold';
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+
+        @media (min-width: 992px) and (max-width: 1160px) {
+            font-size: 23px;
+        }
+
+        @media (max-width: 360px) {
+            font-size: 23px;
+        }
+    }
+
+    .hero-content {
+        width: 900px;
+        max-width: 900px;
+        margin: auto;
+        position: relative;
+        z-index: 9;
+        text-align: center;
+
+        @media (max-width: 992px) {
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 40px;
+            color: #fff;
+            font-family: 'Clash Display Bold';
+            margin-bottom: 10px;
+        }
+
+        .hero-desc {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-family: 'Clash Display Medium';
+        }
+
+        .quick-add-container {
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 38px;
+
+            @media (max-width: 992px) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .search-input {
+                width: 90%;
+            }
+
+            .quantatity-container {
+                width: 25%;
+                gap: 16px;
+                padding: 6px 8px;
+                border-radius: 8px;
+
+                @media (max-width: 992px) {
+                    width: 65%;
+                    max-width: 200px;
+                }
+
+                input {
+                    border: none;
+                    text-align: center;
+                }
+            }
+        }
+
+        .add-bulk-open-btn {
+            font-size: 16px;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 6px;
+            padding: 11px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: background-color .3s ease-in-out;
+
+            i {
+                font-size: 24px;
+            }
+
+            &:hover {
+                background: #FFFFFF29;
+            }
+        }
+    }
+
+    .hero-images {
+        // position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+
+            @media (max-width: 1280px) {
+                background-color: #00000029;
+            }
+        }
+    }
+
+    .hero-side-image {
+        width: auto !important;
+        bottom: auto !important;
+        bottom: auto !important;
+        top: 50% !important;
+        height: 200% !important;
+        transform: translateY(-50%);
+
+        &.right {
+            right: 0 !important;
+            left: auto !important;
+        }
+
+        &.left {
+            left: 0 !important;
+            right: auto !important;
+        }
+
+        @media (max-width: 1280px) {
+            // max-width: 580px;
+        }
+
+        @media (max-width: 992px) {
+            opacity: 0;
+        }
+    }
+}
+
+.add-bulk-modal {
+    width: 90%;
+    // min-height: 400px;
+    overflow: visible;
+
+    .modal-title {
+        font-size: 24px;
+        color: #1E1E1E;
+        font-family: 'Clash Display Bold';
+        margin-bottom: 16px;
+
+        @media (max-width: 992px) {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+    }
+
+    .add-bulk-table {
+
+        .table-head {
+            gap: 12px;
+
+            @media (max-width: 992px) {
+                display: none;
+            }
+
+            .name-qty {
+                font-family: 'Clash Display Bold';
+                background-color: #F6F6F6;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .info {
+                font-family: 'Clash Display Bold';
+                background-color: #F6F6F6;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+        .name-qty {
+            width: 30%;
+            padding: 12px 8px;
+            border-radius: 6px;
+            color: #1E1E1E;
+
+            @media (max-width: 992px) {
+                width: 100%;
+                flex-wrap: wrap;
+                padding: 0;
+            }
+
+            .name {
+                width: 70%;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                }
+            }
+
+            .qty {
+                width: 30%;
+                text-align: center;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                    text-align: start;
+                }
+
+                input {
+                    text-align: center;
+
+                    @media (max-width: 992px) {
+                        text-align: start;
+                    }
+                }
+            }
+        }
+
+        .info {
+            width: 70%;
+            padding: 12px 8px;
+            border-radius: 6px;
+            color: #1E1E1E;
+
+            @media (max-width: 992px) {
+                width: 100%;
+                flex-wrap: wrap;
+                padding-top: 0;
+            }
+
+            .item {
+                text-align: center;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                    flex: auto;
+                    text-align: start;
+                }
+
+                &.delete {
+                    text-align: center;
+                    flex: 0.5;
+
+                    @media (max-width: 992px) {
+                        text-align: start;
+                        flex: auto;
+                        margin-top: 16px;
+                    }
+
+                    button {
+                        cursor: pointer;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 28px;
+                        height: 28px;
+                        border-radius: 4px;
+                        background-color: #C2C5D233;
+
+                        @media (max-width: 992px) {
+                            width: 100%;
+                            height: 48px;
+                        }
+
+                        .mobile-title {
+                            @media (max-width: 992px) {
+                                margin: 0 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-row {
+            border-bottom: 1px solid #C2C5D2;
+
+            @media (max-width: 992px) {
+                flex-wrap: wrap;
+                gap: 0;
+                padding-bottom: 16px;
+            }
+        }
+
+        .action-btns {
+            margin-top: 32px;
+            justify-content: end;
+        }
+
+        .mobile-title {
+            @media (max-width: 992px) {
+                display: block;
+                margin-top: 16px;
+                margin-bottom: 10px;
+                font-family: 'Clash Display Bold';
+            }
+        }
+
+        .mobile-box {
+            @media (max-width: 992px) {
+                height: 48px;
+                border: 1px solid #CCD3D9;
+                border-radius: 6px;
+                padding: 0 10px;
+                display: block;
+                line-height: 48px;
+            }
+        }
+    }
+}
+
+/* Add this to your global CSS or inside a scoped <style> block if using Tailwind */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+    background-color: #fef2f2;
+    color: #b91c1c;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fade-in-out 3s ease forwards;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    opacity: 1;
+}
+
+.hero-section.fade-in {
+    opacity: 0;
+    animation: fadeInHero 1s forwards;
+}
+
+@keyframes fadeInHero {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

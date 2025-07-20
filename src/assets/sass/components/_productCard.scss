@@ -1,0 +1,203 @@
+.grid-card-container {
+    margin-top: 70px;
+    margin-bottom: 0;
+
+    .grid-header {
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+        gap: 15px;
+
+        .grid-header-title {
+            font-size: 32px;
+            color: rgba(30, 30, 30, 1);
+            font-family: 'Clash Display Bold';
+        }
+    }
+}
+
+.product-card {
+    &.list-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 0 0;
+        overflow: hidden;
+
+        .product-card-content {
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 1);
+        }
+    }
+
+    &.grid-card {
+        @media screen and (max-width: 650px) {
+            flex-wrap: wrap;
+
+            .product-card-image {
+                margin: auto;
+                // img {}
+            }
+        }
+    }
+
+    .product-card-image {
+        min-width: 220px;
+        max-width: 220px;
+        overflow: hidden;
+        margin: 0 auto 15px;
+
+        img {
+            transition: all 0.4s ease-in-out;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+    }
+
+    .product-card-content {
+        width: 100%;
+
+        a {
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+    }
+
+    .product-card-title {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: 'Clash Display Semibold';
+        color: rgba(255, 255, 255, 1);
+        margin-bottom: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        min-height: 48px;
+        max-height: 48px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .product-card-description {
+        font-size: 14px;
+        color: rgba(248, 187, 17, 1);
+        font-family: 'Clash Display Medium';
+        margin-bottom: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        // min-height: 21px;
+        max-height: 21px;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    .stars {
+        margin-bottom: 16px;
+
+        i {
+            font-size: 13px;
+        }
+    }
+
+    .price {
+    }
+
+    .product-card-price {
+        font-size: 16px;
+        font-family: 'Clash Display Medium';
+        color: #fff;
+
+        &.details-product-card-price {
+            font-size: 20px;
+        }
+    }
+
+    .discount {
+        font-size: 16px;
+        font-family: 'Clash Display Bold';
+        color: #C2C5D2;
+        text-decoration: line-through;
+    }
+
+
+    .out-stock-btn {
+        color: #666876;
+        font-size: 16px;
+        padding: 12px 5px;
+        background: #6A6E8329;
+        border-radius: 6px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
+
+.add-to-cart {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 380px) {
+        flex-direction: column;
+    }
+
+    .product-card-quantity {
+        height: 48px;
+        border: 1px solid #C2C5D2;
+        border-radius: 6px;
+        font-size: 16px;
+        color: #4A4A49;
+
+        @media screen and (max-width: 380px) {
+            width: 100%;
+        }
+
+        input {
+            width: 60px;
+            text-align: center;
+        }
+
+        .btn {
+            flex: 1;
+            cursor: pointer;
+
+            i {
+                &::before {
+                    color: #4A4A49;
+                }
+            }
+        }
+    }
+
+    .add-to-cart-btn {
+        @media screen and (max-width: 380px) {
+            width: 100%;
+        }
+    }
+}
+
+.products-page-listing {
+    .product-card .product-card-image {
+        min-width: auto;
+        max-width: 250px;
+        margin: 0 auto 15px;
+    }
+}
+
+.discount {
+    font-size: 16px;
+    font-family: 'Clash Display Bold';
+    color: #C2C5D2;
+    text-decoration: line-through;
+
+    &.sm {
+        font-size: 14px;
+    }
+}
+
+.required {
+    color: red;
+    font-size: 16px;
+    margin: 0;
+}

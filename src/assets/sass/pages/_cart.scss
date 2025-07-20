@@ -1,0 +1,194 @@
+.cart-page {
+    .cart-item {
+        @media (max-width: 767px) {
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            height: calc(var(--spacing) * 16);
+        }
+
+        .info {
+            @media (max-width: 767px) {
+                width: 100%;
+                flex: auto;
+                padding: 0;
+            }
+        }
+
+        .name {
+            color: #1E1E1E;
+            margin-bottom: 10px;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            overflow: hidden;
+        }
+
+        .price {
+            color: var(--primary-color);
+            font-family: 'Clash Display Bold';
+        }
+
+        .actions {
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+        }
+
+        .add-to-cart {
+            align-items: stretch;
+
+            @media (max-width: 767px) {
+                width: 70%;
+                margin-top: 15px;
+            }
+
+            @media (max-width: 500px) {
+                width: 100%;
+            }
+
+            @media (max-width: 380px) {
+                flex-direction: row;
+            }
+
+            .remove-cart-item {
+                width: 48px;
+                height: 48px;
+                border-radius: 6px;
+                background-color: #9B92A529;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: var(--primary-color);
+
+                    i::before {
+                        color: #fff;
+                    }
+                }
+
+                i {
+                    font-size: 24px;
+
+                    &::before {
+                        color: var(--primary-color);
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 380px) {
+                .product-card-quantity {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+    .items-count {
+        padding: 5px;
+        color: var(--primary-color);
+        font-size: 24px;
+        font-family: 'Clash Display Bold';
+        min-width: 47px;
+        min-height: 47px;
+        border-radius: 6px;
+        background-color: #e3000b1F;
+    }
+
+    .order-side {
+        min-width: calc(100% - 500px);
+    }
+
+    .order-summary {
+        width: 500px;
+        max-width: 500px;
+
+        @media (max-width: 1023px) {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .order-item {
+            p {
+                color: #4A4A49;
+            }
+
+            .price {
+                font-family: 'Clash Display Bold';
+                font-size: 20px;
+                color: var(--primary-color);
+            }
+        }
+    }
+
+    .notes-text {
+        height: 120px;
+    }
+
+    .addresses {
+        .card {
+            padding: 0;
+
+            input {
+                display: none;
+
+                &:checked+label {
+                    border-color: var(--primary-color);
+                    background-color: #e3000b1F;
+
+                    .check {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            label {
+                color: #4A4A49;
+                cursor: pointer;
+                padding: 20px;
+                border-radius: 16px;
+                border: 1px solid transparent;
+                position: relative;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    border-color: var(--primary-color);
+                    background-color: #e3000b1F;
+                }
+
+                .location {
+                    font-size: 20px;
+                }
+
+                .check {
+                    font-size: 20px;
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .empty-state {
+        padding: 50px 20px;
+    }
+}
+
+.cart-icon {
+    .cart-count-num {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 100px;
+        background-color: #E82832;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+}

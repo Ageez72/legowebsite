@@ -1,0 +1,171 @@
+:root {
+    --body-bg: #F6F6F6;
+    --primary-color: #e3000b;
+    --primary-color-hover: #b50810;
+    --Gray---1: #7E818E;
+    --Gray-1: #6A6E83;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Clash Display Regular', Arial, Helvetica, sans-serif;
+    background-color: var(--body-bg);
+
+    &.header-padding {
+        padding-top: 86px;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    font-size: 32px;
+    color: #1E1F24;
+    font-family: 'Clash Display Bold';
+    margin-bottom: 25px;
+}
+
+.main-title {
+    font-size: 28px;
+    color: #000;
+    font-family: 'Clash Display Bold';
+}
+
+.sub-title {
+    font-size: 20px;
+    color: #1E1E1E;
+    font-family: 'Clash Display Bold';
+}
+
+p {
+    font-size: 16px;
+    color: #292D32;
+    margin-bottom: 20px;
+
+    &.mb-0 {
+        margin-bottom: 0;
+    }
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.badge {
+    font-size: 12px;
+    min-height: 32px;
+    border: none;
+    border-radius: 4px;
+    width: max-content;
+    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 15px;
+
+    &.blue {
+        color: #165897;
+        background-color: #1658971F;
+    }
+
+    &.green {
+        color: #288D14;
+        background-color: #288D141F;
+    }
+
+    &.yellow {
+        color: #D8A343;
+        background-color: #D8A3431F;
+    }
+
+    &.red {
+        color: #e3000b;
+        background-color: #e3000b1F;
+    }
+}
+
+input {
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.p-32 {
+    padding: 32px;
+
+    @media (max-width: 768px) {
+        padding: 16px;
+    }
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-90 {
+    margin-top: 90px;
+}
+
+.mt-140 {
+    margin-top: 140px;
+}
+
+.html-overflow {
+    overflow: hidden;
+    padding-right: 15px;
+    overflow: visible;
+    padding: 0;
+}
+
+hr {
+    border-color: #CCD3D9;
+    margin: 24px 0;
+}
+
+.container,
+.max-w-screen-xl {
+    width: 90%;
+    max-width: 1920px;
+
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+}
+
+.brand-logo {
+    position: relative !important;
+    max-width: 190px;
+    margin: 0 auto;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.clear-html {
+    overflow: visible !important;
+    padding: 0 !important;
+}

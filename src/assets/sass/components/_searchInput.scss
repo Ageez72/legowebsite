@@ -1,0 +1,68 @@
+.search-results-listing {
+    position: absolute;
+    margin-top: 5px;
+    width: 560px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: start;
+    padding: 15px 0;
+    border: 1px solid #ccc;
+    @media (max-width: 660px) {
+        width: 91%;
+    }
+
+    &.no-results {
+        text-align: center;
+    }
+
+    &.bulk-listing {
+        height: 188px;
+        overflow: auto;
+    }
+
+    .search-item {
+        cursor: pointer;
+        padding: 8px 0 4px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: #9B92A529;
+        }
+
+        .image {
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .title {
+            width: 65%;
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .price {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+                width: 85px;
+        }
+    }
+
+    hr {
+        margin: 8px 0 15px;
+    }
+
+    a {
+        padding: 0 15px;
+    }
+
+    .all-products {
+        font-size: 14px;
+        color: var(--primary-color);
+    }
+}

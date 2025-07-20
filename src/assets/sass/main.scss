@@ -1,0 +1,27 @@
+@import "./base/base.scss";
+@import "./base/loader.scss";
+@import"./base/_general.scss";
+
+
+// pages
+@import "./pages/auth.scss";
+@import "./pages/products.scss";
+@import "./pages/productDetails.scss";
+@import "./pages/cart.scss";
+@import "./pages/profile.scss";
+@import "./pages/OrderDetails.scss";
+
+
+// components
+@import "./components/modal.scss";
+@import "./components/productCard.scss";
+@import "./components/header.scss";
+@import "./components/hero.scss";
+@import "./components/sidebar.scss";
+@import "./components/pagination.scss";
+@import "./components/searchInput.scss";
+@import "./components/rate.scss";
+@import "./components/toasts.scss";
+
+
+@import "./base/ltr.scss";

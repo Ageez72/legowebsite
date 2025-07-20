@@ -1,0 +1,177 @@
+.profile-side-bar {
+    .profile-dropdown-header {
+        border-bottom: 1px solid #e4e5e8;
+
+        .profile-img {
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #e4e5e8;
+            border-radius: 100px;
+            width: 44px;
+            height: 44px;
+            line-height: 27px;
+        }
+
+        .username {
+            font-size: 16px;
+        }
+
+        .user-email {
+            color: var(--Gray-1);
+            font-size: 12px;
+        }
+    }
+
+    ul {
+        .active {
+            color: #e3000b;
+            background-color: #e3000b1F;
+
+            i::before {
+                color: #e3000b;
+            }
+        }
+
+        button>i {
+            @media (max-width: 64rem) {
+                transform: rotate(270deg);
+            }
+        }
+    }
+
+    i.type {
+        font-size: 20px;
+    }
+
+    .logout-wrapper {
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+            background-color: var(--primary-color);
+
+            .logout {
+                color: #fff;
+
+                i:before {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .logout {
+        color: #e3000b;
+        font-size: 16px;
+        transition: all 0.4s ease-in-out;
+
+        i:before {
+            transition: all 0.4s ease-in-out;
+        }
+    }
+}
+
+.adress-item {
+    color: #4A4A49;
+    border-radius: 16px;
+    padding: 15px 10px;
+    border: 1px solid #C2C5D2;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.order-card {
+    border: 1px solid #CCD3D9;
+
+    .order-number {
+        font-size: 16px;
+        font-family: 'Clash Display Bold';
+        color: #1E1E1E;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    .prod-img {
+        border: 1px solid #CCD3D9;
+    }
+
+    .prod-title {
+        font-size: 16px;
+        color: #1E1E1E;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        font-weight: 400;
+        display: -webkit-box;
+        overflow: hidden;
+        min-height: 24px;
+    }
+
+    .prod-qty {
+        font-size: 12px;
+        font-family: 'Clash Display Bold';
+        color: var(--primary-color);
+    }
+
+    .prod-price {
+        font-size: 14px;
+        font-family: 'Clash Display Bold';
+        color: var(--primary-color);
+    }
+
+    .extra-products {
+        font-size: 14px;
+        padding: 8px;
+        color: #4A4A49;
+        border-radius: 6px;
+        margin-top: 15px;
+        background-color: #C2C5D233;
+    }
+
+    .order-total-price,
+    .order-total-title {
+        font-size: 14px;
+        font-family: 'Clash Display Bold';
+        color: #1E1E1E;
+    }
+
+    .order-total-price {}
+}
+
+.order-status {
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 8px;
+    min-width: 100px;
+    text-align: center;
+
+    &.closed {
+        color: #009941;
+        background-color: #E5FFF0;
+    }
+
+    &.canceled {
+        color: #e3000b;
+        background-color: #e3000b1f;
+    }
+
+    &.in-progress {
+        color: #D8A343;
+        background-color: #D8A3431F;
+    }
+}
+
+.order-date {
+    font-size: 16px;
+    color: #7E818E;
+}
+
+@media (max-width: 767px) {
+    .order-details .cart-item .actions {
+        width: auto;
+    }
+}

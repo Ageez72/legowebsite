@@ -1,0 +1,12 @@
+.order-details {
+ .actions {
+    color: #4A4A49;
+    border-radius: 6px;
+    border: 1px solid #C2C5D2;
+ }  
+ .address-item {
+    label {
+        pointer-events: none;
+    }
+ } 
+}

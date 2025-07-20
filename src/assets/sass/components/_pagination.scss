@@ -1,0 +1,50 @@
+.pagination-container {
+    button {
+        cursor: pointer;
+    }
+
+    .dots,
+    button {
+        width: 32px;
+        height: 32px;
+        background-color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        text-align: center;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        color: #7E818E;
+
+        &.active {
+            color: #fff;
+            background-color: var(--primary-color);
+        }
+
+        &:not(.active):hover {
+            background: #ededed;
+        }
+
+        &.prev {
+            i {
+                font-family: 'Clash Display Bold';
+
+                &::before {
+                    color: var(--primary-color);
+                }
+            }
+        }
+
+        &.next {
+            i {
+                font-family: 'Clash Display Bold';
+
+                &::before {
+                    color: var(--primary-color);
+                }
+            }
+        }
+    }
+}

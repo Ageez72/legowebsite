@@ -1,0 +1,122 @@
+.all-products-container {
+    margin-top: 60px;
+
+    @media (max-width: 1023px) {
+        // padding: 0;
+
+        .filters-gap {
+            gap: 0;
+        }
+    }
+
+    .products-results-title {
+        font-size: 20px;
+        font-family: 'Clash Display Bold';
+        color: #4A4A49;
+        margin-bottom: 24px;
+    }
+
+    .products-filter-side {
+        @media (max-width: 1023px) {
+            width: 0;
+        }
+    }
+
+    .products-list {
+        @media (max-width: 1023px) {
+            width: 100%;
+        }
+    }
+
+    .filter-mobile {
+        // display: none;
+        position: fixed;
+        top: 50%;
+        right: 0;
+        background: #fff;
+        padding: 10px 20px;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        box-shadow: 1px 1px 7px #ccc;
+        align-items: center;
+        height: 50px;
+        z-index: 99;
+
+        @media (max-width: 1023px) {
+            display: flex;
+        }
+
+        i {
+                font-size: 20px;
+        }
+    }
+
+    .products-header-filters {
+        margin-bottom: 32px;
+        gap: 10px;
+
+        @media (max-width: 1023px) {
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            width: 70%;
+            @media (max-width: 1023px) {
+                width: 100%;
+            }
+        }
+
+        .filters-sort-display {
+            width: 30%;
+            @media (max-width: 1023px) {
+                width: 100%;
+            }
+        }
+
+        .dropdown-container {
+            width: 100%;
+            height: 100%;
+
+            .dropdown-title {
+                height: 100%;
+
+                button {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    outline: none;
+                    font-size: 16px;
+                    color: #7E818E;
+                    font-weight: 400;
+                }
+            }
+
+            button {
+                i {
+                    font-size: 24px;
+                }
+
+                &.option-item {
+                    font-size: 16px;
+                    color: #4A4A49;
+                }
+
+                span {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden
+                }
+            }
+        }
+    }
+
+    .empty-state {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 600px;
+        gap: 25px;
+    }
+}

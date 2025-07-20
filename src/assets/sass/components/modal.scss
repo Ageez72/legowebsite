@@ -1,0 +1,67 @@
+.modal-container {
+    border-radius: 6px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: relative;
+
+    .dialog-title {
+        font-size: 24px;
+        color: #000;
+        font-family: 'Clash Display Bold';
+        margin-bottom: 10px;
+    }
+
+    .dialog-desc {
+        margin-bottom: 0;
+    }
+
+    .icon-container {
+        min-width: 44px;
+        height: 44px;
+        text-align: center;
+        background-color: #000;
+        border-radius: 8px;
+
+        i {
+            font-size: 24px;
+            color: #fff;
+            line-height: 44px;
+        }
+    }
+
+    &::before {
+        content: "";
+        width: 6px;
+        height: 100%;
+        background-color: #000;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    
+    &.error-modal {
+        background-color: #FFE0E9;
+        .icon-container {
+            background-color: #DE1F1F;
+        }
+        &::before {
+            background-color: #DE1F1F;
+        }
+        .dialog-title {
+            color: #DE1F1F;
+        }
+    }
+
+    &.success-modal {
+        background-color: #E0FFE5;
+        .icon-container {
+            background-color: #288D14;
+        }
+        &::before {
+            background-color: #288D14;
+        }
+        .dialog-title {
+            color: #288D14;
+        }
+    }
+}
