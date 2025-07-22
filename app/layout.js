@@ -8,6 +8,7 @@ import AppProvider from "../context/AppContext";
 import ReactQueryProvider from "../providers/ReactQueryProvider";
 import Cookies from 'js-cookie';
 import "./globals.scss";
+import Script from "next/script";
 
 export default function RootLayout({ children }) {
   // const { state = {}, dispatch = () => {} } = useAppContext() || {};
@@ -69,6 +70,20 @@ export default function RootLayout({ children }) {
             {children}
             {!isAuthPage && <Footer />}
           </AppProvider>
+
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-KC3WYXJ1F1"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-KC3WYXJ1F1');
+            `}
+          </Script>
         </body>
       </html>
     </ReactQueryProvider>
