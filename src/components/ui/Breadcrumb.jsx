@@ -4,7 +4,7 @@ import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
 import { useAppContext } from '../../../context/AppContext';
 
-export default function Breadcrumb({ items = [] }) {
+export default function Breadcrumb({ items = [], className }) {
     const { state = {} } = useAppContext() || {};
     const [translation, setTranslation] = useState(en); // default fallback
     useEffect(() => {
@@ -12,7 +12,7 @@ export default function Breadcrumb({ items = [] }) {
     }, [state.LANG]);
 
     return (
-        <nav className="flex breadcrumb-wrapper" aria-label="Breadcrumb">
+        <nav className={`flex breadcrumb-wrapper ${className}`} aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 {items.map((item, index) => {
                     const isLast = index === items.length - 1;

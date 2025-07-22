@@ -29,25 +29,24 @@
     }
 
     .filter-mobile {
-        // display: none;
-        position: fixed;
-        top: 50%;
-        right: 0;
+        z-index: 99;
         background: #fff;
         padding: 10px 20px;
-        border-top-left-radius: 50%;
-        border-bottom-left-radius: 50%;
-        box-shadow: 1px 1px 7px #ccc;
+        display: flex;
         align-items: center;
-        height: 50px;
-        z-index: 99;
+        justify-content: space-between;
+        border: 1px solid #c2c5d2;
+        border-radius: 8px;
+        font-family: 'Clash Display Medium';
+        color: rgb(30, 30, 30);
+        max-width: 125px;
 
         @media (max-width: 1023px) {
             display: flex;
         }
 
         i {
-                font-size: 20px;
+            font-size: 20px;
         }
     }
 
@@ -60,17 +59,24 @@
         }
 
         .search-input {
-            width: 70%;
+            width: 50%;
+
             @media (max-width: 1023px) {
                 width: 100%;
             }
         }
 
         .filters-sort-display {
-            width: 30%;
+            width: 50%;
+
             @media (max-width: 1023px) {
                 width: 100%;
             }
+
+            // >div {
+            //     min-width: 31.333%;
+            //     max-width: 32.333%;
+            // }
         }
 
         .dropdown-container {
@@ -86,8 +92,8 @@
                     align-items: center;
                     outline: none;
                     font-size: 16px;
-                    color: #7E818E;
-                    font-weight: 400;
+                    color: rgba(30, 30, 30, 1);
+                    font-family: 'Clash Display Regular';
                 }
             }
 

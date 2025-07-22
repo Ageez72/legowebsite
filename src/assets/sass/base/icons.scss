@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../../fonts/icomoon/icomoon.eot?qxdfpf');
-  src:  url('../../fonts/icomoon/icomoon.eot?qxdfpf#iefix') format('embedded-opentype'),
-    url('../../fonts/icomoon/icomoon.ttf?qxdfpf') format('truetype'),
-    url('../../fonts/icomoon/icomoon.woff?qxdfpf') format('woff'),
-    url('../../fonts/icomoon/icomoon.svg?qxdfpf#icomoon') format('svg');
+  src:  url('../../fonts/icomoon/icomoon.eot?g309le');
+  src:  url('../../fonts/icomoon/icomoon.eot?g309le#iefix') format('embedded-opentype'),
+    url('../../fonts/icomoon/icomoon.ttf?g309le') format('truetype'),
+    url('../../fonts/icomoon/icomoon.woff?g309le') format('woff'),
+    url('../../fonts/icomoon/icomoon.svg?g309le#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-linkedin:before {
+  content: "\e93c";
+  color: #fff;
+}
+.icon-instagram:before {
+  content: "\e93d";
+  color: #fff;
+}
+.icon-facebook:before {
+  content: "\e93e";
+  color: #fff;
+}
 .icon-expand-solid:before {
   content: "\e93b";
 }

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import FilterSingleItem from './FilterSingleItem';
 import Select2Form from './Select2Form';
 import MultiRangeSlider from './MultiRangeSlider';
+import MultiAgesRangeSlider from './MultiAgesRangeSlider';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import axios from 'axios';
@@ -49,6 +50,8 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
     const [fromPrice, setFromPrice] = useState(useParams.get('fromPrice') || 0); // نطاق السعر
     const [toPrice, setToPrice] = useState(useParams.get('toPrice') || 1600); // نطاق السعر
+    const [fromAge, setFromAge] = useState(useParams.get('fromAge') || 0); // نطاق العمر
+    const [toAge, setToAge] = useState(useParams.get('toAge') || 17); // نطاق العمر
     const [itemType, setItemType] = useState(useParams.get('itemType') || ""); // الاقسام
     const [brand, setBrand] = useState("00072"); // العلامات التجارية
     const [category, setCategory] = useState(useParams.get('category') ? useParams.get('category').split(',') : ""); // التصنيفات
@@ -68,6 +71,8 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
             if (fromPrice) query.set('fromPrice', fromPrice);
             if (toPrice) query.set('toPrice', toPrice);
+            if (fromAge) query.set('fromAge', fromAge);
+            if (toAge) query.set('toAge', toAge);
             if (itemType) query.set('itemType', itemType);
             if (itemStatus) query.set('itemStatus', itemStatus);
             if (sortItem) query.set('sort', sortItem);
@@ -86,6 +91,8 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
             if (fromPrice) searchParams.append('fromPrice', fromPrice);
             if (toPrice) searchParams.append('toPrice', toPrice);
+            if (fromAge) searchParams.append('fromAge', fromAge);
+            if (toAge) searchParams.append('toAge', toAge);
             if (itemType) searchParams.append('itemType', itemType);
             if (itemStatus) searchParams.append('itemStatus', itemStatus);
             if (sortItem) searchParams.append('sort', sortItem);
@@ -109,6 +116,8 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
             // Reset all filters
             setFromPrice(0);
             setToPrice(1600);
+            setFromAge(0);
+            setToAge(17);
             setItemType("");
             setItemStatus("");
             setBrand(["00072"]);
@@ -132,6 +141,14 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
     const changePriceTo = (to) => {
         setToPrice(to)
+    }
+
+    const changeAgeFrom = (from) => {
+        setFromAge(from);
+    }
+
+    const changeAgeTo = (to) => {
+        setToAge(to)
     }
 
     const changeSingleItem = (name, value) => {
@@ -243,8 +260,9 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
                     }
                 </div>
                 <div className="filter-body">
-                    <MultiRangeSlider title={translation.priceRange} min={0} max={1600} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} />
                     <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} />
+                    <MultiRangeSlider title={translation.priceRange} min={0} max={1600} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} />
+                    <MultiAgesRangeSlider title={"Age Range"} min={0} max={17} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                     {
                         categoryOpen && (
                             <Select2Form title={translation.categories} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0} />

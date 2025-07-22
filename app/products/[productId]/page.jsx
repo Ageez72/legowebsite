@@ -187,7 +187,7 @@ export default function Page() {
               <div className="badges flex flex-wrap gap-2">
                 {
                   details?.catalogs?.map(b => (
-                    <Link href={`/products?catalog=${encodeURIComponent(b?.id)}&itemStatus=AVAILABLE`} key={b.id}>
+                    <Link href={`/products?brand=00072&catalog=${encodeURIComponent(b?.id)}&itemStatus=AVAILABLE`} key={b.id}>
                       <Badge type={"catalog-details"} text={b?.description} />
                     </Link>
                   ))
@@ -200,7 +200,7 @@ export default function Page() {
       {
         details?.relatedItems.length && (
           <>
-            <h3 className="sub-title mb-3 mt-10">{translation.relatedProducts}</h3>
+            <h3 className="section-title mb-3 mt-10">{translation.relatedProducts}</h3>
             <RelatedProducts items={details?.relatedItems} />
           </>
         )

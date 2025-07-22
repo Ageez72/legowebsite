@@ -39,6 +39,7 @@
             .swiper-button-prev,
             .swiper-button-next {
                 left: auto !important;
+
                 &:after {
                     transform: rotate(180deg);
                 }
@@ -73,14 +74,7 @@
         }
     }
 
-    .all-products-container .filter-mobile {
-        right: auto;
-        left: 0;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
+    .all-products-container .filter-mobile {}
 
     .pagination-container {
         direction: ltr;
@@ -92,7 +86,7 @@
     }
 
     .search-results-listing .view-details .icon-arrow-left-01-round {
-       transform: rotate(180deg); 
+        transform: rotate(180deg);
     }
 
     .slider__right-value,
@@ -125,9 +119,11 @@
     }
 
     .product-details .specifications-table .item .info {
+        text-align: center;
         border-right: none;
-            border-left: 1px solid #ccd3d9;
+        border-left: 1px solid #ccd3d9;
     }
+
     .search-results-listing .all-products {
         .icon-arrow-left-01-round {
             transform: rotate(180deg);

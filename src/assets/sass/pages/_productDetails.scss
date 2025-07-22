@@ -11,7 +11,9 @@
 
     .product-card-content {
         .details-product-card-title {
-            font-size: 22px !important;
+            font-family: 'Clash Display Bold';
+            color: rgba(30, 30, 30, 1);
+            font-size: 30px !important;
             font-weight: 700 !important;
             max-height: max-content;
             -webkit-line-clamp: none;
@@ -44,7 +46,7 @@
     }
 
     .badge.catalog-details {
-        font-size: 12px;
+        font-size: 16px;
         color: #4A4A49;
         font-family: 'Clash Display Bold';
         padding: 16px 16px;
@@ -85,7 +87,7 @@
                     font-family: 'icomoon';
                     margin-inline-end: 5px;
                     position: relative;
-                    top: 5px;
+                    top: 2px;
                     font-size: 18px;
                 }
             }
@@ -113,6 +115,10 @@
                 border-right: 1px solid #CCD3D9
             }
         }
+    }
+
+    .product-card-description {
+        color: var(--primary-color) !important;
     }
 
 }
