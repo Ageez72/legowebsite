@@ -30,12 +30,12 @@ export default () => {
     });
 
     if (isLoading) return <CardLoader />;
-    if (error instanceof Error) return push("/");
+    
 
     return (
         <section className='max-w-screen-xl mx-auto p-4 space-y-16'>
-            <h2 className="section-title mb-8">Explore LEGO by Theme</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+            <h2 className="section-title mb-8">Explore <span className="red-txt">LEGO</span> by Theme</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
                 {
                     data?.data.map((slide, i) => (
                         <div key={slide.description + slide.brandID}>

@@ -49,7 +49,7 @@ export default function Page() {
 
   let details = data?.data?.items[0];
   if (isLoading) return <Loader />;
-  if (error instanceof Error) return push("/");
+  
 
   if (Array.isArray(data?.data?.items) && data?.data?.items?.length === 0) {
     return (
@@ -188,7 +188,7 @@ export default function Page() {
                 {
                   details?.catalogs?.map(b => (
                     <Link href={`/products?brand=00072&catalog=${encodeURIComponent(b?.id)}&itemStatus=AVAILABLE`} key={b.id}>
-                      <Badge type={"catalog-details"} text={b?.description} />
+                      <Badge className="ltr-badge" type={"catalog-details"} text={b?.description} />
                     </Link>
                   ))
                 }

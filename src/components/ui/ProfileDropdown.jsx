@@ -74,7 +74,7 @@ export default function ProfileDropdown({ onGoTo }) {
         Cookies.set('profile', JSON.stringify(profile));
     }
     if (isLoading) return <Loader />;
-    if (error instanceof Error) return push("/");
+    
 
     const getInitials = (str) => {
         if (!str) return ['', ''];

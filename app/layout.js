@@ -9,6 +9,7 @@ import ReactQueryProvider from "../providers/ReactQueryProvider";
 import Cookies from 'js-cookie';
 import "./globals.scss";
 import Script from "next/script";
+import ContactTools from "@/components/ui/ContactTools";
 
 export default function RootLayout({ children }) {
   // const { state = {}, dispatch = () => {} } = useAppContext() || {};
@@ -69,6 +70,7 @@ export default function RootLayout({ children }) {
 
             {children}
             {!isAuthPage && <Footer />}
+            <ContactTools />
           </AppProvider>
 
           <Script

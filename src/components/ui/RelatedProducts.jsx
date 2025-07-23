@@ -31,7 +31,7 @@ export default function RelatedProducts({ items }) {
 
 
     //   if (isLoading) return <VerticalLoader />;
-    if (error instanceof Error) return push("/");
+    
 
     return (
         <>

@@ -183,7 +183,7 @@ export default function Page() {
   });
 
   // if (isLoading) return <VerticalLoader />;
-  if (error instanceof Error) return push("/");
+  
 
   return (
     <div className="max-w-screen-xl mx-auto p-4 all-products-container section-min">

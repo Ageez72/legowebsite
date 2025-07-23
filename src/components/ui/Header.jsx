@@ -27,7 +27,7 @@ export default function Header({ scroll, handleOffCanvas }) {
                   >
                   {
                       <Image
-                        className={`logo-img ${scroll && isActive("/home") && 'hide-logo'}`}
+                        className={`logo-img`}
                         src={logo}
                         alt="My Image"
                         width={105}
@@ -47,7 +47,7 @@ export default function Header({ scroll, handleOffCanvas }) {
                 </svg>
               </button>
               <div className="hidden w-full lg:block lg:w-auto" id="navbar-default2">
-                <button className="backToClub primary-btn black">Back to Lego Club</button>
+                <a target="_blank" href="https://bricksarabia.club/" className="backToClub primary-btn black">Back to Lego Club</a>
               </div>
             </div>
           </nav>

@@ -59,31 +59,6 @@ export default function MobileMenu({ scroll, onGoTo }) {
         >
           <span><span><span /></span></span>
         </Link>
-
-        {scroll && isActive("/home") ? (
-          <ul className="mobile-menu-links">
-            {cookiesState.newArrivals && (
-              <li className={isActive("/new-arrival")} onClick={() => onGoTo()}>
-                <Link href="#new-arrival">{translation.newArrivals}</Link>
-              </li>
-            )}
-            {cookiesState.giveaway && (
-              <li className={isActive("/giveaway")} onClick={() => onGoTo()}>
-                <Link href="#giveaway">{translation.offers}</Link>
-              </li>
-            )}
-            {cookiesState.commingSoon && (
-              <li className={isActive("/comming-soon")} onClick={() => onGoTo()}>
-                <Link href="#comming-soon">{translation.commingSoon}</Link>
-              </li>
-            )}
-            {cookiesState.clearance && (
-              <li className={isActive("/clearance")} onClick={() => onGoTo()}>
-                <Link href="#clearance">{translation.clearance}</Link>
-              </li>
-            )}
-          </ul>
-        ) : (
           <ul className="mobile-menu-links">
             <li className={isActive("/home")}>
               <Link href="/home" className="block py-2 px-3">Home</Link>
@@ -92,7 +67,6 @@ export default function MobileMenu({ scroll, onGoTo }) {
               <Link href="/products?brand=00072&itemStatus=AVAILABLE" className="block py-2 px-3">Showroom</Link>
             </li>
           </ul>
-        )}
         <hr />
         <button className="backToClub primary-btn black">Back to Lego Club</button>
       </div>

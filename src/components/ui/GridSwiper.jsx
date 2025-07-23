@@ -43,7 +43,7 @@ export default ({ title, route, badgeType, type, id }) => {
     });
 
     if (isLoading) return <HorizontalLoader />;
-    if (error instanceof Error) return push("/");
+    
 
     if (data) {
         const cookieKey = `has_items_${type.replace(/\s+/g, '_')}`;

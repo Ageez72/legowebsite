@@ -1,5 +1,5 @@
 .grid-card-container {
-    margin-top: 70px;
+    margin-top: 45px;
     margin-bottom: 0;
 
     .grid-header {
@@ -102,8 +102,7 @@
         }
     }
 
-    .price {
-    }
+    .price {}
 
     .product-card-price {
         font-size: 16px;
@@ -120,8 +119,8 @@
 
     .discount {
         font-size: 16px;
-        font-family: 'Clash Display Bold';
-        color: #C2C5D2;
+        font-family: Clash Display Medium;
+        color: rgba(255, 255, 255, 0.5);
         text-decoration: line-through;
     }
 
@@ -190,8 +189,8 @@
 
 .discount {
     font-size: 16px;
-    font-family: 'Clash Display Bold';
-    color: #C2C5D2;
+    font-family: Clash Display Medium;
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: line-through;
 
     &.sm {
@@ -203,4 +202,26 @@
     color: red;
     font-size: 16px;
     margin: 0;
+}
+
+.featuredProductCard {
+
+    .product-card-title,
+    .product-card-price {
+        color: rgba(30, 30, 30, 1);
+    }
+
+    .product-card-image {
+        min-width: 137px;
+        max-width: 137px;
+        // min-height: 137px;
+        // max-height: 137px;
+        margin: 0;
+
+        img {
+            width: 137px;
+            height: 137px;
+            object-fit: contain;
+        }
+    }
 }

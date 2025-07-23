@@ -39,19 +39,19 @@
       }
 
       .cls-14 {
-        clip-path: url(#clippath-1);
+        clipPath: url(#clippath-1);
       }
 
       .cls-15 {
-        clip-path: url(#clippath-3);
+        clipPath: url(#clippath-3);
       }
 
       .cls-16 {
-        clip-path: url(#clippath-4);
+        clipPath: url(#clippath-4);
       }
 
       .cls-17 {
-        clip-path: url(#clippath-2);
+        clipPath: url(#clippath-2);
       }
 
       .cls-8, .cls-18 {
@@ -81,7 +81,7 @@
       }
 
       .cls-21 {
-        clip-path: url(#clippath);
+        clipPath: url(#clippath);
       }
     </style>
     <clipPath id="clippath">

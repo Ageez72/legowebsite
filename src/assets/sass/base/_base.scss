@@ -68,14 +68,24 @@ p {
     border-radius: 4px;
     width: max-content;
     margin: 0;
-    margin-left: 20px;
+    margin-left: 15px;
     margin-bottom: 15px;
+    font-family: 'Clash Display Medium';
+    
+    &.ltr-badge {
+        margin-left: 0;
+        margin-right: 20px;
+    }
 
     &.blue {
         color: #165897;
         background-color: #1658971F;
     }
 
+    &.orange {
+        color: rgba(216, 124, 67, 1);
+        background-color: rgba(216, 124, 67, 0.12);
+    }
     &.green {
         color: #288D14;
         background-color: #288D141F;
@@ -89,6 +99,12 @@ p {
     &.red {
         color: #e3000b;
         background-color: #e3000b1F;
+    }
+
+    &.feature {
+        color: rgba(30, 30, 30, 1);
+        background: rgba(255, 213, 2, 0.12);
+        font-family: 'Clash Display Medium';
     }
 }
 
