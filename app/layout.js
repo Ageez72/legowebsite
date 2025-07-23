@@ -10,6 +10,21 @@ import Cookies from 'js-cookie';
 import "./globals.scss";
 import Script from "next/script";
 import ContactTools from "@/components/ui/ContactTools";
+import { BASE_API, endpoints } from "../constant/endpoints";
+import axios from "axios";
+
+const silentLogin = async (data) => {
+  try {
+    const username = encodeURIComponent("legowebsite");
+    const password = encodeURIComponent("Lego@2025");
+    const res = await axios.get(`${BASE_API + endpoints.auth.login}&username=${username}&password=${password}`)
+
+    Cookies.set('token', res.data.token);
+  } catch (err) {
+    console.error('Error registering user:', err);
+    setIsModalOpen(true);
+  }
+};
 
 export default function RootLayout({ children }) {
   // const { state = {}, dispatch = () => {} } = useAppContext() || {};
@@ -25,22 +40,29 @@ export default function RootLayout({ children }) {
   const handleSearch = () => setSearch(!isSearch);
 
   useEffect(() => {
-    const WOW = require("wowjs");
-    window.wow = new WOW.WOW({
-      live: false,
-    });
-    window.wow.init();
+    const loginAndInit = async () => {
+      const token = Cookies.get('token');
+      // if (!token) {
+        await silentLogin();
+      // }
+      const WOW = require("wowjs");
+      window.wow = new WOW.WOW({
+        live: false,
+      });
+      window.wow.init();
 
-    document.addEventListener("scroll", () => {
-      const scrollCheck = window.scrollY > 100;
-      if (scrollCheck !== scroll) {
-        setScroll(scrollCheck);
+      document.addEventListener("scroll", () => {
+        const scrollCheck = window.scrollY > 100;
+        if (scrollCheck !== scroll) {
+          setScroll(scrollCheck);
+        }
+      });
+      if (Cookies?.get("lang")) {
+        document.documentElement.setAttribute("dir", Cookies?.get("lang") === "EN" ? "ltr" : "ltr");
+        document.documentElement.setAttribute("lang", Cookies?.get("lang") || "EN");
       }
-    });
-    if (Cookies?.get("lang")) {
-      document.documentElement.setAttribute("dir", Cookies?.get("lang") === "EN" ? "ltr" : "ltr");
-      document.documentElement.setAttribute("lang", Cookies?.get("lang") || "EN");
-    }
+    };
+    loginAndInit();
   }, []);
 
   return (
