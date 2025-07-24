@@ -8,7 +8,7 @@ export default function Breadcrumb({ items = [], className }) {
     const { state = {} } = useAppContext() || {};
     const [translation, setTranslation] = useState(en); // default fallback
     useEffect(() => {
-        setTranslation(state.LANG === "EN" ? en : ar);
+        setTranslation(state.LANG === "EN" ? en : en);
     }, [state.LANG]);
 
     return (

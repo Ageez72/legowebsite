@@ -24,13 +24,13 @@ export default function OrderDetails() {
     const [translation, setTranslation] = useState(en);
 
     useEffect(() => {
-        setTranslation(state.LANG === "EN" ? en : ar);
+        setTranslation(state.LANG === "EN" ? en : en);
         document.title = state.LANG === 'EN' ? en.orderDetails : en.orderDetails;
     }, [state.LANG]);
 
     const fetchMyOrder = async () => {
         setLoading(true)
-        const res = await axios.get(`${BASE_API}${endpoints.products.myorders}&lang=${state.LANG}&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${endpoints.products.myorders}&lang=EN&token=${Cookies.get('token')}`, {});
         if (res.data) {
             const obj = res.data.filter(el => el.orderID === id);
             // console.log(obj[0]);

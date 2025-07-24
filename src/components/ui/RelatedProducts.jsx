@@ -16,11 +16,11 @@ export default function RelatedProducts({ items }) {
     const { state = {}, dispatch = () => { } } = useAppContext() || {};
     const [translation, setTranslation] = useState(en); // default fallback
     useEffect(() => {
-        setTranslation(state.LANG === "EN" ? en : ar);
+        setTranslation(state.LANG === "EN" ? en : en);
     }, [state.LANG]);
 
     async function fetchRelatedProducts() {
-        const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=${lang}&id=${encodeURIComponent(items.join(','))}&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=EN&id=${encodeURIComponent(items.join(','))}&token=${Cookies.get('token')}`, {});
         return res;
     }
     const { data, isLoading, error } = useQuery({

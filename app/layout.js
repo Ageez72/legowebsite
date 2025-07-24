@@ -65,8 +65,9 @@ export default function RootLayout({ children }) {
 
       document.addEventListener("scroll", handleScroll);
 
-      const lang = Cookies.get("lang") || "EN";
-      document.documentElement.setAttribute("dir", lang === "EN" ? "ltr" : "rtl");
+      // const lang = Cookies.get("lang") || "EN";
+      const lang = "EN";
+      document.documentElement.setAttribute("dir", lang === "EN" ? "ltr" : "ltr");
       document.documentElement.setAttribute("lang", lang);
 
       setIsReady(true);

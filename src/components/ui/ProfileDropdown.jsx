@@ -22,7 +22,7 @@ export default function ProfileDropdown({ onGoTo }) {
     const [openLogoutModal, setOpenLogoutModal] = useState(false);
 
     useEffect(() => {
-        setTranslation(state.LANG === "EN" ? en : ar);
+        setTranslation(state.LANG === "EN" ? en : en);
     }, [state.LANG]);
     const lang = Cookies.get('lang') || 'EN';
     const [menuOpen, setMenuOpen] = useState(false);
@@ -45,7 +45,7 @@ export default function ProfileDropdown({ onGoTo }) {
     }, [menuOpen]);
 
     const fetchProfile = async () => {
-        const res = await axios.get(`${BASE_API}${endpoints.user.profile}&lang=${lang}&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${endpoints.user.profile}&lang=EN&token=${Cookies.get('token')}`, {});
         return res;
     };
 

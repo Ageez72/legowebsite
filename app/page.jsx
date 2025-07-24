@@ -36,13 +36,13 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    setTranslation(state.LANG === "EN" ? en : ar);
+    setTranslation(state.LANG === "EN" ? en : en);
   }, [state.LANG]);
 
 
   const fetchFeaturedProducts = async () => {
     const res = await axios.get(
-      `${BASE_API}${endpoints.products.list}&itemType=FEATURED&token=${Cookies.get("token")}&pageSize=6&itemStatus=AVAILABLE&lang=${state.LANG}&brand=${Cookies.get("brandID")}`
+      `${BASE_API}${endpoints.products.list}&itemType=FEATURED&token=${Cookies.get("token")}&pageSize=6&itemStatus=AVAILABLE&lang=EN&brand=${Cookies.get("brandID")}`
     );
     return res;
   };

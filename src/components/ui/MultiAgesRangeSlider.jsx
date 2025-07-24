@@ -21,7 +21,7 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [translation, setTranslation] = useState(en); // default fallback
   useEffect(() => {
-    setTranslation(state.LANG === "EN" ? en : ar);
+    setTranslation(state.LANG === "EN" ? en : en);
   }, [state.LANG]);
 
   const [open, setOpen] = useState(fromAge || toAge ? true : initiallyOpen);

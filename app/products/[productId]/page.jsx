@@ -26,12 +26,12 @@ export default function Page() {
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [translation, setTranslation] = useState(en); // default fallback
   useEffect(() => {
-    setTranslation(state.LANG === "EN" ? en : ar);
+    setTranslation(state.LANG === "EN" ? en : en);
   }, [state.LANG]);
 
   const { push } = useRouter();
   async function fetchProductDetails() {
-    const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=${lang}&id=${productId}&token=${Cookies.get('token')}`, {});
+    const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=EN&id=${productId}&token=${Cookies.get('token')}`, {});
     return res;
   }
   const { data, isLoading, error, refetch } = useQuery({

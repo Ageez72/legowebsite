@@ -10,7 +10,7 @@ export default function NotFound() {
     const [translation, setTranslation] = useState(en);
   
     useEffect(() => {
-      setTranslation(state.LANG === "EN" ? en : ar);
+      setTranslation(state.LANG === "EN" ? en : en);
       document.title = state.LANG === 'EN' ? en.notFound : en.notFound;
     }, [state.LANG]);
   return (

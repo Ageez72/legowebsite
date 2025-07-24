@@ -21,7 +21,7 @@ const MultiRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initially
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [translation, setTranslation] = useState(en); // default fallback
   useEffect(() => {
-    setTranslation(state.LANG === "EN" ? en : ar);
+    setTranslation(state.LANG === "EN" ? en : en);
   }, [state.LANG]);
 
   const [open, setOpen] = useState(fromPrice || toPrice ? true : initiallyOpen);

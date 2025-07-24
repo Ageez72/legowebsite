@@ -21,7 +21,7 @@ export default function MobileMenu({ scroll, onGoTo }) {
   const isActive = (path) => pathname === path ? "active" : "";
 
   useEffect(() => {
-    setTranslation(state.LANG === "EN" ? en : ar);
+    setTranslation(state.LANG === "EN" ? en : en);
     const checkCookies = () => {
       setCookiesState({
         newArrivals: Cookies.get("has_items_NEW_ARRIVAL") === "true",

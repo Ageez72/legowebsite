@@ -18,7 +18,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     const { state = {}, dispatch = () => { } } = useAppContext() || {};
     const [translation, setTranslation] = useState(en); // default fallback
     useEffect(() => {
-        setTranslation(state.LANG === "EN" ? en : ar);
+        setTranslation(state.LANG === "EN" ? en : en);
     }, [state.LANG]);
     const [showClearButton, setShowClearButton] = useState(false);
 
@@ -177,7 +177,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     // get all options
     const fetchCategoriesOptions = async (ch, brands = []) => {
 
-        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=${lang}&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get('token')}`, {});
 
         setCategoriesAllOptions(res.data);
         const arr = res.data.filter(item => category.includes(item.categoryId));
@@ -196,7 +196,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
     const fetchCatalogsOptions = async () => {
         const lang = Cookies.get('lang') || 'EN';
-        const res = await axios.get(`${BASE_API}${catalogEndpoint}&lang=${lang}&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${catalogEndpoint}&lang=EN&token=${Cookies.get('token')}`, {});
         setCatalogsAllOptions(res.data);
         const arr = res?.data?.catalogs?.filter(item => catalog.includes(item.code));
         let selected = [];
@@ -261,7 +261,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
                 </div>
                 <div className="filter-body">
                     {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
-                    <MultiRangeSlider title={translation.priceRange} min={0} max={1600} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} />
+                    <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} />
                     <MultiAgesRangeSlider title={"Age Range"} min={0} max={17} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                     {
                         categoryOpen && (

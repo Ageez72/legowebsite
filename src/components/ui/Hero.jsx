@@ -22,7 +22,7 @@ export default function Hero({
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        setTranslation(state.LANG === "EN" ? en : ar);
+        setTranslation(state.LANG === "EN" ? en : en);
         document.title = state.LANG === 'AENR' ? en.alekha : en.alekha;
     }, [state.LANG]);
 

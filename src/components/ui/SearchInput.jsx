@@ -23,7 +23,7 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
     // ✅ Setup translation state
     const [translation, setTranslation] = useState(en); // fallback default
     useEffect(() => {
-        setTranslation(state.LANG === "EN" ? en : ar);
+        setTranslation(state.LANG === "EN" ? en : en);
     }, [state.LANG]);
 
     useEffect(() => {
@@ -43,7 +43,7 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
         const [_key, searchText] = queryKey;
         const filterItems = Cookies.get('store_filters') || '';
         const token = Cookies.get('token');
-        const url = `${BASE_API}${endpoints.products.list}&search=${encodeURIComponent(searchText)}&pageSize=${pageSize || 3}&${filterItems}&itemStatus=AVAILABLE&lang=${lang}&token=${token}&brand=${Cookies.get("brandID")}&`;
+        const url = `${BASE_API}${endpoints.products.list}&search=${encodeURIComponent(searchText)}&pageSize=${pageSize || 3}&${filterItems}&itemStatus=AVAILABLE&lang=EN&token=${token}&brand=${Cookies.get("brandID")}&`;
         const res = await axios.get(url, {});
 
         return res.data;

@@ -26,7 +26,7 @@ export default function Page() {
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [translation, setTranslation] = useState(en);
   useEffect(() => {
-    setTranslation(state.LANG === "EN" ? en : ar);
+    setTranslation(state.LANG === "EN" ? en : en);
     document.title = state.LANG === 'EN' ? en.allProducts : en.allProducts;
   }, [state.LANG]);
 
@@ -122,7 +122,7 @@ export default function Page() {
   }, [apiParams]);
 
   async function fetchProducts() {
-    const res = await axios.get(`${BASE_API}${endpoints.products.list}&${queryString}&lang=${lang}&token=${Cookies.get('token')}`, {});
+    const res = await axios.get(`${BASE_API}${endpoints.products.list}&${queryString}&lang=EN&token=${Cookies.get('token')}`, {});
     return res;
   }
   const { push } = useRouter();
