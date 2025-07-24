@@ -8,6 +8,7 @@
 .filter-bar {
     height: 100vh;
     overflow-y: auto;
+    padding-bottom: 68px;
 
     &.filter-products-page {
         height: auto;
@@ -16,20 +17,20 @@
         transition: all 0.4s ease-in-out;
 
         // @media (max-width: 1023px) {
-            position: fixed;
-            right: -100%;
-            top: 0;
-            height: 100vh;
-            overflow: auto;
-            z-index: 99999;
-            border-radius: 0;
-            width: 400px;
-            max-width: 100%;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        overflow: auto;
+        z-index: 99999;
+        border-radius: 0;
+        width: 400px;
+        max-width: 100%;
         // }
 
         &.active {
             // @media (max-width: 1023px) {
-                right: 0;
+            right: 0;
             // }
 
             &+.back {
@@ -98,6 +99,18 @@
         // &:last-of-type {
         //     border: none;
         // }
+    }
+
+    .action-btns {
+        background: #fff;
+        border-top: 1px solid #c2c5d2;
+        width: 360px;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        margin: 0 20px;
+        // transform: translate(-50%);
     }
 
     .filter-body>.accordion-wrapper {

@@ -237,7 +237,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
     return (
         <>
-            <div className={`filter-bar card ${isProductsPage ? "filter-products-page" : "hero-filter"}`}>
+            <div className={`filter-bar  card ${isProductsPage ? "filter-products-page" : "hero-filter"}`}>
                 <div className="filter-header flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <i className="icon-filter-search"></i>
@@ -277,11 +277,11 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
                     <div className="action-btns flex gap-3 mt-4">
                         <button className="primary-btn flex-1" onClick={handleApplyFilters}>{translation.apply}</button>
-                        {/* {showClearButton && ( */}
+                        {showClearButton && (
                             <button className="gray-btn flex-1" onClick={handleClearFilter}>
                                 {translation.clear}
                             </button>
-                        {/* )} */}
+                        )} 
                     </div>
                 </div>
             </div>
