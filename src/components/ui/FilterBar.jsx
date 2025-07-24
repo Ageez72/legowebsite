@@ -46,7 +46,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     ]
     const router = useRouter();
     const useParams = useSearchParams();
-    const lang = Cookies.get('lang') || 'AR';
+    const lang = Cookies.get('lang') || 'EN';
 
     const [fromPrice, setFromPrice] = useState(useParams.get('fromPrice') || 0); // نطاق السعر
     const [toPrice, setToPrice] = useState(useParams.get('toPrice') || 1600); // نطاق السعر
@@ -195,7 +195,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     }
 
     const fetchCatalogsOptions = async () => {
-        const lang = Cookies.get('lang') || 'AR';
+        const lang = Cookies.get('lang') || 'EN';
         const res = await axios.get(`${BASE_API}${catalogEndpoint}&lang=${lang}&token=${Cookies.get('token')}`, {});
         setCatalogsAllOptions(res.data);
         const arr = res?.data?.catalogs?.filter(item => catalog.includes(item.code));
@@ -260,7 +260,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
                     }
                 </div>
                 <div className="filter-body">
-                    <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} />
+                    {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
                     <MultiRangeSlider title={translation.priceRange} min={0} max={1600} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} />
                     <MultiAgesRangeSlider title={"Age Range"} min={0} max={17} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                     {
@@ -277,11 +277,11 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
                     <div className="action-btns flex gap-3 mt-4">
                         <button className="primary-btn flex-1" onClick={handleApplyFilters}>{translation.apply}</button>
-                        {showClearButton && (
+                        {/* {showClearButton && ( */}
                             <button className="gray-btn flex-1" onClick={handleClearFilter}>
                                 {translation.clear}
                             </button>
-                        )}
+                        {/* )} */}
                     </div>
                 </div>
             </div>

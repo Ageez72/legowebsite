@@ -23,7 +23,7 @@ export default function Hero({
 
     useEffect(() => {
         setTranslation(state.LANG === "EN" ? en : ar);
-        document.title = state.LANG === 'AR' ? ar.alekha : en.alekha;
+        document.title = state.LANG === 'AENR' ? en.alekha : en.alekha;
     }, [state.LANG]);
 
     useEffect(() => {

@@ -9,7 +9,7 @@ import ar from "../../../locales/ar.json";
 
 export default function MobileMenu({ scroll, onGoTo }) {
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
-  const [lang, setLang] = useState("AR"); // fallback
+  const [lang, setLang] = useState("EN"); // fallback
   const [cookiesState, setCookiesState] = useState({
     newArrivals: false,
     clearance: false,

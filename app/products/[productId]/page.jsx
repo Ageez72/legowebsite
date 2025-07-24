@@ -150,7 +150,7 @@ export default function Page() {
                       <span key={index}>
                         {el}
                         {index !== details.constants.GENDER.length - 1 &&
-                          `${state.LANG === "AR" ? '،' : ','}`}
+                          `${state.LANG === "EN" ? ',' : ','}`}
                       </span>
                     )
                   ))}
@@ -165,7 +165,7 @@ export default function Page() {
                 <div className="title w-1/2"><strong>{translation.material}</strong></div>
                 <div className="info w-1/2">{
                   details?.constants.MATERIAL.map((el, index) => (
-                    <span key={index}>{el} {index !== details?.constants.MATERIAL.length - 1 && `${state.LANG === "AR" ? '، ' : ', '}`}</span>
+                    <span key={index}>{el} {index !== details?.constants.MATERIAL.length - 1 && `${state.LANG === "EN" ? ', ' : ', '}`}</span>
                   ))
                 }</div>
               </div>

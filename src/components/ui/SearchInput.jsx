@@ -17,7 +17,7 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [hasSelected, setHasSelected] = useState(false);
     const debouncedSearchText = useDebounce(searchText, 500);
-    const lang = Cookies.get('lang') || 'AR';
+    const lang = Cookies.get('lang') || 'EN';
     const { state = {}, dispatch = () => {} } = useAppContext() || {};
 
     // ✅ Setup translation state

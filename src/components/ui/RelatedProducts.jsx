@@ -11,7 +11,7 @@ import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
 
 export default function RelatedProducts({ items }) {
-    const lang = Cookies.get('lang') || 'AR';
+    const lang = Cookies.get('lang') || 'EN';
     const { push } = useRouter();
     const { state = {}, dispatch = () => { } } = useAppContext() || {};
     const [translation, setTranslation] = useState(en); // default fallback

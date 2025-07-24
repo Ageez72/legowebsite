@@ -27,7 +27,7 @@ function Login() {
 
   useEffect(() => {
     setIsLoading(false);
-    document.title = state.LANG === 'AR' ? ar.register.login : en.register.login;
+    document.title = state.LANG === 'EN' ? en.register.login : en.register.login;
   }, []);
 
   const {

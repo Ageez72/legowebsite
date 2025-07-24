@@ -27,7 +27,7 @@ export default function Page() {
   const [translation, setTranslation] = useState(en);
   useEffect(() => {
     setTranslation(state.LANG === "EN" ? en : ar);
-    document.title = state.LANG === 'AR' ? ar.allProducts : en.allProducts;
+    document.title = state.LANG === 'EN' ? en.allProducts : en.allProducts;
   }, [state.LANG]);
 
   let sortingOptions = [

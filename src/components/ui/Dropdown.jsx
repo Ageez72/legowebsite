@@ -34,7 +34,7 @@ export default function Dropdown({ options = [], name, defaultValue = null, onCh
             <MenuItems
                 transition
                 className={`dropdown-item absolute z-10 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none
-        ${state.LANG === "AR" ? "left-0 origin-top-left" : "right-0 origin-top-right"}`}
+        ${state.LANG === "EN" ? "right-0 origin-top-right" : "right-0 origin-top-right"}`}
             >
                 <div className="py-1 text-start">
                     {options.map((option) => (

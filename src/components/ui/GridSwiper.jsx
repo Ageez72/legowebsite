@@ -16,7 +16,7 @@ import ar from "../../../locales/ar.json";
 
 export default ({ title, route, badgeType, type, id }) => {
     const { push } = useRouter();
-    const lang = Cookies.get('lang') || 'AR';
+    const lang = Cookies.get('lang') || 'EN';
     async function fetchHomeProducts() {
         const res = await axios.get(`${BASE_API}${endpoints.products.list}&itemType=${type}&pageSize=12&itemStatus=AVAILABLE&lang=${lang}&token=${Cookies.get('token')}&brand=${Cookies.get("brandID")}`, {});
         return res;
@@ -74,7 +74,7 @@ export default ({ title, route, badgeType, type, id }) => {
                             </Link>
                         </div>
                         <Swiper
-                            dir={state.LANG === "AR" ? "rtl" : "ltr"}
+                            dir={state.LANG === "EN" ? "ltr" : "ltr"}
                             modules={[Navigation, Grid]}
                             navigation
                             spaceBetween={10}

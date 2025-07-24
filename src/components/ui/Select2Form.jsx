@@ -57,13 +57,13 @@ export default function Select2Form({ title, name, initiallyOpen = false, option
           <DisclosurePanel className="text-gray-500 pp">
             <Select
               className="multi-select"
-              placeholder={state.LANG === 'AR' ? 'اختر' : 'Select'}
-              isRtl={state.LANG === 'AR'}
+              placeholder={state.LANG === 'EN' ? 'Select' : 'Select'}
+              // isRtl={state.LANG === 'AR'}
               isMulti
               options={newOptions}
               value={selectedOptions}
               onChange={handleSelectChange}
-              noOptionsMessage={() => state.LANG === 'AR' ? 'لا يوجد خيارات' : 'No Options'}
+              noOptionsMessage={() => state.LANG === 'EN' ? 'No Options' : 'No Options'}
             />
           </DisclosurePanel>
         </div>

@@ -113,7 +113,7 @@ export default function Home() {
           <h2 className="section-title mb-8">Where to Find <span className="red-txt">LEGO</span> Products</h2>
           <div className="grid-card-container">
             <Swiper
-              dir={state.LANG === "AR" ? "rtl" : "ltr"}
+              dir={state.LANG === "EN" ? "ltr" : "ltr"}
               modules={[Navigation, Grid]}
               navigation
               spaceBetween={10}
@@ -197,7 +197,7 @@ export default function Home() {
         <div>
           <h2 className="section-title mb-8">Join the LEGO Club</h2>
           <p>New members receive a digital welcome pack and access to exclusive club activities!</p>
-          <a href="https://bricksarabia.club/join-the-lego-club/" className="primary-btn" target="_blank" rel="noopener noreferrer">Join Now</a>
+          <a href="https://bricksarabia.club/" className="primary-btn" target="_blank" rel="noopener noreferrer">Join Now</a>
         </div>
       </section>
     </main>

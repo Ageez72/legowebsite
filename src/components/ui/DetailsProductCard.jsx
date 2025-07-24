@@ -16,7 +16,7 @@ export default function DetailsProductCard({ item }) {
         } else {
             setTranslation(ar);
         }
-        document.title = state.LANG === 'AR' ? item.name : item.name;
+        document.title = state.LANG === 'EN' ? item.name : item.name;
     }, [state.LANG]);
 
     const rate = item?.reviews.rating || 0;

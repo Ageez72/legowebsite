@@ -24,7 +24,7 @@ export default function ProfileDropdown({ onGoTo }) {
     useEffect(() => {
         setTranslation(state.LANG === "EN" ? en : ar);
     }, [state.LANG]);
-    const lang = Cookies.get('lang') || 'AR';
+    const lang = Cookies.get('lang') || 'EN';
     const [menuOpen, setMenuOpen] = useState(false);
 
     // Manage <html> overflow & padding when menu is open
