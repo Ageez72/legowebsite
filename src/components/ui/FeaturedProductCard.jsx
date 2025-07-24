@@ -15,7 +15,7 @@ export default function FeaturedProductCard({ item }) {
         if (state.LANG === "EN") {
             setTranslation(en);
         } else {
-            setTranslation(ar);
+            setTranslation(en);
         }
     }, [state.LANG]);
 

@@ -11,7 +11,7 @@ export default function Footer() {
     if (state.LANG === "EN") {
       setTranslation(en);
     } else {
-      setTranslation(ar);
+      setTranslation(en);
     }
   }, [state.LANG]);
 

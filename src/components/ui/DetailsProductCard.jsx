@@ -14,7 +14,7 @@ export default function DetailsProductCard({ item }) {
         if (state.LANG === "EN") {
             setTranslation(en);
         } else {
-            setTranslation(ar);
+            setTranslation(en);
         }
         document.title = state.LANG === 'EN' ? item.name : item.name;
     }, [state.LANG]);
