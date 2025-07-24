@@ -37,7 +37,7 @@ export default function Hero({
 
     return (
         <>
-            <main
+            <section
                 className="hero-section"
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
@@ -50,27 +50,7 @@ export default function Hero({
                     <p className='hero-desc'>Explore our complete LEGO collections by theme, age, or interest, find what inspires you</p>
                     <QuickAdd openSidebar={() => setIsSidebarModalOpen(true)} />
                 </div>
-                {/* {
-                    !exist && (
-                        <div className="hero-images">
-                            <Image
-                                className="logo-img hero-side-image left"
-                                src={heroLeft}
-                                alt="Hero Left"
-                                fill
-                                style={{ objectFit: "contain" }}
-                            />
-                            <Image
-                                className="logo-img hero-side-image right"
-                                src={heroRight}
-                                alt="Hero Right"
-                                fill
-                                style={{ objectFit: "contain" }}
-                            />
-                        </div>
-                    )
-                } */}
-            </main>
+            </section>
         </>
     );
 }

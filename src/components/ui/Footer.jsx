@@ -71,13 +71,13 @@ export default function Footer() {
             </div>
             <h2>An Official Distributor</h2>
             <div className="socials flex justify-center items-center gap-4 mb-4">
-              <a href="https://www.instagram.com/lego/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/arabianalekha/" target="_blank" rel="noopener noreferrer">
                 <i className='icon-instagram'></i>
               </a>
-              <a href="https://www.linkedin.com/company/lego-group" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/arabian-alekha" target="_blank" rel="noopener noreferrer">
                 <i className='icon-linkedin'></i>
               </a>
-              <a href="https://www.facebook.com/LEGO" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/ArabianAlEkha" target="_blank" rel="noopener noreferrer">
                 <i className='icon-facebook'></i>
               </a>
             </div>

@@ -8,7 +8,7 @@
     overflow: hidden;
     position: relative;
     width: 90%;
-    margin: 50px auto;
+    margin: 40px auto;
     border-radius: 16px;
     height: 487px;
     min-height: 487px;
@@ -84,7 +84,7 @@
         .quick-add-container {
             gap: 16px;
             justify-content: center;
-            margin-bottom: 38px;
+            margin-bottom: 0;
 
             @media (max-width: 992px) {
                 flex-direction: column;

@@ -24,7 +24,7 @@ export default function NotFound() {
         <h2 className='title'>{translation.notFound}</h2>
       </div>
       <p>{translation.notFoundText}</p>
-      <Link className='primary-btn mt-3 inline-block' href="/home">{translation.backToHome}</Link>
+      <Link className='primary-btn mt-3 inline-block' href="/">{translation.backToHome}</Link>
     </div>
   )
 }

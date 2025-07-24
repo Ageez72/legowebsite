@@ -47,7 +47,6 @@ export default function MainLayout({ children }) {
 
   return (
     <AppProvider>
-      {!isAuthPage && (
         <>
           <Offcanvas
             isOffCanvas={isOffCanvas}
@@ -62,11 +61,10 @@ export default function MainLayout({ children }) {
             handleSearch={handleSearch}
           />
         </>
-      )}
 
       {children}
 
-      {!isAuthPage && <Footer />}
+      <Footer />
     </AppProvider>
   );
 }

@@ -72,7 +72,6 @@ export default function RootLayout({ children }) {
           className={`antialiased ${!isAuthPage ? "header-padding" : ""}`}
         >
           <AppProvider>
-            {!isAuthPage && (
               <>
                 <Offcanvas
                   isOffCanvas={isOffCanvas}
@@ -87,11 +86,8 @@ export default function RootLayout({ children }) {
                   handleSearch={handleSearch}
                 />
               </>
-            )}
-
-
             {children}
-            {!isAuthPage && <Footer />}
+            <Footer />
             <ContactTools />
           </AppProvider>
 

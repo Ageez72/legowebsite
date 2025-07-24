@@ -59,7 +59,7 @@ export default function Page() {
 
   breadcrumbItems = [
     { label: translation.home, href: '/home' },
-    { label: `${details?.brand?.description}`, href: `/products?brand=${details?.brand?.id}&itemStatus=AVAILABLE` },
+    { label: `Showroom`, href: `/products?brand=${details?.brand?.id}&itemStatus=AVAILABLE` },
     { label: `${details?.name}` }
   ]
   const getAge = (str) => {

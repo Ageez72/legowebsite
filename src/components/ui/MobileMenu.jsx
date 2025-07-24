@@ -61,10 +61,10 @@ export default function MobileMenu({ scroll, onGoTo }) {
         </Link>
           <ul className="mobile-menu-links">
             <li className={isActive("/home")}>
-              <Link href="/home" className="block py-2 px-3">Home</Link>
+              <Link href="/home" className="block py-2">Home</Link>
             </li>
             <li className={isActive("/products")}>
-              <Link href="/products?brand=00072&itemStatus=AVAILABLE" className="block py-2 px-3">Showroom</Link>
+              <Link href="/products?brand=00072&itemStatus=AVAILABLE" className="block py-2">Showroom</Link>
             </li>
           </ul>
         <hr />

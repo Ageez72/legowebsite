@@ -28,26 +28,6 @@ export default function DetailsProductCard({ item }) {
                         <Badge className="ltr-badge" type={item.isNew && 'blue'} text={`${translation.new}`} />
                     )
                 }
-                {/* {
-                    item.commingSoon && (
-                        <Badge type={item.commingSoon && 'yellow'} text={`${translation.soon}`} />
-                    )
-                }
-                {
-                    item.itemdisc > 0 && (
-                        <Badge type={item.itemdisc > 0 && 'green'} text={`${translation.discount2} ${item.itemdisc} ${translation.percentage}`} />
-                    )
-                }
-                {
-                    item.discountType === 'CLEARANCE' && item.avlqty > 0 && (
-                        <Badge type={item.discountType === 'CLEARANCE' && 'red'} text={`${translation.only} ${item.avlqty} ${item.avlqty === 1 ? translation.pieceOne : item.avlqty > 10 ? translation.pieceOnly : translation.piecesOnly}`} />
-                    )
-                }
-                {
-                    item.discountType !== 'CLEARANCE' && item.avlqty < 10 && (
-                        <Badge type={item.discountType !== 'CLEARANCE' && 'red'} text={`${translation.only} ${item.avlqty} ${item.avlqty === 1 ? translation.pieceOne : translation.piecesOnly}`} />
-                    )
-                } */}
                 <h1 className="product-card-title details-product-card-title" title={item.name}>{item.name}</h1>
                 <p className="product-card-description">
                     <Link href={`/products?category=${item?.category?.id}&itemStatus=AVAILABLE`}>

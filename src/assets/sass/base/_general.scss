@@ -178,7 +178,7 @@
 .primary-btn {
     background-color: var(--primary-color);
     color: #fff;
-    padding: 12px 24px;
+    padding: 15px 24px;
     border-radius: 6px;
     font-size: 16px;
     border: none;
@@ -242,7 +242,7 @@
 
 .grid-card-container {
     .swiper {
-        padding-bottom: 64px !important;
+        padding-bottom: 82px !important;
 
         &:after {
             content: '';
@@ -666,17 +666,17 @@ input.disabled {
     .grid-card-container {
         margin-top: 0;
 
-        // .swiper {
-        //     @media (min-width:1320px) {
-        //         opacity: 0;
-        //     }
+        .swiper {
+            @media (min-width:1320px) {
+                padding-bottom: 0 !important;
+            }
 
-        //     &::after {
-        //         @media (min-width:1320px) {
-        //             opacity: 0;
-        //         }
-        //     }
-        // }
+            &::after {
+                @media (min-width:1320px) {
+                    opacity: 0;
+                }
+            }
+        }
     }
 
     .card {
@@ -700,10 +700,13 @@ input.disabled {
     min-height: 294px;
     border-radius: 16px;
     background-size: cover;
-    background-position: center center;
+    background-position: top center;
     position: relative;
     display: flex;
     align-items: center;
+    margin-top: 40px;
+    background-attachment: fixed;
+    
 
     @media screen and (max-width: 600px) {
         width: 95%;
@@ -741,7 +744,8 @@ input.disabled {
 
 .featuredProducts-wrapper {
     position: relative;
-    padding: 30px 0 45px;
+    padding: 54px 0;
+    margin: 40px 0 54px;
     background-color: rgba(30, 30, 30, 1);
 
     .union-pattern {
@@ -749,6 +753,7 @@ input.disabled {
         top: 0;
         right: 0;
         z-index: 1;
+        width: 150px;
     }
 
     .rectangle-pattern {
@@ -772,6 +777,18 @@ input.disabled {
 
     h2 {
         color: #fff;
-        margin-bottom: 45px;
+        margin-bottom: 32px;
     }
+
+    .product-card-description {
+        color: var(--primary-color) !important;
+    }
+}
+
+.top-offers-wrapper {
+    margin-top: 32px;
+}
+
+.custom-py-40 {
+    padding: 40px 0 !important;
 }

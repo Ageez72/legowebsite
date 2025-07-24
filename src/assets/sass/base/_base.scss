@@ -12,11 +12,11 @@ html {
 }
 
 body {
+    padding-top: 86px;
     font-family: 'Clash Display Regular', Arial, Helvetica, sans-serif;
     background-color: var(--body-bg);
 
     &.header-padding {
-        padding-top: 86px;
     }
 }
 
@@ -30,7 +30,7 @@ body {
     font-size: 32px;
     color: #1E1F24;
     font-family: 'Clash Display Bold';
-    margin-bottom: 25px;
+    margin-bottom: 32px;
 }
 
 .main-title {

@@ -1,5 +1,5 @@
 .product-details {
-    padding: 60px 0;
+    padding: 60px 0 0;
 
     @media (max-width: 1023px) {
         padding: 60px 1rem;
@@ -13,10 +13,11 @@
         .details-product-card-title {
             font-family: 'Clash Display Bold';
             color: rgba(30, 30, 30, 1);
-            font-size: 30px !important;
+            font-size: 28px !important;
             font-weight: 700 !important;
             max-height: max-content;
             -webkit-line-clamp: none;
+            margin-bottom: 8px !important;
         }
     }
 
@@ -119,6 +120,12 @@
 
     .product-card-description {
         color: var(--primary-color) !important;
+    }
+
+    .related-products {
+        .product-card-description {
+            color: #ffd502 !important;
+        }
     }
 
 }

@@ -50,10 +50,10 @@ export default function Menu({ scroll }) {
     <ul className="menu-list font-medium flex items-center flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700">
         <>
           <li className={isActive("/home")}>
-            <Link href="/home" className="block py-2 px-3">Home</Link>
+            <Link href="/home" className="block py-2">Home</Link>
           </li>
           <li className={isActive("/products")}>
-            <Link href="/products?brand=00072&itemStatus=AVAILABLE" className="block py-2 px-3">Showroom</Link>
+            <Link href="/products?brand=00072&itemStatus=AVAILABLE" className="block py-2">Showroom</Link>
           </li>
         </>
     </ul>
