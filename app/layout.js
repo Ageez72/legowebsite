@@ -39,9 +39,9 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     const loginAndInit = async () => {
       const token = Cookies.get("token");
-      if (!token) {
+      // if (!token) {
         await silentLogin();
-      }
+      // }
 
       const WOW = require("wowjs");
       window.wow = new WOW.WOW({ live: false });
