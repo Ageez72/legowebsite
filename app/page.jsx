@@ -119,6 +119,7 @@ export default function Home() {
               spaceBetween={10}
               slidesPerView={1}
               slidesPerGroup={1}
+              className={`just-four-items`}
               breakpoints={{
                 550: {    // screens >= 320px
                   slidesPerView: 2,

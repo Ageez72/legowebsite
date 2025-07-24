@@ -80,7 +80,7 @@ export default ({ title, route, badgeType, type, id }) => {
                             spaceBetween={10}
                             slidesPerView={1}
                             slidesPerGroup={1}
-                            className={`${data?.data?.items?.length === 3 && "just-four-items"}`}
+                            className={`${data?.data?.items?.length === 4 && "just-four-items"}`}
                             breakpoints={{
                                 550: {    // screens >= 320px
                                     slidesPerView: 2,

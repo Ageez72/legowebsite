@@ -255,6 +255,18 @@
             right: 0;
         }
 
+        &.just-four-items {
+            @media (min-width:1320px) {
+                padding-bottom: 0 !important;
+            }
+
+            &::after {
+                @media (min-width:1320px) {
+                    opacity: 0;
+                }
+            }
+        }
+
         .swiper-button-prev,
         .swiper-button-next {
             position: absolute;
@@ -665,18 +677,6 @@ input.disabled {
 .lego-places {
     .grid-card-container {
         margin-top: 0;
-
-        .swiper {
-            @media (min-width:1320px) {
-                padding-bottom: 0 !important;
-            }
-
-            &::after {
-                @media (min-width:1320px) {
-                    opacity: 0;
-                }
-            }
-        }
     }
 
     .card {
