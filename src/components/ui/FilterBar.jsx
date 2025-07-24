@@ -53,7 +53,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     const [fromAge, setFromAge] = useState(useParams.get('fromAge') || 0); // نطاق العمر
     const [toAge, setToAge] = useState(useParams.get('toAge') || 17); // نطاق العمر
     const [itemType, setItemType] = useState(useParams.get('itemType') || ""); // الاقسام
-    const [brand, setBrand] = useState("00072"); // العلامات التجارية
+    const [brand, setBrand] = useState(`${Cookies.get("brandID")}`); // العلامات التجارية
     const [category, setCategory] = useState(useParams.get('category') ? useParams.get('category').split(',') : ""); // التصنيفات
     const [catalog, setCatalog] = useState(useParams.get('catalog') ? useParams.get('catalog').split(',') : ""); // الاستخدامات
     const [itemStatus, setItemStatus] = useState(useParams.get('itemStatus') || "AVAILABLE"); // حالة التوفر
@@ -78,7 +78,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
             if (sortItem) query.set('sort', sortItem);
             if (pageSizeItem) query.set('pageSize', pageSizeItem);
             if (searchTerm) query.set('search', searchTerm);
-            if (brand && brand.length > 0) query.set('brand', "00072");
+            if (brand && brand.length > 0) query.set('brand', `${Cookies.get("brandID")}`);
             if (category && category.length > 0) query.set('category', category.join(','));
             if (catalog && catalog.length > 0) query.set('catalog', catalog.join(','));
             // Clear pagination token when filters change
@@ -120,7 +120,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
             setToAge(17);
             setItemType("");
             setItemStatus("");
-            setBrand(["00072"]);
+            setBrand([`${Cookies.get("brandID")}`]);
             setCategory([]);
             setCatalog([]);
 
@@ -128,7 +128,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
             setSelectedCatalogsOptions([]);
 
             // Push clean URL
-            router.push('/products?itemStatus=AVAILABLE&brand=00072');
+            router.push(`/products?itemStatus=AVAILABLE&brand=${Cookies.get("brandID")}`);
         } else {
             Cookies.remove('store_filters');
             onClose && onClose()
@@ -177,7 +177,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     // get all options
     const fetchCategoriesOptions = async (ch, brands = []) => {
 
-        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=00072&lang=${lang}&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=${lang}&token=${Cookies.get('token')}`, {});
 
         setCategoriesAllOptions(res.data);
         const arr = res.data.filter(item => category.includes(item.categoryId));

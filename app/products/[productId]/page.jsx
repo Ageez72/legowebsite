@@ -58,7 +58,7 @@ export default function Page() {
   }
 
   breadcrumbItems = [
-    { label: translation.home, href: '/home' },
+    { label: translation.home, href: '/' },
     { label: `Showroom`, href: `/products?brand=${details?.brand?.id}&itemStatus=AVAILABLE` },
     { label: `${details?.name}` }
   ]
@@ -187,7 +187,7 @@ export default function Page() {
               <div className="badges flex flex-wrap gap-2">
                 {
                   details?.catalogs?.map(b => (
-                    <Link href={`/products?brand=00072&catalog=${encodeURIComponent(b?.id)}&itemStatus=AVAILABLE`} key={b.id}>
+                    <Link href={`/products?brand=${Cookies.get("brandID")}&catalog=${encodeURIComponent(b?.id)}&itemStatus=AVAILABLE`} key={b.id}>
                       <Badge className="ltr-badge" type={"catalog-details"} text={b?.description} />
                     </Link>
                   ))

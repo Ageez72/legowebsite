@@ -17,7 +17,7 @@ export default function Offcanvas({ isOffCanvas, handleOffCanvas, scroll }) {
             <div className="offcanvas__content">
               <div className="offcanvas__top mb-5 flex items-center justify-between">
                 <div className="offcanvas__logo">
-                <Link href="/home" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                 <Image
                   className="logo-img"
                   src={logo}

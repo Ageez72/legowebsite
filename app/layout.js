@@ -24,6 +24,16 @@ const silentLogin = async () => {
   }
 };
 
+const getBrands = async () => {
+    try {
+      const res = await axios.get(`${BASE_API + endpoints.home.brandsSwiper}&token=${Cookies.get('token')}`);
+      console.log(res.data);
+      Cookies.set("brandID", "159");
+    } catch (err) {
+      console.error("Fetching brands failed:", err);
+    }
+  };
+
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const isAuthPage = pathname === "/" || pathname === "/register";
@@ -39,8 +49,9 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     const loginAndInit = async () => {
       const token = Cookies.get("token");
-      // if (!token) {
+      // if (token) {
         await silentLogin();
+        await getBrands();
       // }
 
       const WOW = require("wowjs");

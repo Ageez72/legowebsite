@@ -47,7 +47,7 @@ function Login() {
         setModalMessage(state.LANG === "EN" ? res.data.messageEN : res.data.messageAR)
       } else {
         Cookies.set('token', res.data.token);
-        router.push('/home')
+        router.push('/')
       }
     } catch (err) {
       console.error('Error registering user:', err);

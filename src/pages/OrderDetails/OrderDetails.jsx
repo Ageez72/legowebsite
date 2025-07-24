@@ -47,7 +47,7 @@ export default function OrderDetails() {
 
 
     const breadcrumbItems = [
-        { label: translation.home, href: '/home' },
+        { label: translation.home, href: '/' },
         { label: translation.orders, href: '/profile?orders' },
         { label: translation.orderDetails }
     ];

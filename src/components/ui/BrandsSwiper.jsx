@@ -17,7 +17,7 @@ import { brokenImage } from '@/actions/utils';
 
 async function fetchHomeBrands() {
     const lang = Cookies.get('lang') || 'AR';
-    const res = await axios.get(`${BASE_API}${endpoints.products.categoriesList}&lang=${lang}&token=${Cookies.get('token')}&brand=00072`, {});
+    const res = await axios.get(`${BASE_API}${endpoints.products.categoriesList}&lang=${lang}&token=${Cookies.get('token')}&brand=${Cookies.get("brandID")}`, {});
     return res;
 }
 

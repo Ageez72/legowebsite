@@ -18,8 +18,8 @@ import { useAppContext } from '../../context/AppContext';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 
   const breadcrumbItems = [
-    { label: "Home", href: '/home' },
-    { label: "Showroom", href: `/products?brand=00072&itemStatus=AVAILABLE` },
+    { label: "Home", href: '/' },
+    { label: "Showroom", href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE` },
   ]
 
 export default function Page() {

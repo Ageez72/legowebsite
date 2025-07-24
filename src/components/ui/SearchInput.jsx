@@ -43,7 +43,7 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
         const [_key, searchText] = queryKey;
         const filterItems = Cookies.get('store_filters') || '';
         const token = Cookies.get('token');
-        const url = `${BASE_API}${endpoints.products.list}&search=${encodeURIComponent(searchText)}&pageSize=${pageSize || 3}&${filterItems}&itemStatus=AVAILABLE&lang=${lang}&token=${token}&brand=00072&`;
+        const url = `${BASE_API}${endpoints.products.list}&search=${encodeURIComponent(searchText)}&pageSize=${pageSize || 3}&${filterItems}&itemStatus=AVAILABLE&lang=${lang}&token=${token}&brand=${Cookies.get("brandID")}&`;
         const res = await axios.get(url, {});
 
         return res.data;
@@ -108,7 +108,7 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
                         <>
                             <hr />
                             <Link
-                                href={`/products?brand=00072&search=${searchText}&${filterItems ? filterItems : 'itemStatus=AVAILABLE'}`}
+                                href={`/products?brand=${Cookies.get("brandID")}&search=${searchText}&${filterItems ? filterItems : 'itemStatus=AVAILABLE'}`}
                                 className='flex items-center gap-2 all-products'
                             >
                                 <span>{translation.viewAllProducts}</span>

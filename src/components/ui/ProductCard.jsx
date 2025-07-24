@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useAppContext } from '../../../context/AppContext';
 import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
+import Cookies from 'js-cookie';
 
 export default function ProductCard({ type, badgeType, related, item }) {
     const { state = {}, dispatch = () => { } } = useAppContext() || {};
@@ -51,7 +52,7 @@ export default function ProductCard({ type, badgeType, related, item }) {
                     </Link>
                 </h2>
                 <p className='product-card-description'>
-                    <Link href={`/products?brand=00072&category=${item?.category?.id}&itemStatus=AVAILABLE`}>
+                    <Link href={`/products?brand=${Cookies.get("brandID")}&category=${item?.category?.id}&itemStatus=AVAILABLE`}>
                         <span className="product-card-category">{item?.category?.description}</span>
                     </Link>
                 </p>
