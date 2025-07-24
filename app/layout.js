@@ -27,8 +27,8 @@ const silentLogin = async () => {
 const getBrands = async () => {
     try {
       const res = await axios.get(`${BASE_API + endpoints.home.brandsSwiper}&token=${Cookies.get('token')}`);
-      console.log(res.data);
-      Cookies.set("brandID", "159");
+      // console.log(res.data[0].brandID);
+      Cookies.set("brandID", res.data[0].brandID);
     } catch (err) {
       console.error("Fetching brands failed:", err);
     }
