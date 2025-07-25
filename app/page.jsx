@@ -37,6 +37,7 @@ export default function Home() {
 
   useEffect(() => {
     setTranslation(state.LANG === "EN" ? en : en);
+    document.title = "Lego Club - Arabian Al-EKha";
   }, [state.LANG]);
 
 

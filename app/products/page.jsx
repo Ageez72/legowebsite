@@ -27,7 +27,7 @@ export default function Page() {
   const [translation, setTranslation] = useState(en);
   useEffect(() => {
     setTranslation(state.LANG === "EN" ? en : en);
-    document.title = state.LANG === 'EN' ? en.allProducts : en.allProducts;
+    document.title = "Lego Showroom - Arabian Al-EKha";
   }, [state.LANG]);
 
   let sortingOptions = [
