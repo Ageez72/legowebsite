@@ -45,7 +45,7 @@ export default function ProfileDropdown({ onGoTo }) {
     }, [menuOpen]);
 
     const fetchProfile = async () => {
-        const res = await axios.get(`${BASE_API}${endpoints.user.profile}&lang=EN&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${endpoints.user.profile}&lang=EN&token=${Cookies.get("legoToken")}`, {});
         return res;
     };
 

@@ -83,7 +83,7 @@ export function getLang() {
 
 export function logout() {
     Cookies.remove('profile');
-    Cookies.remove('token');
+    Cookies.remove("legoToken");
     Cookies.remove('cart');
     window.location.href = '/';
 }

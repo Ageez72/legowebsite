@@ -43,7 +43,7 @@ export default function Home() {
 
   const fetchFeaturedProducts = async () => {
     const res = await axios.get(
-      `${BASE_API}${endpoints.products.list}&itemType=FEATURED&token=${Cookies.get("token")}&pageSize=6&itemStatus=AVAILABLE&lang=EN&brand=${Cookies.get("brandID")}`
+      `${BASE_API}${endpoints.products.list}&itemType=FEATURED&token=${Cookies.get("legoToken")}&pageSize=6&itemStatus=AVAILABLE&lang=EN&brand=${Cookies.get("brandID")}`
     );
     return res;
   };

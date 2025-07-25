@@ -30,7 +30,7 @@ export default function OrderDetails() {
 
     const fetchMyOrder = async () => {
         setLoading(true)
-        const res = await axios.get(`${BASE_API}${endpoints.products.myorders}&lang=EN&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${endpoints.products.myorders}&lang=EN&token=${Cookies.get("legoToken")}`, {});
         if (res.data) {
             const obj = res.data.filter(el => el.orderID === id);
             // console.log(obj[0]);

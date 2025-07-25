@@ -46,7 +46,7 @@ function Login() {
         setIsModalOpen(true);
         setModalMessage(state.LANG === "EN" ? res.data.messageEN : res.data.messageAR)
       } else {
-        Cookies.set('token', res.data.token);
+        Cookies.set('legoToken', res.data.token);
         router.push('/')
       }
     } catch (err) {

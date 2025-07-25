@@ -18,7 +18,7 @@ const silentLogin = async () => {
     const username = encodeURIComponent("legowebsite");
     const password = encodeURIComponent("Lego@2025");
     const res = await axios.get(`${BASE_API + endpoints.auth.login}&username=${username}&password=${password}`);
-    Cookies.set("token", res.data.token);
+    Cookies.set("legoToken", res.data.token);
   } catch (err) {
     console.error("Silent login failed:", err);
   }
@@ -26,7 +26,7 @@ const silentLogin = async () => {
 
 const getBrands = async () => {
     try {
-      const res = await axios.get(`${BASE_API + endpoints.home.brandsSwiper}&token=${Cookies.get('token')}`);
+      const res = await axios.get(`${BASE_API + endpoints.home.brandsSwiper}&token=${Cookies.get("legoToken")}`);
       // console.log(res.data[0].brandID);
       Cookies.set("brandID", res.data[0].brandID);
     } catch (err) {
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const loginAndInit = async () => {
-      const token = Cookies.get("token");
+      const token = Cookies.get("legoToken");
       // if (token) {
         await silentLogin();
         await getBrands();

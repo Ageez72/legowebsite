@@ -31,7 +31,7 @@ export default function Page() {
 
   const { push } = useRouter();
   async function fetchProductDetails() {
-    const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=EN&id=${productId}&token=${Cookies.get('token')}`, {});
+    const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=EN&id=${productId}&token=${Cookies.get("legoToken")}`, {});
     return res;
   }
   const { data, isLoading, error, refetch } = useQuery({

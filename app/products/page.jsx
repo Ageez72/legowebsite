@@ -122,7 +122,7 @@ export default function Page() {
   }, [apiParams]);
 
   async function fetchProducts() {
-    const res = await axios.get(`${BASE_API}${endpoints.products.list}&${queryString}&lang=EN&token=${Cookies.get('token')}`, {});
+    const res = await axios.get(`${BASE_API}${endpoints.products.list}&${queryString}&lang=EN&token=${Cookies.get("legoToken")}`, {});
     return res;
   }
   const { push } = useRouter();

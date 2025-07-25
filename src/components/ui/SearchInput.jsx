@@ -42,7 +42,7 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
     const fetchProducts = async ({ queryKey }) => {
         const [_key, searchText] = queryKey;
         const filterItems = Cookies.get('store_filters') || '';
-        const token = Cookies.get('token');
+        const token = Cookies.get("legoToken");
         const url = `${BASE_API}${endpoints.products.list}&search=${encodeURIComponent(searchText)}&pageSize=${pageSize || 3}&${filterItems}&itemStatus=AVAILABLE&lang=EN&token=${token}&brand=${Cookies.get("brandID")}&`;
         const res = await axios.get(url, {});
 

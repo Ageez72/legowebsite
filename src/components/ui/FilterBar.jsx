@@ -177,7 +177,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     // get all options
     const fetchCategoriesOptions = async (ch, brands = []) => {
 
-        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get("legoToken")}`, {});
 
         setCategoriesAllOptions(res.data);
         const arr = res.data.filter(item => category.includes(item.categoryId));
@@ -196,7 +196,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
 
     const fetchCatalogsOptions = async () => {
         const lang = Cookies.get('lang') || 'EN';
-        const res = await axios.get(`${BASE_API}${catalogEndpoint}&lang=EN&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${catalogEndpoint}&lang=EN&token=${Cookies.get("legoToken")}`, {});
         setCatalogsAllOptions(res.data);
         const arr = res?.data?.catalogs?.filter(item => catalog.includes(item.code));
         let selected = [];

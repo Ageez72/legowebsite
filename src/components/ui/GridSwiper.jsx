@@ -18,7 +18,7 @@ export default ({ title, route, badgeType, type, id }) => {
     const { push } = useRouter();
     const lang = Cookies.get('lang') || 'EN';
     async function fetchHomeProducts() {
-        const res = await axios.get(`${BASE_API}${endpoints.products.list}&itemType=${type}&pageSize=12&itemStatus=AVAILABLE&lang=EN&token=${Cookies.get('token')}&brand=${Cookies.get("brandID")}`, {});
+        const res = await axios.get(`${BASE_API}${endpoints.products.list}&itemType=${type}&pageSize=12&itemStatus=AVAILABLE&lang=EN&token=${Cookies.get("legoToken")}&brand=${Cookies.get("brandID")}`, {});
         return res;
     }
     const { state = {}, dispatch = () => { } } = useAppContext() || {};

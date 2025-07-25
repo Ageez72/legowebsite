@@ -20,7 +20,7 @@ export default function RelatedProducts({ items }) {
     }, [state.LANG]);
 
     async function fetchRelatedProducts() {
-        const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=EN&id=${encodeURIComponent(items.join(','))}&token=${Cookies.get('token')}`, {});
+        const res = await axios.get(`${BASE_API}${endpoints.products.list}&lang=EN&id=${encodeURIComponent(items.join(','))}&token=${Cookies.get("legoToken")}`, {});
         return res;
     }
     const { data, isLoading, error } = useQuery({
