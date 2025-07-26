@@ -24,6 +24,7 @@ import join from "../src/assets/imgs/join.png";
 import FeaturedProductCard from "@/components/ui/FeaturedProductCard";
 import HorizontalLoader from "@/components/ui/Loaders/HorizontalLoader";
 
+
 // fallback images
 import fallbackDesktopImage from "@/assets/imgs/hero-bg.png";
 import fallbackMobileImage from "@/assets/imgs/hero-bg.png";
@@ -37,7 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     setTranslation(state.LANG === "EN" ? en : en);
-    document.title = "Lego Club - Arabian Al-EKha";
+    document.title = "Lego Showroom - Arabian Al-EKha";
   }, [state.LANG]);
 
 
@@ -83,12 +84,50 @@ export default function Home() {
 
             <div className="max-w-screen-xl mx-auto p-4 space-y-16 relative z-10">
               <h2 className="section-title mb-12">Featured Products</h2>
-
-              <div className="grid cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                {featuredProductsdata?.data?.items?.map(item => (
-                  <FeaturedProductCard key={item.id} item={item} />
-                ))}
-              </div>
+              <Swiper
+                dir={state.LANG === "EN" ? "ltr" : "ltr"}
+                modules={[Navigation, Grid]}
+                navigation
+                spaceBetween={10}
+                slidesPerView={1}
+                slidesPerGroup={1}
+                className={`${featuredProductsdata?.data?.items?.length === 4 && "just-four-items"}`}
+                breakpoints={{
+                  550: {    // screens >= 320px
+                    slidesPerView: 2,
+                    grid: { rows: 1 },
+                    spaceBetween: 10,
+                  },
+                  760: {    // screens >= 760
+                    slidesPerView: 2,
+                    grid: { rows: 1 },
+                    spaceBetween: 10,
+                  },
+                  1024: {   // screens >= 1024px
+                    slidesPerView: 2,
+                    grid: { rows: 2, fill: 'row' },
+                    spaceBetween: 10,
+                  },
+                  1160: {   // screens >= 1160
+                    slidesPerView: 3,
+                    grid: { rows: 2, fill: 'row' },
+                    spaceBetween: 20,
+                  },
+                  1320: {   // screens >= 1024px
+                    slidesPerView: 3,
+                    grid: { rows: 2, fill: 'row' },
+                    spaceBetween: 20,
+                  },
+                }}
+              >
+                {
+                  featuredProductsdata?.data?.items?.slice(0, 6).map((item, i) => (
+                    <SwiperSlide key={item.id}>
+                        <FeaturedProductCard key={item.id} item={item} />
+                    </SwiperSlide>
+                  ))
+                }
+              </Swiper>
             </div>
           </section>
         )

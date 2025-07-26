@@ -92,16 +92,16 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
             {showResults && !isFetching && (
                 <div className={`search-results-listing ${bulk ? 'bulk-listing' : ''}`}>
                     {data.items.map((item) => (
-                        <div className='search-item flex items-center justify-evenly' key={item.id}>
+                            <Link href={`products/${item.id}`} className='view-details flex items-center w-full' key={item.id}>
+                        <div className='search-item flex items-center justify-evenly w-full'>
                             <span className='image'>
                                 <img width={40} height={40} src={item.images["50"].main} alt={item.name} />
                             </span>
-                            <span className='title' onClick={() => handleSelectProduct(item)}>{item.name}</span>
+                            <span className='title'>{item.name}</span>
                             <span className='price'>{Number(item.priceAfterDisc).toFixed(2)} {translation.jod}</span>
-                            <Link href={`products/${item.id}`} className='view-details flex items-center'>
                                 <span className="icon-arrow-left-01-round"></span>
-                            </Link>
                         </div>
+                            </Link>
                     ))}
 
                     {!bulk && (

@@ -706,10 +706,10 @@ input.disabled {
     align-items: center;
     margin-top: 40px;
     background-attachment: fixed;
-    
+
 
     @media screen and (max-width: 600px) {
-        width: 95%;
+        width: calc(100% - 40px);
     }
 
     &::before {
@@ -770,6 +770,7 @@ input.disabled {
         position: absolute;
         bottom: -28px;
         left: 0;
+
         @media (min-width: 992px) {
             width: 45%;
         }
@@ -783,6 +784,11 @@ input.disabled {
     .product-card-description {
         color: var(--primary-color) !important;
     }
+
+    .swiper .swiper-button-prev,
+    .swiper .swiper-button-next {
+        display: none;
+    }
 }
 
 .top-offers-wrapper {
@@ -791,4 +797,8 @@ input.disabled {
 
 .custom-py-40 {
     padding: 40px 0 !important;
+
+    @media (max-width: 600px) {
+        padding: 40px 20px !important;
+    }
 }

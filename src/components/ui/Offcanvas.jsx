@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
-import logo from "../../assets/imgs/logo.svg";
+import logo from "../../assets/imgs/yellow-logo.svg";
 import Image from "next/image";
 
 export default function Offcanvas({ isOffCanvas, handleOffCanvas, scroll }) {
@@ -22,8 +22,8 @@ export default function Offcanvas({ isOffCanvas, handleOffCanvas, scroll }) {
                   className="logo-img"
                   src={logo}
                   alt="My Image"
-                  width={166}
-                  height={54}
+                  width={105}
+                  height={52}
                 />
               </Link>
                 </div>

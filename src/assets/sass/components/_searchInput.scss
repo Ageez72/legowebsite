@@ -1,15 +1,15 @@
 .search-results-listing {
     position: absolute;
     margin-top: 5px;
-    width: 560px;
+    width: 100%;
     background-color: #fff;
     border-radius: 8px;
     text-align: start;
     padding: 15px 0;
     border: 1px solid #ccc;
-    @media (max-width: 660px) {
-        width: 91%;
-    }
+    // @media (max-width: 660px) {
+    //     width: 91%;
+    // }
 
     &.no-results {
         text-align: center;

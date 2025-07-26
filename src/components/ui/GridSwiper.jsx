@@ -67,8 +67,8 @@ export default ({ title, route, badgeType, type, id }) => {
                                     </>
                                 ) : (
                                     <>
+                                        <i className="icon-arrow-right-01-round"></i>
                                         <span>{translation.viewMore}</span>
-                                        <i className="icon-arrow-left-01-round"></i>
                                     </>
                                 )}
                             </Link>
