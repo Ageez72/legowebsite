@@ -191,10 +191,10 @@ export default function Page() {
   // if (isLoading) return <VerticalLoader />;
   const classNames = ['class-gray', 'class-red', 'class-yellow', 'class-white'];
 
-const getStableRandomClass = (id) => {
-  const index = id.toString().split('').reduce((sum, char) => sum + char.charCodeAt(0), 0) % classNames.length;
-  return classNames[index];
-};
+  const getStableRandomClass = (id) => {
+    const index = id.toString().split('').reduce((sum, char) => sum + char.charCodeAt(0), 0) % classNames.length;
+    return classNames[index];
+  };
 
   return (
     <div className="max-w-screen-xl mx-auto p-4 all-products-container section-min">

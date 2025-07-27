@@ -43,14 +43,22 @@ export default ({ title, route, badgeType, type, id }) => {
     });
 
     if (isLoading) return <HorizontalLoader />;
-    
+
 
     if (data) {
         const cookieKey = `has_items_${type.replace(/\s+/g, '_')}`;
         const hasItems = data?.data?.items?.length > 0;
 
         Cookies.set(cookieKey, hasItems.toString());
-    }    
+    }
+
+    const classNames = ['class-gray', 'class-red', 'class-yellow', 'class-white'];
+
+    const getStableRandomClass = (id) => {
+        const index = id.toString().split('').reduce((sum, char) => sum + char.charCodeAt(0), 0) % classNames.length;
+        return classNames[index];
+    };
+
 
     return (
         <section className="max-w-screen-xl mx-auto px-4 space-y-16 custom-py-40">
@@ -111,7 +119,7 @@ export default ({ title, route, badgeType, type, id }) => {
                         >
                             {
                                 data?.data?.items?.map((item, i) => (
-                                    <SwiperSlide key={item.id}><ProductCard item={item} type="h" badgeType={badgeType} /></SwiperSlide>
+                                    <SwiperSlide key={item.id}><ProductCard item={item} type="h" badgeType={badgeType} customClass={getStableRandomClass(item.id)} /></SwiperSlide>
                                 ))
                             }
                         </Swiper>
