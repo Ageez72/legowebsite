@@ -201,6 +201,15 @@
             background-color: #696969;
         }
     }
+
+    &.white {
+        color: var(--primary-color);
+        background-color: #ffffff;
+
+        &:hover {
+            background-color: #dddddd;
+        }
+    }
 }
 
 .disabled {
