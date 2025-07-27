@@ -63,16 +63,13 @@ export default function Home() {
     <main>
       <Hero />
       <BrandsSwiper />
-
-      <section className="max-w-screen-xl mx-auto px-4 space-y-16 custom-py-40">
-        <GridSwiper
-          title={translation.newArrivals}
-          badgeType={"blue"}
-          type={"NEW ARRIVAL"}
-          route={"/products?itemType=NEW ARRIVAL&itemStatus=AVAILABLE"}
-          id={"new-arrival"}
-        />
-      </section>
+      <GridSwiper
+        title={translation.newArrivals}
+        badgeType={"blue"}
+        type={"NEW ARRIVAL"}
+        route={"/products?itemType=NEW ARRIVAL&itemStatus=AVAILABLE"}
+        id={"new-arrival"}
+      />
       {
         featuredProductsdata?.data.items.length > 0 && !isLoadingFeaturedProducts && (
           <section className="featuredProducts-wrapper">
@@ -123,7 +120,7 @@ export default function Home() {
                 {
                   featuredProductsdata?.data?.items?.slice(0, 6).map((item, i) => (
                     <SwiperSlide key={item.id}>
-                        <FeaturedProductCard key={item.id} item={item} />
+                      <FeaturedProductCard key={item.id} item={item} />
                     </SwiperSlide>
                   ))
                 }
@@ -139,15 +136,13 @@ export default function Home() {
           </section>
         )
       }
-      <section className="max-w-screen-xl mx-auto px-4 space-y-16 custom-py-40">
-        <GridSwiper
-          title={translation.offers}
-          badgeType={"blue"}
-          type={"GIVEAWAY"}
-          route={"/products?itemType=GIVEAWAY&itemStatus=AVAILABLE"}
-          id={"giveaway"}
-        />
-      </section>
+      <GridSwiper
+        title={translation.offers}
+        badgeType={"blue"}
+        type={"GIVEAWAY"}
+        route={"/products?itemType=GIVEAWAY&itemStatus=AVAILABLE"}
+        id={"giveaway"}
+      />
       <section className="max-w-screen-xl mx-auto px-4 space-y-16 custom-py-40">
         <div className="lego-places">
           <h2 className="section-title mb-8">Where to Find <span className="red-txt">LEGO</span> Products</h2>

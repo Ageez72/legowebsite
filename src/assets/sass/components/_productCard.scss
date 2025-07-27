@@ -29,6 +29,92 @@
         }
     }
 
+    &.class-gray {
+        .product-card-content {
+            background-color: rgba(102, 104, 118, 1);
+
+            .product-card-description {
+                max-height: max-content;
+
+                a {
+                    color: #1e1e1e;
+                    background-color: #ffd502;
+                    padding: 3px 5px 2px;
+                    border-radius: 7px;
+                    display: inline-block;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    &.class-red {
+        .product-card-content {
+            background-color: rgba(227, 0, 11, 1);
+
+            .product-card-description {
+                max-height: max-content;
+
+                a {
+                    color: #1e1e1e;
+                    background-color: rgba(255, 255, 255, 1);
+                    padding: 3px 5px 2px;
+                    border-radius: 7px;
+                    display: inline-block;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    &.class-yellow {
+        .product-card-content {
+            background-color: rgba(255, 213, 2, 1);
+
+            .product-card-price,
+            .product-card-title {
+                color: #1e1e1e;
+            }
+
+            .product-card-description {
+                max-height: max-content;
+
+                a {
+                    background-color: #1e1e1e;
+                    color: rgba(255, 255, 255, 1);
+                    padding: 3px 5px 2px;
+                    border-radius: 7px;
+                    display: inline-block;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    &.class-white {
+        .product-card-content {
+            background-color: rgba(255, 255, 255, 1);
+
+            .product-card-price,
+            .product-card-title {
+                color: #1e1e1e;
+            }
+
+            .product-card-description {
+                max-height: max-content;
+
+                a {
+                    background-color: rgba(255, 255, 255, 1);
+                    color: rgba(227, 0, 11, 1);
+                    padding: 3px 5px 2px;
+                    border-radius: 7px;
+                    display: inline-block;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
     &.grid-card {
         @media screen and (max-width: 650px) {
             flex-wrap: wrap;

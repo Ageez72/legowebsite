@@ -63,7 +63,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     const [selectedCatalogsOptions, setSelectedCatalogsOptions] = useState([])
     const [categoryOpen, setCategoryOpen] = useState(false)
     const [catalogOpen, setCatalogOpen] = useState(false)
-
+    
     const handleApplyFilters = () => {
 
         if (isProductsPage) {

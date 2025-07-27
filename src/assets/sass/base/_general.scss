@@ -785,10 +785,75 @@ input.disabled {
         color: var(--primary-color) !important;
     }
 
-    .swiper .swiper-button-prev,
-    .swiper .swiper-button-next {
-        display: none;
+    .swiper {
+        padding-bottom: 82px !important;
+
+        &.just-four-items {
+            @media (min-width:1320px) {
+                padding-bottom: 0 !important;
+            }
+
+            &::after {
+                @media (min-width:1320px) {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &:after {
+            content: "";
+            background-color: #c2c5d2;
+            width: calc(100% - 135px);
+            height: 1px;
+            display: block;
+            position: absolute;
+            bottom: 23px;
+            left: 0;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            // display: none;
+            background-color: #fff;
+            border-radius: 8px;
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            right: auto !important;
+
+            &:after {
+                font-family: 'icomoon';
+                font-size: 17px;
+                color: #292D32;
+            }
+
+            &.swiper-button-disabled {
+                // pointer-events: all;
+                opacity: 0.6;
+                // cursor: pointer;
+            }
+        }
+
+        .swiper-button-prev {
+            right: 60px !important;
+            left: auto !important;
+
+            &:after {
+                content: "\e921" !important;
+            }
+        }
+
+        .swiper-button-next {
+            left: auto !important;
+            right: 0 !important;
+            &:after {
+                content: "\e927" !important;
+            }
+        }
     }
+
 }
 
 .top-offers-wrapper {
@@ -797,8 +862,9 @@ input.disabled {
 
 .custom-py-40 {
     padding: 40px 0 !important;
+    padding-bottom: 40px !important;
 
     @media (max-width: 600px) {
-        padding: 40px 20px !important;
+        padding: 40px 40px !important;
     }
 }

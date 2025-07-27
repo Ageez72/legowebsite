@@ -8,7 +8,7 @@ import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
 import Cookies from 'js-cookie';
 
-export default function ProductCard({ type, badgeType, related, item }) {
+export default function ProductCard({ type, customClass, item }) {
     const { state = {}, dispatch = () => { } } = useAppContext() || {};
     const [translation, setTranslation] = useState(en); // fallback to Arabic
 
@@ -27,7 +27,7 @@ export default function ProductCard({ type, badgeType, related, item }) {
 
     const rate = item?.reviews.rating || 0;
     return (
-        <div className={`card product-card ${type === 'grid' ? 'grid-card flex items-center gap-3' : 'list-card'}`}>
+        <div className={`card product-card ${type === 'grid' ? 'grid-card flex items-center gap-3' : 'list-card'} ${customClass}`}>
             <div className='flex items-center w-full'>
                 {
                     item.isNew && (

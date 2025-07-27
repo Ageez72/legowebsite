@@ -38,7 +38,7 @@ export default function Hero({
     return (
         <>
             <section
-                className="hero-section"
+                className="hero-section max-w-screen-xl mx-auto"
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
                     backgroundSize: "cover",

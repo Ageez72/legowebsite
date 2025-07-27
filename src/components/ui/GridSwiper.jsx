@@ -53,7 +53,7 @@ export default ({ title, route, badgeType, type, id }) => {
     }    
 
     return (
-        <>
+        <section className="max-w-screen-xl mx-auto px-4 space-y-16 custom-py-40">
             {
                 data?.data?.items.length ? (
                     <div className="grid-card-container" id={id}>
@@ -118,6 +118,6 @@ export default ({ title, route, badgeType, type, id }) => {
                     </div>
                 ) : ""
             }
-        </>
+        </section>
     );
 };

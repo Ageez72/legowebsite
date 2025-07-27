@@ -17,10 +17,6 @@ import ar from "../../locales/ar.json";
 import { useAppContext } from '../../context/AppContext';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 
-  const breadcrumbItems = [
-    { label: "Home", href: '/' },
-    { label: "Showroom", href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE` },
-  ]
 
 export default function Page() {
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
@@ -29,6 +25,16 @@ export default function Page() {
     setTranslation(state.LANG === "EN" ? en : en);
     document.title = "Lego Showroom - Arabian Al-EKha";
   }, [state.LANG]);
+  const useParams = useSearchParams();
+
+  let breadcrumbItems = [
+    { label: "Home", href: '/' },
+    { label: "Showroom", href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE` },
+  ]
+
+  if (useParams.get('category')) {
+    breadcrumbItems.push({ label: useParams.get('category').replace(/,/g, ' & '), href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE&category=${useParams.get('category')}` });
+  }
 
   let sortingOptions = [
     {
@@ -183,7 +189,12 @@ export default function Page() {
   });
 
   // if (isLoading) return <VerticalLoader />;
-  
+  const classNames = ['class-gray', 'class-red', 'class-yellow', 'class-white'];
+
+const getStableRandomClass = (id) => {
+  const index = id.toString().split('').reduce((sum, char) => sum + char.charCodeAt(0), 0) % classNames.length;
+  return classNames[index];
+};
 
   return (
     <div className="max-w-screen-xl mx-auto p-4 all-products-container section-min">
@@ -196,7 +207,7 @@ export default function Page() {
         </div>
         <div className="w-full products-list">
           <h2 className="section-title mb-0">Showroom</h2>
-          <Breadcrumb items={breadcrumbItems} className="mt-2"/>
+          <Breadcrumb items={breadcrumbItems} className="mt-2" />
           <div className="products-header-filters flex mt-10">
             <div className='search-input form-group mb-0'>
               <div className='relative h-full'>
@@ -237,7 +248,7 @@ export default function Page() {
             }
             {data?.data?.items?.length > 0 && (
               data.data.items.map((item) => (
-                <ProductCard key={item.id} type="h" item={item} />
+                <ProductCard key={item.id} type="h" item={item} customClass={getStableRandomClass(item.id)} />
               ))
             )
             }
