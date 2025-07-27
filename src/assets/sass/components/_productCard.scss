@@ -117,7 +117,7 @@
 
     &.grid-card {
         @media screen and (max-width: 650px) {
-            flex-wrap: wrap;
+            // flex-wrap: wrap;
 
             .product-card-image {
                 margin: auto;

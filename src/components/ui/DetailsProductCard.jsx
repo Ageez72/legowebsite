@@ -16,7 +16,7 @@ export default function DetailsProductCard({ item }) {
         } else {
             setTranslation(en);
         }
-        document.title = state.LANG === 'EN' ? item.name : item.name;
+        document.title = state.LANG === 'EN' ? item.name + " - Lego Showroom" : item.name + " - Lego Showroom";
     }, [state.LANG]);
 
     const rate = item?.reviews.rating || 0;

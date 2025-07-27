@@ -88,7 +88,7 @@ export default function Home() {
                 spaceBetween={10}
                 slidesPerView={1}
                 slidesPerGroup={1}
-                className={`${featuredProductsdata?.data?.items?.length === 4 && "just-four-items"}`}
+                className={`${featuredProductsdata?.data?.items?.length <= 6 && "just-four-items"}`}
                 breakpoints={{
                   550: {    // screens >= 320px
                     slidesPerView: 2,

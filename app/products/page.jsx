@@ -248,7 +248,7 @@ export default function Page() {
             }
             {data?.data?.items?.length > 0 && (
               data.data.items.map((item) => (
-                <ProductCard key={item.id} type="h" item={item} customClass={getStableRandomClass(item.id)} />
+                <ProductCard key={item.id} type="h" item={item} />
               ))
             )
             }

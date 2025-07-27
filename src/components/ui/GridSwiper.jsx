@@ -59,6 +59,7 @@ export default ({ title, route, badgeType, type, id }) => {
         return classNames[index];
     };
 
+    if (!data?.data?.items?.length) return null;
 
     return (
         <section className="max-w-screen-xl mx-auto px-4 space-y-16 custom-py-40">
@@ -119,7 +120,7 @@ export default ({ title, route, badgeType, type, id }) => {
                         >
                             {
                                 data?.data?.items?.map((item, i) => (
-                                    <SwiperSlide key={item.id}><ProductCard item={item} type="h" badgeType={badgeType} customClass={getStableRandomClass(item.id)} /></SwiperSlide>
+                                    <SwiperSlide key={item.id}><ProductCard item={item} type="h" badgeType={badgeType} /></SwiperSlide>
                                 ))
                             }
                         </Swiper>
