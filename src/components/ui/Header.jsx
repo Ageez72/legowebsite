@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Menu from "./Menu";
-import logo from "../../assets/imgs/logo.svg";
+import logo from "../../assets/imgs/logo.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 

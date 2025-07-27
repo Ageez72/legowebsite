@@ -9,8 +9,8 @@ import ar from "../../../locales/ar.json";
 import { useAppContext } from "../../../context/AppContext";
 
 // fallback images
-import fallbackDesktopImage from "../../assets/imgs/hero-bg.png";
-import fallbackMobileImage from "../../assets/imgs/hero-bg.png";
+import fallbackDesktopImage from "../../assets/imgs/hero-bg2.jpg";
+import fallbackMobileImage from "../../assets/imgs/hero-bg2.jpg";
 
 export default function Hero({
     desktopImage = fallbackDesktopImage.src,

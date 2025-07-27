@@ -17,6 +17,9 @@ import kenzi from "../src/assets/imgs/places/kinzi.jpg";
 import wonders from "../src/assets/imgs/places/wonders.jpg";
 import toyBox from "../src/assets/imgs/places/toyBox.jpg";
 import kiddix from "../src/assets/imgs/places/kiddix.jpg";
+import dumyah from "../src/assets/imgs/places/dumyah.jpg";
+import kidsToys from "../src/assets/imgs/places/51KidsToys.jpg";
+import bambiniJO from "../src/assets/imgs/places/bambiniJO.jpg";
 import union from "../src/assets/imgs/patterns/union.png";
 import rectangle from "../src/assets/imgs/patterns/rectangle.png";
 import frame from "../src/assets/imgs/patterns/frame2.png";
@@ -154,7 +157,7 @@ export default function Home() {
               spaceBetween={10}
               slidesPerView={1}
               slidesPerGroup={1}
-              className={`just-four-items`}
+              // className={`just-four-items`}
               breakpoints={{
                 550: {    // screens >= 320px
                   slidesPerView: 2,
@@ -220,6 +223,36 @@ export default function Home() {
                   </div>
                   <div className="card-content">
                     <h3 className="card-title">Kiddix</h3>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="card flex items-center gap-3">
+                  <div className="card-image">
+                    <img src={dumyah.src} alt="Dumyah" />
+                  </div>
+                  <div className="card-content">
+                    <h3 className="card-title">Dumyah</h3>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="card flex items-center gap-3">
+                  <div className="card-image">
+                    <img src={bambiniJO.src} alt="Bambini JO" />
+                  </div>
+                  <div className="card-content">
+                    <h3 className="card-title">Bambini JO</h3>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="card flex items-center gap-3">
+                  <div className="card-image">
+                    <img src={kidsToys.src} alt="51 Kids Toys" />
+                  </div>
+                  <div className="card-content">
+                    <h3 className="card-title">51 Kids Toys</h3>
                   </div>
                 </div>
               </SwiperSlide>
