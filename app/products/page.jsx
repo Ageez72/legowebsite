@@ -33,7 +33,10 @@ export default function Page() {
   ]
 
   if (useParams.get('category')) {
-    breadcrumbItems.push({ label: useParams.get('category').replace(/,/g, ' & '), href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE&category=${useParams.get('category')}` });
+    breadcrumbItems.push({ label: useParams.get('category').replace(/,/g, ' & ')
+  .replace(/_/g, ' ')
+  .toLowerCase()
+  .replace(/\b\w/g, char => char.toUpperCase()), href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE&category=${useParams.get('category')}` });
   }
 
   let sortingOptions = [
