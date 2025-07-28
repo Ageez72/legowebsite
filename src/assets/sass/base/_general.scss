@@ -210,6 +210,7 @@
             background-color: #dddddd;
         }
     }
+
     &.red {
         color: #ffffff;
         background-color: var(--primary-color);
@@ -701,7 +702,15 @@ input.disabled {
 
         .card-image {
             img {
-                width: 92px;
+                margin: 0 auto;
+                &.tall-image {
+                    width: 92px;
+                }
+
+                &:not(.tall-image) {
+                  max-width: 180px;
+                  max-height: 80px;
+                }
             }
         }
 
@@ -709,6 +718,7 @@ input.disabled {
             font-size: 16px;
             color: rgba(30, 30, 30, 1);
             font-family: 'Clash Display Semibold';
+            display: none;
         }
     }
 }
@@ -865,6 +875,7 @@ input.disabled {
         .swiper-button-next {
             left: auto !important;
             right: 0 !important;
+
             &:after {
                 content: "\e927" !important;
             }

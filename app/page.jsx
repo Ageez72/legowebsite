@@ -155,39 +155,34 @@ export default function Home() {
               modules={[Navigation, Grid]}
               navigation
               spaceBetween={10}
-              slidesPerView={1}
+              slidesPerView={2}
               slidesPerGroup={1}
               // className={`just-four-items`}
               breakpoints={{
                 550: {    // screens >= 320px
-                  slidesPerView: 2,
-                  grid: { rows: 1 },
+                  slidesPerView: 3,
                   spaceBetween: 10,
                 },
                 760: {    // screens >= 760
-                  slidesPerView: 2,
-                  grid: { rows: 1 },
+                  slidesPerView: 4,
                   spaceBetween: 10,
                 },
                 1024: {   // screens >= 1024px
-                  slidesPerView: 3,
-                  grid: { rows: 1 },
+                  slidesPerView: 4,
                   spaceBetween: 10,
                 },
                 1160: {   // screens >= 1160
-                  slidesPerView: 3,
-                  grid: { rows: 1 },
+                  slidesPerView: 5,
                   spaceBetween: 20,
                 },
                 1320: {   // screens >= 1024px
-                  slidesPerView: 4,
-                  // grid: { rows: 2, fill: 'row' },
+                  slidesPerView: 5,
                   spaceBetween: 20,
                 },
               }}
             >
               <SwiperSlide>
-                <div className="card flex items-center gap-3">
+                <div className="card flex items-center justify-center">
                   <div className="card-image">
                     <img src={kenzi.src} alt="Kenzi" />
                   </div>
@@ -197,9 +192,9 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center gap-3">
+                <div className="card flex items-center justify-center">
                   <div className="card-image">
-                    <img src={wonders.src} alt="Wonders" />
+                    <img className="tall-image" src={wonders.src} alt="Wonders" />
                   </div>
                   <div className="card-content">
                     <h3 className="card-title">Wonders</h3>
@@ -207,9 +202,9 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center gap-3">
+                <div className="card flex items-center justify-center">
                   <div className="card-image">
-                    <img src={toyBox.src} alt="Toy Box" />
+                    <img className="tall-image" src={toyBox.src} alt="Toy Box" />
                   </div>
                   <div className="card-content">
                     <h3 className="card-title">Toy Box</h3>
@@ -217,7 +212,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center gap-3">
+                <div className="card flex items-center justify-center">
                   <div className="card-image">
                     <img src={kiddix.src} alt="Kiddix" />
                   </div>
@@ -227,7 +222,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center gap-3">
+                <div className="card flex items-center justify-center">
                   <div className="card-image">
                     <img src={dumyah.src} alt="Dumyah" />
                   </div>
@@ -237,7 +232,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center gap-3">
+                <div className="card flex items-center justify-center">
                   <div className="card-image">
                     <img src={bambiniJO.src} alt="Bambini JO" />
                   </div>
@@ -247,9 +242,9 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center gap-3">
+                <div className="card flex items-center justify-center">
                   <div className="card-image">
-                    <img src={kidsToys.src} alt="51 Kids Toys" />
+                    <img className="tall-image" src={kidsToys.src} alt="51 Kids Toys" />
                   </div>
                   <div className="card-content">
                     <h3 className="card-title">51 Kids & Toys</h3>
