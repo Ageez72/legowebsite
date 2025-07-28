@@ -252,7 +252,7 @@ export default function Home() {
                     <img src={kidsToys.src} alt="51 Kids Toys" />
                   </div>
                   <div className="card-content">
-                    <h3 className="card-title">51 Kids Toys</h3>
+                    <h3 className="card-title">51 Kids & Toys</h3>
                   </div>
                 </div>
               </SwiperSlide>

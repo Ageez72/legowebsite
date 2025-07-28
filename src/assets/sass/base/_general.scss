@@ -210,6 +210,14 @@
             background-color: #dddddd;
         }
     }
+    &.red {
+        color: #ffffff;
+        background-color: var(--primary-color);
+
+        &:hover {
+            background-color: var(--primary-color-hover)
+        }
+    }
 }
 
 .disabled {

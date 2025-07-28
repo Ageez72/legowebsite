@@ -41,13 +41,13 @@ export default function ProductCard({ type, customClass, item }) {
                 }
             </div>
             <div className="product-card-image">
-                <Link href={`/products/${item.id}`}>
+                <Link href={`/products/${encodeURIComponent(item.id)}`}>
                     <img src={item?.images["800"]?.main} alt={item?.name} layout="responsive" title={item.name} />
                 </Link>
             </div>
             <div className="product-card-content">
                 <h2 className="product-card-title cursor-pointer short-title" title={item.name}>
-                    <Link href={`/products/${item.id}`}>
+                    <Link href={`/products/${encodeURIComponent(item.id)}`}>
                         {item.name}
                     </Link>
                 </h2>

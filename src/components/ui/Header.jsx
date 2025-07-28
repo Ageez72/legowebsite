@@ -47,7 +47,7 @@ export default function Header({ scroll, handleOffCanvas }) {
                 </svg>
               </button>
               <div className="hidden w-full lg:block lg:w-auto" id="navbar-default2">
-                <a target="_blank" href="https://bricksarabia.club/" className="backToClub primary-btn white">Back to Lego Club</a>
+                <a target="_blank" href="https://bricksarabia.club/" className="backToClub primary-btn">Back to Lego Club</a>
               </div>
             </div>
           </nav>
