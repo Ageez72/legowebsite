@@ -72,6 +72,15 @@ footer {
     .socials {
         i {
             font-size: 20px;
+            &::before {
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    color: var(--primary-color);
+                }
+            }
         }
     }
 
