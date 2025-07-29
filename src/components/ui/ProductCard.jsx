@@ -56,7 +56,7 @@ export default function ProductCard({ type, customClass, item }) {
                         <span className="product-card-category">{item?.category?.description}</span>
                     </Link>
                 </p>
-                <div className="price flex items-center gap-3">
+                {/* <div className="price flex items-center gap-3">
                     {
                         item?.itemdisc > 0 && item.hideDiscount != "false" ? (
                             <>
@@ -76,7 +76,7 @@ export default function ProductCard({ type, customClass, item }) {
                             </span>
                         )
                     }
-                </div>
+                </div> */}
             </div>
         </div>
     )

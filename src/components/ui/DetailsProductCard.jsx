@@ -35,13 +35,13 @@ export default function DetailsProductCard({ item }) {
                     </Link>
                 </p>
 
-                <div className="price flex items-center gap-3">
+                {/* <div className="price flex items-center gap-3">
                     <span className="product-card-price details-product-card-price">
                         <span className="price-number">{Number(item?.price).toFixed(2)}</span>
                         <span className="price-unit mx-1">{translation.jod}</span>
                     </span>
-                </div>
-                <p className="product-description" dangerouslySetInnerHTML={{ __html: item?.description }} />
+                </div> */}
+                <p className="product-description mt-4" dangerouslySetInnerHTML={{ __html: item?.description }} />
             </div>
         </div>
     )

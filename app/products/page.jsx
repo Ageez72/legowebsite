@@ -55,16 +55,16 @@ export default function Page() {
       title: translation.products.sorting.nameTo,
       value: "NAMED"
     },
-    {
-      id: 4,
-      title: translation.products.sorting.priceFrom,
-      value: "PRICEA"
-    },
-    {
-      id: 5,
-      title: translation.products.sorting.priceTo,
-      value: "PRICED"
-    },
+    // {
+    //   id: 4,
+    //   title: translation.products.sorting.priceFrom,
+    //   value: "PRICEA"
+    // },
+    // {
+    //   id: 5,
+    //   title: translation.products.sorting.priceTo,
+    //   value: "PRICED"
+    // },
   ]
 
   const displayOptions = [
@@ -199,6 +199,11 @@ export default function Page() {
     return classNames[index];
   };
 
+  function hasFilterParams(queryString) {
+  const paramsToCheck = ['fromAge', 'toAge', 'catalog', 'category'];
+  return paramsToCheck.some(param => queryString.includes(`${param}=`));
+}
+
   return (
     <div className="max-w-screen-xl mx-auto p-4 all-products-container section-min">
       <div className="flex gap-4 filters-gap">
@@ -237,7 +242,7 @@ export default function Page() {
                   onChange={handleSortChange}
                 />
               </div>
-              <div className="flex-2 filter-mobile cursor-pointer" onClick={handleFilterOnMobile}>
+              <div className={`flex-2 filter-mobile cursor-pointer ${hasFilterParams(queryString) ? "has-filters" : ""}`} onClick={handleFilterOnMobile}>
                 <span>Filter</span>
                 <i className="icon-filter-search"></i>
               </div>

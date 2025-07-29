@@ -90,17 +90,9 @@ export default function Page() {
             )
           }
           {
-            details?.brand.description && (
-              <div className="item flex w-full">
-                <div className="title w-1/2"><strong>{translation.brand}</strong></div>
-                <div className="info w-1/2">{details?.brand.description}</div>
-              </div>
-            )
-          }
-          {
             details?.category.description && (
               <div className="item flex w-full">
-                <div className="title w-1/2"><strong>{translation.type}</strong></div>
+                <div className="title w-1/2"><strong>Theme</strong></div>
                 <div className="info w-1/2">{details?.category.description}</div>
               </div>
             )

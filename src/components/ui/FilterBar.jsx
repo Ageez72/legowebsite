@@ -69,8 +69,8 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
         if (isProductsPage) {
             const query = new URLSearchParams();
 
-            if (fromPrice) query.set('fromPrice', fromPrice);
-            if (toPrice) query.set('toPrice', toPrice);
+            // if (fromPrice) query.set('fromPrice', fromPrice);
+            // if (toPrice) query.set('toPrice', toPrice);
             if (fromAge) query.set('fromAge', fromAge);
             if (toAge) query.set('toAge', toAge);
             if (itemType) query.set('itemType', itemType);
@@ -89,8 +89,8 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
             const searchParams = new URLSearchParams(); // This will be used for building query
             let searchItems = '';
 
-            if (fromPrice) searchParams.append('fromPrice', fromPrice);
-            if (toPrice) searchParams.append('toPrice', toPrice);
+            // if (fromPrice) searchParams.append('fromPrice', fromPrice);
+            // if (toPrice) searchParams.append('toPrice', toPrice);
             if (fromAge) searchParams.append('fromAge', fromAge);
             if (toAge) searchParams.append('toAge', toAge);
             if (itemType) searchParams.append('itemType', itemType);
@@ -168,8 +168,6 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     }
 
     const parentOptions = (st, options) => {
-        // console.log(options);
-
         setBrand(options)
         fetchCategoriesOptions(st, options)
     }
@@ -262,7 +260,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
                 </div>
                 <div className="filter-body">
                     {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
-                    <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} />
+                    {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
                     <MultiAgesRangeSlider title={"Age Range"} min={0} max={17} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                     {
                         categoryOpen && (

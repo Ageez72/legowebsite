@@ -703,13 +703,14 @@ input.disabled {
         .card-image {
             img {
                 margin: 0 auto;
+
                 &.tall-image {
                     width: 92px;
                 }
 
                 &:not(.tall-image) {
-                  max-width: 180px;
-                  max-height: 80px;
+                    max-width: 180px;
+                    max-height: 80px;
                 }
             }
         }
@@ -891,4 +892,25 @@ input.disabled {
 .custom-py-40 {
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.has-filters {
+    position: relative;
+
+    &:before {
+        content: "";
+        color: #fff;
+        background-color: #e82832;
+        border: 1px solid #fff;
+        border-radius: 100px;
+        justify-content: center;
+        align-items: center;
+        width: 12px;
+        height: 12px;
+        font-size: 12px;
+        display: flex;
+        position: absolute;
+        top: 13px;
+        right: 30px;
+    }
 }
