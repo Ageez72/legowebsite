@@ -33,10 +33,12 @@ export default function Page() {
   ]
 
   if (useParams.get('category')) {
-    breadcrumbItems.push({ label: useParams.get('category').replace(/,/g, ' & ')
-  .replace(/_/g, ' ')
-  .toLowerCase()
-  .replace(/\b\w/g, char => char.toUpperCase()), href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE&category=${useParams.get('category')}` });
+    breadcrumbItems.push({
+      label: useParams.get('category').replace(/,/g, ' & ')
+        .replace(/_/g, ' ')
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase()), href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE&category=${useParams.get('category')}`
+    });
   }
 
   let sortingOptions = [
@@ -199,10 +201,22 @@ export default function Page() {
     return classNames[index];
   };
 
-  function hasFilterParams(queryString) {
+function checkFilterParams(queryString) {
   const paramsToCheck = ['fromAge', 'toAge', 'catalog', 'category'];
-  return paramsToCheck.some(param => queryString.includes(`${param}=`));
+  let count = 0;
+
+  paramsToCheck.forEach(param => {
+    if (queryString.includes(`${param}=`)) {
+      count++;
+    }
+  });
+
+  return {
+    hasAny: count > 0,
+    count: count
+  };
 }
+const result = checkFilterParams(queryString);
 
   return (
     <div className="max-w-screen-xl mx-auto p-4 all-products-container section-min">
@@ -242,7 +256,8 @@ export default function Page() {
                   onChange={handleSortChange}
                 />
               </div>
-              <div className={`flex-2 filter-mobile cursor-pointer ${hasFilterParams(queryString) ? "has-filters" : ""}`} onClick={handleFilterOnMobile}>
+              <div className={`flex-2 filter-mobile cursor-pointer ${result.hasAny ? "has-filters" : ""}`} onClick={handleFilterOnMobile}>
+                <span className='red-filter'>{result.count > 0 ? `${result.count}` : ""}</span>
                 <span>Filter</span>
                 <i className="icon-filter-search"></i>
               </div>

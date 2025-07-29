@@ -51,7 +51,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
     const [fromPrice, setFromPrice] = useState(useParams.get('fromPrice') || 0); // نطاق السعر
     const [toPrice, setToPrice] = useState(useParams.get('toPrice') || 1600); // نطاق السعر
     const [fromAge, setFromAge] = useState(useParams.get('fromAge') || 0); // نطاق العمر
-    const [toAge, setToAge] = useState(useParams.get('toAge') || 17); // نطاق العمر
+    const [toAge, setToAge] = useState(useParams.get('toAge') || 0); // نطاق العمر
     const [itemType, setItemType] = useState(useParams.get('itemType') || ""); // الاقسام
     const [brand, setBrand] = useState(`${Cookies.get("brandID")}`); // العلامات التجارية
     const [category, setCategory] = useState(useParams.get('category') ? useParams.get('category').split(',') : ""); // التصنيفات
@@ -117,7 +117,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
             setFromPrice(0);
             setToPrice(1600);
             setFromAge(0);
-            setToAge(17);
+            setToAge(0);
             setItemType("");
             setItemStatus("");
             setBrand([`${Cookies.get("brandID")}`]);

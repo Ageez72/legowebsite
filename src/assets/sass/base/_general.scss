@@ -897,16 +897,15 @@ input.disabled {
 .has-filters {
     position: relative;
 
-    &:before {
-        content: "";
+    .red-filter {
         color: #fff;
         background-color: #e82832;
         border: 1px solid #fff;
         border-radius: 100px;
         justify-content: center;
         align-items: center;
-        width: 12px;
-        height: 12px;
+        width: 16px;
+        height: 16px;
         font-size: 12px;
         display: flex;
         position: absolute;
