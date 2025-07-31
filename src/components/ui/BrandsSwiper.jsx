@@ -39,10 +39,20 @@ export default () => {
                     {
                         data?.data.map((slide, i) => (
                             <div key={slide.description + slide.brandID}>
-                                <div className="relative brands card" style={{ height: "132px" }}>
-                                    <Link href={`/products?brand=${Cookies.get("brandID")}&category=${slide.categoryId}&itemStatus=AVAILABLE`} title={slide.description}>
+                                <div className="relative brands card group" style={{ height: "132px" }}>
+                                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                                            {slide.description.replace(/lego/gi, '').trim()}
+                                            <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                                        </div>
+                                    </div>
+
+                                    <Link
+                                        href={`/products?brand=${Cookies.get("brandID")}&category=${slide.categoryId}&itemStatus=AVAILABLE`}
+                                        className="block w-full h-full relative"
+                                    >
                                         <Image
-                                            className='brand-logo'
+                                            className="brand-logo"
                                             src={slide.image !== "" ? slide.image : brokenImage()}
                                             alt={slide.description !== "" ? slide.description : 'Brand'}
                                             fill
