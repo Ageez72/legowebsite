@@ -64,7 +64,7 @@ export default function MobileMenu({ scroll, onGoTo }) {
               <Link href="/" className="block py-2">Home</Link>
             </li>
             <li className={isActive("/products")} onClick={() => onGoTo()}>
-              <Link href={`/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE`} className="block py-2">Showroom</Link>
+              <Link href={`/products?brand=${Cookies.get("brandID")}&itemStatus=ALL`} className="block py-2">Showroom</Link>
             </li>
           </ul>
         <hr />

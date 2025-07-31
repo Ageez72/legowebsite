@@ -711,6 +711,7 @@ input.disabled {
                 &:not(.tall-image) {
                     max-width: 180px;
                     max-height: 80px;
+                    width: 100%;
                 }
             }
         }
@@ -921,4 +922,8 @@ img {
 .lego-places .card .card-image img {
     margin: 0 auto;
     user-select: none;
+}
+.swiper-overflow-visible {
+    padding-top: 45px;
+    margin-top: -13px;
 }

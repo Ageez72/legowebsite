@@ -48,7 +48,7 @@ export default () => {
                                     </div>
 
                                     <Link
-                                        href={`/products?brand=${Cookies.get("brandID")}&category=${slide.categoryId}&itemStatus=AVAILABLE`}
+                                        href={`/products?brand=${Cookies.get("brandID")}&category=${slide.categoryId}&itemStatus=ALL`}
                                         className="block w-full h-full relative"
                                     >
                                         <Image

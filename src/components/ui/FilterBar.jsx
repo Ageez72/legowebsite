@@ -128,7 +128,7 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
             setSelectedCatalogsOptions([]);
 
             // Push clean URL
-            router.push(`/products?itemStatus=AVAILABLE&brand=${Cookies.get("brandID")}`);
+            router.push(`/products?itemStatus=ALL&brand=${Cookies.get("brandID")}`);
         } else {
             Cookies.remove('store_filters');
             onClose && onClose()
@@ -221,9 +221,9 @@ export default function FilterBar({ isProductsPage, close, catalogEndpoint, cate
         const params = new URLSearchParams(window.location.search);
         const entries = Array.from(params.entries());
 
-        // Exclude default filter like itemStatus=AVAILABLE
+        // Exclude default filter like itemStatus=ALL
         const meaningfulParams = entries.filter(([key, value]) => {
-            return !(key === 'itemStatus' && value === 'AVAILABLE');
+            return !(key === 'itemStatus' && value === 'ALL');
         });
 
         if (meaningfulParams.length > 1) {

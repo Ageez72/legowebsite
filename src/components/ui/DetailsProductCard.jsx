@@ -30,7 +30,7 @@ export default function DetailsProductCard({ item }) {
                 }
                 <h1 className="product-card-title details-product-card-title" title={item.name}>{item.name}</h1>
                 <p className="product-card-description">
-                    <Link href={`/products?category=${item?.category?.id}&itemStatus=AVAILABLE`}>
+                    <Link href={`/products?category=${item?.category?.id}&itemStatus=ALL`}>
                         <span className="product-card-category">{item?.category?.description}</span>
                     </Link>
                 </p>

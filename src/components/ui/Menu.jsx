@@ -53,7 +53,10 @@ export default function Menu({ scroll }) {
             <Link href="/" className="block py-2">Home</Link>
           </li>
           <li className={isActive("/products")}>
-            <Link href={`/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE`} className="block py-2">Showroom</Link>
+            <Link href={`/products?brand=${Cookies.get("brandID")}&itemStatus=ALL`} className="block py-2">Showroom</Link>
+          </li>
+          <li className={isActive("/about")}>
+            <Link href="https://toys-b2b-frontend-public.vercel.app/" target="_blank" className="block py-2">About Us</Link>
           </li>
         </>
     </ul>

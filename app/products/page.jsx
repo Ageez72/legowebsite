@@ -29,7 +29,7 @@ export default function Page() {
 
   let breadcrumbItems = [
     { label: "Home", href: '/' },
-    { label: "Showroom", href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE` },
+    { label: "Showroom", href: `/products?brand=${Cookies.get("brandID")}&itemStatus=ALL` },
   ]
 
   if (useParams.get('category')) {
@@ -37,7 +37,7 @@ export default function Page() {
       label: useParams.get('category').replace(/,/g, ' & ')
         .replace(/_/g, ' ')
         .toLowerCase()
-        .replace(/\b\w/g, char => char.toUpperCase()), href: `/products?brand=${Cookies.get("brandID")}&itemStatus=AVAILABLE&category=${useParams.get('category')}`
+        .replace(/\b\w/g, char => char.toUpperCase()), href: `/products?brand=${Cookies.get("brandID")}&itemStatus=ALL&category=${useParams.get('category')}`
     });
   }
 

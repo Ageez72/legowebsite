@@ -42,7 +42,7 @@ export default function FeaturedProductCard({ item }) {
                     </Link>
                 </h2>
                 <p className='product-card-description'>
-                    <Link href={`/products?brand=${Cookies.get("brandID")}&category=${item?.category?.id}&itemStatus=AVAILABLE`}>
+                    <Link href={`/products?brand=${Cookies.get("brandID")}&category=${item?.category?.id}&itemStatus=ALL`}>
                         <span className="product-card-category">{item?.category?.description}</span>
                     </Link>
                 </p>

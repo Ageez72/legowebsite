@@ -47,7 +47,7 @@ export default function Home() {
 
   const fetchFeaturedProducts = async () => {
     const res = await axios.get(
-      `${BASE_API}${endpoints.products.list}&itemType=FEATURED&token=${Cookies.get("legoToken")}&pageSize=6&itemStatus=AVAILABLE&lang=EN&brand=${Cookies.get("brandID")}`
+      `${BASE_API}${endpoints.products.list}&itemType=FEATURED&token=${Cookies.get("legoToken")}&pageSize=6&itemStatus=ALL&lang=EN&brand=${Cookies.get("brandID")}`
     );
     return res;
   };
@@ -70,7 +70,7 @@ export default function Home() {
         title={translation.newArrivals}
         badgeType={"blue"}
         type={"NEW ARRIVAL"}
-        route={"/products?itemType=NEW ARRIVAL&itemStatus=AVAILABLE"}
+        route={"/products?itemType=NEW ARRIVAL&itemStatus=ALL"}
         id={"new-arrival"}
       />
       {
@@ -143,12 +143,12 @@ export default function Home() {
         title={translation.offers}
         badgeType={"blue"}
         type={"GIVEAWAY"}
-        route={"/products?itemType=GIVEAWAY&itemStatus=AVAILABLE"}
+        route={"/products?itemType=GIVEAWAY&itemStatus=ALL"}
         id={"giveaway"}
       />
       <section className="max-w-screen-xl mx-auto px-4 space-y-16 custom-py-40">
         <div className="lego-places">
-          <h2 className="section-title mb-8">Where to Find <span className="red-txt">LEGO</span> Products</h2>
+          <h2 className="section-title mb-0">Where to Find <span className="red-txt">LEGO</span> Products</h2>
           <div className="grid-card-container">
             <Swiper
               dir={state.LANG === "EN" ? "ltr" : "ltr"}
@@ -157,6 +157,7 @@ export default function Home() {
               spaceBetween={10}
               slidesPerView={2}
               slidesPerGroup={1}
+              className="swiper-overflow-visible"
               // className={`just-four-items`}
               breakpoints={{
                 550: {    // screens >= 320px
@@ -182,72 +183,149 @@ export default function Home() {
               }}
             >
               <SwiperSlide>
-                <div className="card flex items-center justify-center">
-                  <div className="card-image">
-                    <img src={kenzi.src} alt="Kenzi" />
+                <div className="relative card group flex items-center justify-center">
+                  {/* Tooltip above the card */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Kenzi
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <h3 className="card-title">Kenzi</h3>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="card flex items-center justify-center">
-                  <div className="card-image">
-                    <img className="tall-image" src={wonders.src} alt="Wonders" />
-                  </div>
-                  <div className="card-content">
-                    <h3 className="card-title">Wonders</h3>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="card flex items-center justify-center">
-                  <div className="card-image">
-                    <img className="tall-image" src={toyBox.src} alt="Toy Box" />
-                  </div>
-                  <div className="card-content">
-                    <h3 className="card-title">Toy Box</h3>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img src={kenzi.src} alt="Kenzi" />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Kenzi</h3>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center justify-center">
-                  <div className="card-image">
-                    <img src={kiddix.src} alt="Kiddix" />
+                <div className="relative card group flex items-center justify-center">
+                  {/* Tooltip above the card */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Wonders
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <h3 className="card-title">Kiddix</h3>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="card flex items-center justify-center">
-                  <div className="card-image">
-                    <img src={dumyah.src} alt="Dumyah" />
-                  </div>
-                  <div className="card-content">
-                    <h3 className="card-title">Dumyah</h3>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="card flex items-center justify-center">
-                  <div className="card-image">
-                    <img src={bambiniJO.src} alt="Bambini JO" />
-                  </div>
-                  <div className="card-content">
-                    <h3 className="card-title">Bambini JO</h3>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img className="tall-image" src={wonders.src} alt="Wonders" />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Wonders</h3>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="card flex items-center justify-center">
-                  <div className="card-image">
-                    <img className="tall-image" src={kidsToys.src} alt="51 Kids Toys" />
+                <div className="relative card group flex items-center justify-center">
+                  {/* Tooltip above the card */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Toy Box
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <h3 className="card-title">51 Kids & Toys</h3>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img className="tall-image" src={toyBox.src} alt="Toy Box" />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Toy Box</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative card group flex items-center justify-center">
+                  {/* Tooltip above the card */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Kiddix
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img src={kiddix.src} alt="Kiddix" />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Kiddix</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative card group flex items-center justify-center">
+                  {/* Tooltip above the card */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Dumyah
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img src={dumyah.src} alt="Dumyah" />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Dumyah</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative card group flex items-center justify-center">
+                  {/* Tooltip above the card */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Bambini JO
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img src={bambiniJO.src} alt="Bambini JO" />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Bambini JO</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative card group flex items-center justify-center">
+                  {/* Tooltip above the card */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      51 Kids & Toys
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img className="tall-image" src={kidsToys.src} alt="51 Kids Toys" />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">51 Kids & Toys</h3>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
