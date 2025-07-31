@@ -46,7 +46,7 @@ export default function Hero({
                 }}
             >
                 <div className="hero-content">
-                    <h1 className="hero-title text-center">Discover the World of LEGO</h1>
+                    <h1 className="hero-title text-center">Discover the World of <span className="red-txt">LEGO</span></h1>
                     <p className='hero-desc'>Explore our complete LEGO collections by theme, age, or interest, find what inspires you</p>
                     <QuickAdd openSidebar={() => setIsSidebarModalOpen(true)} />
                 </div>
