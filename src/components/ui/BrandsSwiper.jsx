@@ -23,7 +23,7 @@ async function fetchHomeBrands() {
 }
 
 export default () => {
-     const [activeTooltip, setActiveTooltip] = useState(null);
+    const [activeTooltip, setActiveTooltip] = useState(null);
     const { state = {}, dispatch = () => { } } = useAppContext() || {};
 
     const { data, isLoading, error } = useQuery({
@@ -34,9 +34,9 @@ export default () => {
     if (isLoading) return <CardLoader />;
 
 
-  const toggleTooltip = (key) => {
-    setActiveTooltip(activeTooltip === key ? null : key);
-  };
+    const toggleTooltip = (key) => {
+        setActiveTooltip(activeTooltip === key ? null : key);
+    };
 
     return (
         data?.data?.length > 0 ? (
@@ -45,9 +45,21 @@ export default () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
                     {
                         data?.data.map((slide, i) => (
-                            <div key={slide.description + slide.brandID}>
+
+                            <Link key={slide.description + slide.brandID}
+                                href={`/products?brand=${Cookies.get("brandID")}&category=${slide.categoryId}&itemStatus=ALL`}
+                                className="block w-full h-full relative"
+                            >
                                 <div className="relative brands card group" style={{ height: "132px" }} onClick={() => toggleTooltip(slide.description.replace(/lego/gi, '').trim())}>
-                                    <div  className={`
+
+                                    <Image
+                                        className="brand-logo"
+                                        src={slide.image !== "" ? slide.image : brokenImage()}
+                                        alt={slide.description !== "" ? slide.description : 'Brand'}
+                                        fill
+                                        style={{ objectFit: 'contain' }}
+                                    />
+                                    <div className={`
                                         absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
                                         transition-opacity duration-300 
                                         ${activeTooltip === slide.description.replace(/lego/gi, '').trim() ? "opacity-100" : "opacity-0"} 
@@ -58,21 +70,8 @@ export default () => {
                                             <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
                                         </div>
                                     </div>
-
-                                    <Link
-                                        href={`/products?brand=${Cookies.get("brandID")}&category=${slide.categoryId}&itemStatus=ALL`}
-                                        className="block w-full h-full relative"
-                                    >
-                                        <Image
-                                            className="brand-logo"
-                                            src={slide.image !== "" ? slide.image : brokenImage()}
-                                            alt={slide.description !== "" ? slide.description : 'Brand'}
-                                            fill
-                                            style={{ objectFit: 'contain' }}
-                                        />
-                                    </Link>
                                 </div>
-                            </div>
+                            </Link>
                         ))
                     }
                 </div>
