@@ -33,7 +33,7 @@ import fallbackDesktopImage from "@/assets/imgs/hero-bg.png";
 import fallbackMobileImage from "@/assets/imgs/hero-bg.png";
 
 export default function Home() {
-
+  const [isMobile, setIsMobile] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(null);
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [translation, setTranslation] = useState(en);
@@ -43,6 +43,12 @@ export default function Home() {
   useEffect(() => {
     setTranslation(state.LANG === "EN" ? en : en);
     document.title = "Lego Showroom - Arabian Al-EKha";
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
   }, [state.LANG]);
 
 
@@ -66,6 +72,9 @@ export default function Home() {
   const toggleTooltip = (key) => {
     setActiveTooltip(activeTooltip === key ? null : key);
   };
+
+  console.log(isMobile);
+  
 
   return (
     <main>
@@ -188,7 +197,7 @@ export default function Home() {
               }}
             >
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("kenzi")}>
+                <div className="relative card group flex items-center justify-center" onClick={() => isMobile ? toggleTooltip("kenzi"): null}>
                   {/* Tooltip above the card */}
                   <div className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
@@ -214,7 +223,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Wonders")}>
+                <div className="relative card group flex items-center justify-center" onClick={() => isMobile ? toggleTooltip("Wonders") : null}>
                   {/* Tooltip above the card */}
                   <div className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
@@ -240,7 +249,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("toyBox")}>
+                <div className="relative card group flex items-center justify-center" onClick={() => isMobile ? toggleTooltip("toyBox") : null}>
                   {/* Tooltip above the card */}
                   <div className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
@@ -266,7 +275,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Kiddix")}>
+                <div className="relative card group flex items-center justify-center" onClick={() => isMobile ? toggleTooltip("Kiddix") : null}>
                   {/* Tooltip above the card */}
                   <div className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
@@ -292,7 +301,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Dumyah")}>
+                <div className="relative card group flex items-center justify-center" onClick={() => isMobile ? toggleTooltip("Dumyah") : null}>
                   {/* Tooltip above the card */}
                   <div className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
@@ -318,7 +327,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Bambini")}>
+                <div className="relative card group flex items-center justify-center" onClick={() => isMobile ? toggleTooltip("Bambini") : null}>
                   {/* Tooltip above the card */}
                   <div className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
@@ -344,7 +353,7 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("kidsToys")}>
+                <div className="relative card group flex items-center justify-center" onClick={() => isMobile ? toggleTooltip("kidsToys") : null}>
                   {/* Tooltip above the card */}
                   <div className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
