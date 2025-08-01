@@ -34,6 +34,7 @@ import fallbackMobileImage from "@/assets/imgs/hero-bg.png";
 
 export default function Home() {
 
+  const [activeTooltip, setActiveTooltip] = useState(null);
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [translation, setTranslation] = useState(en);
   const [imagePairs, setImagePairs] = useState([]);
@@ -61,6 +62,10 @@ export default function Home() {
     queryFn: fetchFeaturedProducts,
   });
   // if (isLoadingFeaturedProducts) return <HorizontalLoader />;
+
+  const toggleTooltip = (key) => {
+    setActiveTooltip(activeTooltip === key ? null : key);
+  };
 
   return (
     <main>
@@ -183,9 +188,14 @@ export default function Home() {
               }}
             >
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center">
+                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("kenzi")}>
                   {/* Tooltip above the card */}
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "kenzi" ? "opacity-100" : "opacity-0"} 
+                    group-hover:opacity-100 pointer-events-none
+                  `}>
                     <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
                       Kenzi
                       <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
@@ -204,9 +214,14 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center">
+                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Wonders")}>
                   {/* Tooltip above the card */}
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "Wonders" ? "opacity-100" : "opacity-0"} 
+                    group-hover:opacity-100 pointer-events-none
+                  `}>
                     <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
                       Wonders
                       <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
@@ -225,9 +240,14 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center">
+                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("toyBox")}>
                   {/* Tooltip above the card */}
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "toyBox" ? "opacity-100" : "opacity-0"} 
+                    group-hover:opacity-100 pointer-events-none
+                  `}>
                     <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
                       Toy Box
                       <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
@@ -246,9 +266,14 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center">
+                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Kiddix")}>
                   {/* Tooltip above the card */}
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "Kiddix" ? "opacity-100" : "opacity-0"} 
+                    group-hover:opacity-100 pointer-events-none
+                  `}>
                     <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
                       Kiddix
                       <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
@@ -267,9 +292,14 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center">
+                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Dumyah")}>
                   {/* Tooltip above the card */}
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "Dumyah" ? "opacity-100" : "opacity-0"} 
+                    group-hover:opacity-100 pointer-events-none
+                  `}>
                     <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
                       Dumyah
                       <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
@@ -288,9 +318,14 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center">
+                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("Bambini")}>
                   {/* Tooltip above the card */}
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "Bambini" ? "opacity-100" : "opacity-0"} 
+                    group-hover:opacity-100 pointer-events-none
+                  `}>
                     <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
                       Bambini JO
                       <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
@@ -309,9 +344,14 @@ export default function Home() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative card group flex items-center justify-center">
+                <div className="relative card group flex items-center justify-center" onClick={() => toggleTooltip("kidsToys")}>
                   {/* Tooltip above the card */}
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "kidsToys" ? "opacity-100" : "opacity-0"} 
+                    group-hover:opacity-100 pointer-events-none
+                  `}>
                     <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
                       51 Kids & Toys
                       <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>

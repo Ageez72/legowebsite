@@ -239,7 +239,7 @@ const result = checkFilterParams(queryString);
                 <input className='w-full h-full ps-10 p-2.5' type='text' placeholder={translation.searchProduct} value={searchTerm} onChange={handleSearchChange} />
               </div>
             </div>
-            <div className="filters-sort-display flex gap-3">
+            <div className="filters-sort-display flex gap-3 flex-wrap">
               <div className="flex-1">
                 <Dropdown
                   options={displayOptions}
