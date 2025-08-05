@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAppContext } from "../../../context/AppContext";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
 
 export default function MobileMenu({ scroll, onGoTo }) {
-  const { state = {}, dispatch = () => { } } = useAppContext() || {};
+  const { state = {}, dispatch = () => {} } = useAppContext() || {};
   const [lang, setLang] = useState("EN"); // fallback
   const [cookiesState, setCookiesState] = useState({
     newArrivals: false,
@@ -18,7 +18,7 @@ export default function MobileMenu({ scroll, onGoTo }) {
   });
   const [translation, setTranslation] = useState(en);
   const pathname = usePathname();
-  const isActive = (path) => pathname === path ? "active" : "";
+  const isActive = (path) => (pathname === path ? "active" : "");
 
   useEffect(() => {
     setTranslation(state.LANG === "EN" ? en : en);
@@ -42,8 +42,6 @@ export default function MobileMenu({ scroll, onGoTo }) {
     };
   }, [state.LANG]);
 
-
-
   const handleChangeLanguage = (e) => {
     dispatch({ type: "LANG", payload: e });
     window.location.reload(); // this is fine for now
@@ -57,18 +55,29 @@ export default function MobileMenu({ scroll, onGoTo }) {
           className="meanmenu-reveal"
           style={{ right: 0, left: "auto", display: "inline" }}
         >
-          <span><span><span /></span></span>
+          <span>
+            <span>
+              <span />
+            </span>
+          </span>
         </Link>
-          <ul className="mobile-menu-links">
-            <li className={isActive("/")} onClick={() => onGoTo()}>
-              <Link href="/" className="block py-2">Home</Link>
-            </li>
-            <li className={isActive("/products")} onClick={() => onGoTo()}>
-              <Link href={`/products?brand=${Cookies.get("brandID")}&itemStatus=ALL`} className="block py-2">Showroom</Link>
-            </li>
-          </ul>
+        <ul className="mobile-menu-links">
+          <li className={isActive("/")} onClick={() => onGoTo()}>
+            <Link href="/" className="block py-2">
+              Home
+            </Link>
+          </li>
+          <li className={isActive("/products")} onClick={() => onGoTo()}>
+            <Link
+              href={`/products?brand=${Cookies.get("brandID")}&itemStatus=ALL`}
+              className="block py-2"
+            >
+              Showroom
+            </Link>
+          </li>
+        </ul>
         <hr />
-        <button className="backToClub primary-btn">Back to Lego Club</button>
+        <button className="backToClub primary-btn">Back to Bricks Club</button>
       </div>
     </div>
   );
