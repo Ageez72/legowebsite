@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -13,6 +13,7 @@ export default function ProductGallery({ images, main }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const { state = {}, dispatch = () => {} } = useAppContext() || {};
+    const videoRef = useRef(null); // 👈 Ref for the video element
 
     const isYouTubeLink = (url) => /youtube\.com|youtu\.be/.test(url);
     const isVideoFile = (url) => url.endsWith('.mp4') || url.includes('.mp4');
@@ -21,41 +22,65 @@ export default function ProductGallery({ images, main }) {
         return match ? match[1] : null;
     };
 
+    // 🔁 Reload video if selectedImage is a video
+    useEffect(() => {
+        if (isVideoFile(selectedImage) && videoRef.current) {
+            videoRef.current.load();
+        }
+    }, [selectedImage]);
+
     const openModal = (index) => {
         setActiveIndex(index);
         setIsModalOpen(true);
     };
 
-    const renderThumbnail = (img, index) => {
-        const isYouTube = isYouTubeLink(img);
-        const isVideo = isVideoFile(img);
-        const youtubeId = getYouTubeId(img);
+const renderThumbnail = (img, index) => {
+    const isYouTube = isYouTubeLink(img);
+    const isVideo = isVideoFile(img);
+    const youtubeId = getYouTubeId(img);
 
-        return (
-            <button
-                key={index}
-                onClick={() => setSelectedImage(img)}
-                className={`border rounded-md p-1 ${selectedImage === img ? 'border-red-500' : 'border-transparent'}`}
-            >
-                <span className='relative block'>
-                    {(isYouTube || isVideo) && (
-                        <i className="icon-circle-play-regular player-icon absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl"></i>
-                    )}
+    return (
+        <button
+            key={index}
+            onClick={() => {
+                setSelectedImage(img);
+                setActiveIndex(index);
+            }}
+            className={`border rounded-md p-1 ${
+                selectedImage === img ? 'border-red-500' : 'border-transparent'
+            }`}
+        >
+            <span className="relative block w-16 h-16">
+                {(isYouTube || isVideo) && (
+                    <i className="icon-circle-play-regular player-icon absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl"></i>
+                )}
+
+                {isYouTube && youtubeId ? (
                     <img
-                        src={
-                            isYouTube && youtubeId
-                                ? `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`
-                                : isVideo
-                                    ? main
-                                    : img
-                        }
+                        src={`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`}
                         alt={`Thumbnail ${index + 1}`}
                         className="w-16 h-16 object-cover rounded"
                     />
-                </span>
-            </button>
-        );
-    };
+                ) : isVideo ? (
+                    <video
+                        src={`${img}#t=0.5`} // Seek to 0.5s for thumbnail preview
+                        muted
+                        loop
+                        playsInline
+                        className="w-16 h-16 object-cover rounded"
+                    />
+                ) : (
+                    <img
+                        src={img}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="w-16 h-16 object-cover rounded"
+                    />
+                )}
+            </span>
+        </button>
+    );
+};
+
 
     const renderMainContent = () => {
         const isYouTube = isYouTubeLink(selectedImage);
@@ -77,6 +102,7 @@ export default function ProductGallery({ images, main }) {
         } else if (isVideo) {
             content = (
                 <video
+                    ref={videoRef}
                     controls
                     className="w-full max-h-[500px] w-auto max-w-full rounded object-contain"
                 >
@@ -97,7 +123,7 @@ export default function ProductGallery({ images, main }) {
         const selectedIndex = images.indexOf(selectedImage);
 
         return (
-            <div className="relative group w-full max-w-full overflow-hidden">
+            <div className="group w-full max-w-full overflow-hidden">
                 <div className="w-full max-h-[500px] aspect-video flex items-center justify-center">
                     {content}
                 </div>
@@ -105,7 +131,7 @@ export default function ProductGallery({ images, main }) {
                 {/* Expand icon opens swiper modal */}
                 <button
                     onClick={() => openModal(selectedIndex)}
-                    className={`absolute top-2 ${state.LANG === 'EN' ? 'left-2' : 'left-2'} z-10 text-white bg-black/50 p-2 rounded-full flex items-center justify-center cursor-pointer`}
+                    className={`absolute top-2 ${state.LANG === 'AR' ? 'right-2' : 'left-2'} z-10 text-white bg-black/50 p-2 rounded-full flex items-center justify-center cursor-pointer`}
                 >
                     <i className="icon-expand-solid text-xl"></i>
                 </button>
@@ -122,7 +148,7 @@ export default function ProductGallery({ images, main }) {
                 </div>
 
                 {/* Main Display */}
-                <div className="flex-1 main-image w-full">
+                <div className="relative flex-1 main-image w-full">
                     {renderMainContent()}
                 </div>
             </div>
@@ -131,7 +157,7 @@ export default function ProductGallery({ images, main }) {
             {isModalOpen && (
                 <div
                     className="product-gallery-modal fixed inset-0 bg-black/90 z-[999999999] flex items-center justify-center p-4"
-                    onClick={() => setIsModalOpen(false)} // close on backdrop click
+                    onClick={() => setIsModalOpen(false)}
                 >
                     <button
                         onClick={() => setIsModalOpen(false)}
@@ -139,11 +165,10 @@ export default function ProductGallery({ images, main }) {
                     >
                         ×
                     </button>
-                    {/* Prevent click from bubbling to backdrop */}
-                    <div onClick={(e) => e.stopPropagation()} className="relative w-full max-w-5xl">
-                        {/* Close Button */}
 
+                    <div onClick={(e) => e.stopPropagation()} className="relative w-full max-w-5xl">
                         <Swiper
+                            key={activeIndex} // force re-init on open
                             initialSlide={activeIndex}
                             navigation
                             pagination={{ clickable: true }}
@@ -186,7 +211,6 @@ export default function ProductGallery({ images, main }) {
                     </div>
                 </div>
             )}
-
         </>
     );
 }
