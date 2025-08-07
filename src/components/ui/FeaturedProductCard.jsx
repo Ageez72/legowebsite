@@ -46,12 +46,12 @@ export default function FeaturedProductCard({ item }) {
                         <span className="product-card-category">{item?.category?.description}</span>
                     </Link>
                 </p>
-                <div className="price flex items-center gap-3">
+                {/* <div className="price flex items-center gap-3">
                     <span className="product-card-price">
                         <span className="price-number">{Number(item?.price).toFixed(2)}</span>
                         <span className="price-unit mx-1">{translation.jod}</span>
                     </span>
-                </div>
+                </div> */}
             </div>
         </div>
     )
