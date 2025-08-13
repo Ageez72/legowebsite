@@ -20,6 +20,7 @@ import kiddix from "../src/assets/imgs/places/kiddix.jpg";
 import dumyah from "../src/assets/imgs/places/dumyah.jpg";
 import kidsToys from "../src/assets/imgs/places/51KidsToys.jpg";
 import bambiniJO from "../src/assets/imgs/places/bambiniJO.jpg";
+import tales from "../src/assets/imgs/places/tales.jpg";
 import union from "../src/assets/imgs/patterns/union.png";
 import rectangle from "../src/assets/imgs/patterns/rectangle.png";
 import frame from "../src/assets/imgs/patterns/frame2.png";
@@ -452,6 +453,43 @@ export default function Home() {
                     </div>
                     <div className="card-content">
                       <h3 className="card-title">51 Kids & Toys</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="relative card group flex items-center justify-center"
+                  onClick={() => (isMobile ? toggleTooltip("talesStore") : null)}
+                >
+                  {/* Tooltip above the card */}
+                  <div
+                    className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${
+                      activeTooltip === "talesStore" ? "opacity-100" : "opacity-0"
+                    } 
+                    group-hover:opacity-100 pointer-events-none
+                  `}
+                  >
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Tales Store
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img
+                        className="tall-image"
+                        src={tales.src}
+                        alt="Tales Store"
+                      />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Tales Store</h3>
                     </div>
                   </div>
                 </div>

@@ -6,9 +6,12 @@ import { useAppContext } from "../../../context/AppContext";
 import Cookies from "js-cookie";
 import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
+import { BASE_API, endpoints } from "../../../constant/endpoints";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function MobileMenu({ scroll, onGoTo }) {
-  const { state = {}, dispatch = () => {} } = useAppContext() || {};
+  const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [lang, setLang] = useState("EN"); // fallback
   const [cookiesState, setCookiesState] = useState({
     newArrivals: false,
@@ -42,10 +45,22 @@ export default function MobileMenu({ scroll, onGoTo }) {
     };
   }, [state.LANG]);
 
-  const handleChangeLanguage = (e) => {
-    dispatch({ type: "LANG", payload: e });
-    window.location.reload(); // this is fine for now
-  };
+
+  async function fetchCampaignProducts() {
+    const res = await axios.get(`${BASE_API}${endpoints.products.campaign}&&lang=EN&token=${Cookies.get("legoToken")}`, {});
+    return res;
+  }
+
+  const {
+    data,
+    isLoading,
+    error
+  } = useQuery({
+    queryKey: ['campaignInfo'],
+    queryFn: fetchCampaignProducts,
+    cacheTime: 0,
+  });
+
 
   return (
     <div className="mobile-menu fix mb-3 mean-container">
@@ -75,6 +90,18 @@ export default function MobileMenu({ scroll, onGoTo }) {
               Showroom
             </Link>
           </li>
+          {
+            data?.data?.name && (
+              <li className={isActive("/campaign")} onClick={() => onGoTo()}>
+                <Link
+                  href={`/campaign?brand=${Cookies.get("brandID")}&itemStatus=ALL`}
+                  className="block py-2"
+                >
+                  {data?.data.name}
+                </Link>
+              </li>
+            )
+          }
         </ul>
         <hr />
         <button className="backToClub primary-btn">Back to Bricks Club</button>

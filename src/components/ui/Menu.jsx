@@ -7,6 +7,9 @@ import { useAppContext } from "../../../context/AppContext";
 import Cookies from 'js-cookie';
 import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
+import { BASE_API, endpoints } from "../../../constant/endpoints";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function Menu({ scroll }) {
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
@@ -46,16 +49,41 @@ export default function Menu({ scroll }) {
   }, [state.LANG]);
 
 
+  async function fetchCampaignProducts() {
+    const res = await axios.get(`${BASE_API}${endpoints.products.campaign}&&lang=EN&token=${Cookies.get("legoToken")}`, {});
+    return res;
+  }
+
+  const {
+    data,
+    isLoading,
+    error
+  } = useQuery({
+    queryKey: ['campaignInfo'],
+    queryFn: fetchCampaignProducts,
+    cacheTime: 0,
+  });
+
+
   return (
     <ul className="menu-list font-medium flex items-center flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700">
-        <>
-          <li className={isActive("/")}>
-            <Link href="/" className="block py-2">Home</Link>
-          </li>
-          <li className={isActive("/products")}>
-            <Link href={`/products?brand=${Cookies.get("brandID")}&itemStatus=ALL`} className="block py-2">Showroom</Link>
-          </li>
-        </>
+      <>
+        <li className={isActive("/")}>
+          <Link href="/" className="block py-2">Home</Link>
+        </li>
+        <li className={isActive("/products")}>
+          <Link href={`/products?brand=${Cookies.get("brandID")}&itemStatus=ALL`} className="block py-2">Showroom</Link>
+        </li>
+
+
+        {
+          data?.data?.name && (
+            <li className={isActive("/campaign")}>
+              <Link href={`/campaign?brand=${Cookies.get("brandID")}&itemStatus=ALL`} className="block py-2">{data?.data.name}</Link>
+            </li>
+          )
+        }
+      </>
     </ul>
   );
 }

@@ -125,6 +125,13 @@ footer {
     li {
         margin-bottom: 0;
     }
+
+    .active {
+        a {
+            color: var(--primary-color); 
+            font-weight: 600;
+        }
+    }
 }
 
 .offcanvas__close {

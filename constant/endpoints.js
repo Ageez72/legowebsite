@@ -16,6 +16,7 @@ export const endpoints = {
   },
   products: {
     list: "?action=GET.ITEMS",
+    campaign: "?action=get.campaign",
     categoriesList: "?action=GET.CATEGORIES",
     catalogList: "?action=CATALOGS",
     brandsFilters: "?action=GET.BRANDS&grouped=1",
