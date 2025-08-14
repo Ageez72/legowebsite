@@ -483,7 +483,7 @@ export default function Home() {
                   <div className="flex items-center justify-center">
                     <div className="card-image">
                       <img
-                        className="tall-image"
+                        // className="tall-image"
                         src={tales.src}
                         alt="Tales Store"
                       />
