@@ -84,7 +84,7 @@ export default function Page() {
   }, [apiParams]);
 
   async function fetchProducts() {
-    const res = await axios.get(`${BASE_API}${endpoints.products.list}&itemType=CAMPAIGN&${queryString}&lang=EN&token=${Cookies.get("legoToken")}`, {});
+    const res = await axios.get(`${BASE_API}${endpoints.products.list}&pageSize=100&itemType=CAMPAIGN&${queryString}&lang=EN&token=${Cookies.get("legoToken")}`, {});
     return res;
   }
   const { data, isLoading, error } = useQuery({
@@ -94,7 +94,7 @@ export default function Page() {
   });
 
   async function fetchCampaignProducts() {
-    const res = await axios.get(`${BASE_API}${endpoints.products.campaign}&&lang=EN&token=${Cookies.get("legoToken")}`, {});
+    const res = await axios.get(`${BASE_API}${endpoints.products.campaign}&lang=EN&token=${Cookies.get("legoToken")}`, {});
     return res;
   }
 
@@ -112,6 +112,8 @@ export default function Page() {
     { label: "Home", href: '/' },
     { label: dataCampaign?.data.name, href: `/campaign?brand=${Cookies.get("brandID")}&itemStatus=ALL` },
   ]
+
+  document.title = dataCampaign?.data.name;
 
   return (
     <div className="max-w-screen-xl mx-auto p-4 all-products-container section-min">
@@ -167,7 +169,7 @@ export default function Page() {
         </div>
       </div>
       {
-        data?.data?.items?.length > 0 && (
+        data?.data?.items?.length > 100 && (
           <Pagination
             currentPage={Number(data?.data?.page) || 1}
             pagesToken={data?.data?.pagesToken}

@@ -10,7 +10,7 @@ export default function Dropdown({ options = [], name, defaultValue = null, onCh
     useEffect(() => {
         // Notify parent about initial selection
         setSelected(options.find(option => option.value === defaultValue)|| options[0])
-    }, [selected]);
+    }, [defaultValue, options]);
 
     const handleSelect = (option) => {
         setSelected(option);
