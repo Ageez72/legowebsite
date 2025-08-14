@@ -91,7 +91,7 @@ export default function MobileMenu({ scroll, onGoTo }) {
             </Link>
           </li>
           {
-            data?.data?.name && (
+            data?.data?.active && (
               <li className={isActive("/campaign")} onClick={() => onGoTo()}>
                 <Link
                   href={`/campaign?brand=${Cookies.get("brandID")}&itemStatus=ALL`}

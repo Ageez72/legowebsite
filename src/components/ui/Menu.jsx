@@ -77,7 +77,7 @@ export default function Menu({ scroll }) {
 
 
         {
-          data?.data?.name && (
+          data?.data?.active && (
             <li className={isActive("/campaign")}>
               <Link href={`/campaign?brand=${Cookies.get("brandID")}&itemStatus=ALL`} className="block py-2">{data?.data.name}</Link>
             </li>
