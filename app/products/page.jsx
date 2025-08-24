@@ -201,22 +201,22 @@ export default function Page() {
     return classNames[index];
   };
 
-function checkFilterParams(queryString) {
-  const paramsToCheck = ['fromAge', 'toAge', 'catalog', 'category'];
-  let count = 0;
+  function checkFilterParams(queryString) {
+    const paramsToCheck = ['fromAge', 'toAge', 'catalog', 'category'];
+    let count = 0;
 
-  paramsToCheck.forEach(param => {
-    if (queryString.includes(`${param}=`)) {
-      count++;
-    }
-  });
+    paramsToCheck.forEach(param => {
+      if (queryString.includes(`${param}=`)) {
+        count++;
+      }
+    });
 
-  return {
-    hasAny: count > 0,
-    count: count
-  };
-}
-const result = checkFilterParams(queryString);
+    return {
+      hasAny: count > 0,
+      count: count
+    };
+  }
+  const result = checkFilterParams(queryString);
 
 
   const handleSortingPageSize = () => {
@@ -263,7 +263,12 @@ const result = checkFilterParams(queryString);
                 />
               </div>
               <div className={`flex-2 filter-mobile cursor-pointer ${result.hasAny ? "has-filters" : ""}`} onClick={handleFilterOnMobile}>
-                <span className='red-filter'>{result.count > 0 ? `${result.count}` : ""}</span>
+
+                {
+                  result.count > 0 ? (
+                    <span className='red-filter'>{result.count > 0 ? `${result.count}` : ""}</span>
+                  ) : null
+                }
                 <span>Filter</span>
                 <i className="icon-filter-search"></i>
               </div>
