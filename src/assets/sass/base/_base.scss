@@ -16,8 +16,7 @@ body {
     font-family: 'Clash Display Regular', Arial, Helvetica, sans-serif;
     background-color: var(--body-bg);
 
-    &.header-padding {
-    }
+    &.header-padding {}
 }
 
 .container {
@@ -59,6 +58,11 @@ p {
     background-color: #fff;
     border-radius: 16px;
     padding: 20px;
+
+    @media (max-width: 640px) {
+        border-radius: 4px;
+
+    }
 }
 
 .badge {
@@ -71,7 +75,7 @@ p {
     margin-left: 15px;
     margin-bottom: 15px;
     font-family: 'Clash Display Medium';
-    
+
     &.ltr-badge {
         margin-left: 0;
         margin-right: 20px;
@@ -86,6 +90,7 @@ p {
         color: rgba(216, 124, 67, 1);
         background-color: rgba(216, 124, 67, 0.12);
     }
+
     &.green {
         color: #288D14;
         background-color: #288D141F;
