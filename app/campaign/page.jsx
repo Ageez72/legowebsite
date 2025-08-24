@@ -121,7 +121,7 @@ export default function Page() {
         <div className="w-full products-list">
           {
             !isLoadingCampaign && (
-              <div className="flex flex-wrap items-center gap-4 mb-8">
+              <div className="flex items-center gap-4 mb-8">
                 <div className="campaign-logo pr-4">
                   <img width={82} src={dataCampaign?.data.url} alt={dataCampaign?.data.name} />
                 </div>

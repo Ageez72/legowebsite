@@ -12,7 +12,7 @@ export default function ProductGallery({ images, main }) {
     const [selectedImage, setSelectedImage] = useState(images[0]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
-    const { state = {}, dispatch = () => {} } = useAppContext() || {};
+    const { state = {}, dispatch = () => { } } = useAppContext() || {};
     const videoRef = useRef(null); // 👈 Ref for the video element
 
     const isYouTubeLink = (url) => /youtube\.com|youtu\.be/.test(url);
@@ -34,52 +34,51 @@ export default function ProductGallery({ images, main }) {
         setIsModalOpen(true);
     };
 
-const renderThumbnail = (img, index) => {
-    const isYouTube = isYouTubeLink(img);
-    const isVideo = isVideoFile(img);
-    const youtubeId = getYouTubeId(img);
+    const renderThumbnail = (img, index) => {
+        const isYouTube = isYouTubeLink(img);
+        const isVideo = isVideoFile(img);
+        const youtubeId = getYouTubeId(img);
 
-    return (
-        <button
-            key={index}
-            onClick={() => {
-                setSelectedImage(img);
-                setActiveIndex(index);
-            }}
-            className={`border rounded-md p-1 ${
-                selectedImage === img ? 'border-red-500' : 'border-transparent'
-            }`}
-        >
-            <span className="relative block w-16 h-16">
-                {(isYouTube || isVideo) && (
-                    <i className="icon-circle-play-regular player-icon absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl"></i>
-                )}
+        return (
+            <button
+                key={index}
+                onClick={() => {
+                    setSelectedImage(img);
+                    setActiveIndex(index);
+                }}
+                className={`border rounded-md p-1 ${selectedImage === img ? 'border-red-500' : 'border-transparent'
+                    }`}
+            >
+                <span className="relative block w-16 h-16">
+                    {(isYouTube || isVideo) && (
+                        <i className="icon-circle-play-regular player-icon absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl"></i>
+                    )}
 
-                {isYouTube && youtubeId ? (
-                    <img
-                        src={`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`}
-                        alt={`Thumbnail ${index + 1}`}
-                        className="w-16 h-16 object-cover rounded"
-                    />
-                ) : isVideo ? (
-                    <video
-                        src={`${img}#t=0.5`} // Seek to 0.5s for thumbnail preview
-                        muted
-                        loop
-                        playsInline
-                        className="w-16 h-16 object-cover rounded"
-                    />
-                ) : (
-                    <img
-                        src={img}
-                        alt={`Thumbnail ${index + 1}`}
-                        className="w-16 h-16 object-cover rounded"
-                    />
-                )}
-            </span>
-        </button>
-    );
-};
+                    {isYouTube && youtubeId ? (
+                        <img
+                            src={`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`}
+                            alt={`Thumbnail ${index + 1}`}
+                            className="w-16 h-16 object-cover rounded"
+                        />
+                    ) : isVideo ? (
+                        <video
+                            src={`${img}#t=0.5`} // Seek to 0.5s for thumbnail preview
+                            muted
+                            loop
+                            playsInline
+                            className="w-16 h-16 object-cover rounded"
+                        />
+                    ) : (
+                        <img
+                            src={img}
+                            alt={`Thumbnail ${index + 1}`}
+                            className="w-16 h-16 object-cover rounded"
+                        />
+                    )}
+                </span>
+            </button>
+        );
+    };
 
 
     const renderMainContent = () => {
@@ -129,12 +128,14 @@ const renderThumbnail = (img, index) => {
                 </div>
 
                 {/* Expand icon opens swiper modal */}
-                <button
-                    onClick={() => openModal(selectedIndex)}
-                    className={`absolute top-2 ${state.LANG === 'AR' ? 'right-2' : 'left-2'} z-10 text-white bg-black/50 p-2 rounded-full flex items-center justify-center cursor-pointer`}
-                >
-                    <i className="icon-expand-solid text-xl"></i>
-                </button>
+                {!isYouTube && !isVideo && (
+                    <button
+                        onClick={() => openModal(selectedIndex)}
+                        className={`absolute top-2 ${state.LANG === 'AR' ? 'right-2' : 'left-2'} z-10 text-white bg-black/50 p-2 rounded-full flex items-center justify-center cursor-pointer`}
+                    >
+                        <i className="icon-expand-solid text-xl"></i>
+                    </button>
+                )}
             </div>
         );
     };

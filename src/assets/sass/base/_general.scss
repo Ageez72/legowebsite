@@ -458,11 +458,11 @@
 
 .dropdown-wrapper {
     @media (max-width: 550px) {
-        position: static;
+        position: relative;
 
         .dropdown-item {
             left: 0;
-            transform: translateX(35%);
+            // transform: translateX(35%);
         }
     }
 }
@@ -603,7 +603,10 @@
     }
 
     img {
+        -webkit-user-select: none;
         user-select: none;
+        background: #fff;
+        padding: 20px;
     }
 }
 
@@ -927,6 +930,7 @@ img {
     margin: 0 auto;
     user-select: none;
 }
+
 .swiper-overflow-visible {
     padding-top: 45px;
     margin-top: -13px;
@@ -934,4 +938,13 @@ img {
 
 .campaign-logo {
     border-right: 1px solid rgba(194, 197, 210, 1);
+
+    +.info {
+        .section-title {
+            @media screen and (max-width: 500px) {
+                line-height: 1;
+                font-size: 27px;
+            }
+        }
+    }
 }

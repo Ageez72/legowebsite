@@ -49,7 +49,7 @@ export default function Page() {
 
   let details = data?.data?.items[0];
   if (isLoading) return <Loader />;
-  
+
 
   if (Array.isArray(data?.data?.items) && data?.data?.items?.length === 0) {
     return (
@@ -190,10 +190,11 @@ export default function Page() {
         }
       </div>
       {
-        details?.relatedItems.length && (
+        Array.isArray(details?.relatedItems) &&
+        details?.relatedItems.some(item => item && item.trim() !== "") && (
           <>
-            <h3 className="section-title mb-3 mt-10">{translation.relatedProducts}</h3>
-            <RelatedProducts items={details?.relatedItems} />
+            <h3 className="sub-title mb-7 mt-12">{translation.relatedProducts}</h3>
+            <RelatedProducts items={details.relatedItems} />
           </>
         )
       }
