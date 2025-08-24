@@ -132,7 +132,7 @@ export default function Page() {
               </div>
             )
           }
-          <div className={`${data?.data?.items?.length > 0 ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4" : ""} products-page-listing`}>
+          <div className={`${data?.data?.items?.length > 0 ? "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4" : ""} products-page-listing`}>
             {
               isLoading && (
                 <VerticalLoader />
