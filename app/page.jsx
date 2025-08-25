@@ -21,6 +21,7 @@ import dumyah from "../src/assets/imgs/places/dumyah.jpg";
 import kidsToys from "../src/assets/imgs/places/51KidsToys.jpg";
 import bambiniJO from "../src/assets/imgs/places/bambiniJO.jpg";
 import tales from "../src/assets/imgs/places/tales.jpg";
+import tabooshToys from "../src/assets/imgs/places/tabooshToys.png";
 import union from "../src/assets/imgs/patterns/union.png";
 import rectangle from "../src/assets/imgs/patterns/rectangle.png";
 import frame from "../src/assets/imgs/patterns/frame2.png";
@@ -35,7 +36,7 @@ import fallbackMobileImage from "@/assets/imgs/hero-bg.png";
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(null);
-  const { state = {}, dispatch = () => {} } = useAppContext() || {};
+  const { state = {}, dispatch = () => { } } = useAppContext() || {};
   const [translation, setTranslation] = useState(en);
   const [imagePairs, setImagePairs] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,8 +54,7 @@ export default function Home() {
 
   const fetchFeaturedProducts = async () => {
     const res = await axios.get(
-      `${BASE_API}${
-        endpoints.products.list
+      `${BASE_API}${endpoints.products.list
       }&itemType=FEATURED&token=${Cookies.get(
         "legoToken"
       )}&pageSize=6&itemStatus=ALL&lang=EN&brand=${Cookies.get("brandID")}`
@@ -119,10 +119,9 @@ export default function Home() {
                 spaceBetween={10}
                 slidesPerView={1}
                 slidesPerGroup={1}
-                className={`${
-                  featuredProductsdata?.data?.items?.length <= 6 &&
+                className={`${featuredProductsdata?.data?.items?.length <= 6 &&
                   "just-four-items"
-                }`}
+                  }`}
                 breakpoints={{
                   550: {
                     // screens >= 320px
@@ -263,9 +262,8 @@ export default function Home() {
                     className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
                     transition-opacity duration-300
-                    ${
-                      activeTooltip === "Wonders" ? "opacity-100" : "opacity-0"
-                    } 
+                    ${activeTooltip === "Wonders" ? "opacity-100" : "opacity-0"
+                      } 
                     group-hover:opacity-100 pointer-events-none
                   `}
                   >
@@ -397,9 +395,8 @@ export default function Home() {
                     className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
                     transition-opacity duration-300
-                    ${
-                      activeTooltip === "Bambini" ? "opacity-100" : "opacity-0"
-                    } 
+                    ${activeTooltip === "Bambini" ? "opacity-100" : "opacity-0"
+                      } 
                     group-hover:opacity-100 pointer-events-none
                   `}
                   >
@@ -430,9 +427,8 @@ export default function Home() {
                     className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
                     transition-opacity duration-300
-                    ${
-                      activeTooltip === "kidsToys" ? "opacity-100" : "opacity-0"
-                    } 
+                    ${activeTooltip === "kidsToys" ? "opacity-100" : "opacity-0"
+                      } 
                     group-hover:opacity-100 pointer-events-none
                   `}
                   >
@@ -467,9 +463,8 @@ export default function Home() {
                     className={`
                     absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
                     transition-opacity duration-300
-                    ${
-                      activeTooltip === "talesStore" ? "opacity-100" : "opacity-0"
-                    } 
+                    ${activeTooltip === "talesStore" ? "opacity-100" : "opacity-0"
+                      } 
                     group-hover:opacity-100 pointer-events-none
                   `}
                   >
@@ -490,6 +485,41 @@ export default function Home() {
                     </div>
                     <div className="card-content">
                       <h3 className="card-title">Tales Store</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="relative card group flex items-center justify-center"
+                  onClick={() => (isMobile ? toggleTooltip("tabooshToys") : null)}
+                >
+                  <div
+                    className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "tabooshToys" ? "opacity-100" : "opacity-0"
+                      } 
+                    group-hover:opacity-100 pointer-events-none
+                  `}
+                  >
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Taboosh Toys
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img
+                        // className="tall-image"
+                        src={tabooshToys.src}
+                        alt="Taboosh Toys"
+                      />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Taboosh Toys</h3>
                     </div>
                   </div>
                 </div>
