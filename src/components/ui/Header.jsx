@@ -80,9 +80,10 @@ export default function Header({ scroll, handleOffCanvas }) {
                 <a
                   target="_blank"
                   href="https://bricksarabia.club/"
-                  className="backToClub primary-btn"
+                  className="backToClub primary-btn flex items-center gap-2"
                 >
-                  Back to Bricks Club
+                  <i className="icon-arrow-up-right-from-square"></i>
+                  Bricks Arabia Club
                 </a>
               </div>
             </div>

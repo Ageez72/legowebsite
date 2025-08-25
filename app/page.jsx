@@ -503,7 +503,7 @@ export default function Home() {
         style={{ backgroundImage: `url(${join.src})` }}
       >
         <div>
-          <h2 className="section-title mb-8">Join the Bricks Club</h2>
+          <h2 className="section-title mb-8">Join the Bricks Arabia Club</h2>
           <p>
             New members receive a digital welcome pack and access to exclusive
             club activities!
