@@ -22,7 +22,7 @@
 
     .search-item {
         cursor: pointer;
-        padding: 8px 0 4px;
+        padding: 8px 15px;
         transition: all 0.3s ease-in-out;
 
         &:hover {
@@ -49,7 +49,7 @@
             font-size: 14px;
             color: var(--primary-color);
             font-weight: 600;
-                width: 85px;
+            width: 85px;
         }
     }
 
@@ -58,11 +58,12 @@
     }
 
     a {
-        padding: 0 15px;
+        // padding: 0 15px;
     }
 
     .all-products {
         font-size: 14px;
+        padding: 0 15px;
         color: var(--primary-color);
     }
 }

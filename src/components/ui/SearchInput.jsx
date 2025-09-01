@@ -94,12 +94,14 @@ export default function SearchInput({ bulk, onCollectBulkItems, pageSize, onColl
                     {data.items.map((item) => (
                             <Link href={`products/${item.id}`} className='view-details flex items-center w-full' key={item.id}>
                         <div className='search-item flex items-center justify-between w-full'>
+                            <div className='flex items-center gap-2'>
                             <span className='image'>
                                 <img width={40} height={40} src={item.images["50"].main} alt={item.name} />
                             </span>
                             <span className='title'>{item.name}</span>
+                            </div>
                             {/* <span className='price'>{Number(item.priceAfterDisc).toFixed(2)} {translation.jod}</span> */}
-                                <span className="icon-arrow-left-01-round"></span>
+                            <span className="icon-arrow-left-01-round"></span>
                         </div>
                             </Link>
                     ))}
