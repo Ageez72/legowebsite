@@ -17,7 +17,11 @@
             font-weight: 700 !important;
             max-height: max-content;
             -webkit-line-clamp: none;
-            margin-bottom: 8px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .badge {
+            margin-bottom: 16px;
         }
     }
 

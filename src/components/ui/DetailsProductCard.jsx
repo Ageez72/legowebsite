@@ -24,8 +24,8 @@ export default function DetailsProductCard({ item }) {
         <div className="card product-card">
             <div className="product-card-content">
                 {
-                    item.isNew && (
-                        <Badge className="ltr-badge" type={item.isNew && 'blue'} text={`${translation.new}`} />
+                    item.commingSoon && (
+                        <Badge type={item.commingSoon && 'yellow'} text={`${translation.soon}`} />
                     )
                 }
                 <h1 className="product-card-title details-product-card-title" title={item.name}>{item.name}</h1>

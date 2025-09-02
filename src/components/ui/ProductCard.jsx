@@ -28,7 +28,7 @@ export default function ProductCard({ type, customClass, item }) {
     const rate = item?.reviews.rating || 0;
     return (
         <div className={`card product-card ${type === 'grid' ? 'grid-card flex items-center gap-3' : 'list-card'} ${customClass}`}>
-            <div className='flex items-center w-full'>
+            {/* <div className='flex items-center w-full'>
                 {
                     item.isNew && (
                         <Badge type={item.isNew && 'blue'} text={`${translation.new}`} />
@@ -39,8 +39,15 @@ export default function ProductCard({ type, customClass, item }) {
                         <Badge type={item.itemdisc > 0 && 'orange'} text={`${item.itemdisc} ${translation.percentage}`} />
                     )
                 }
-            </div>
-            <div className="product-card-image">
+            </div> */}
+            <div className="product-card-image relative">
+                {
+                    item.commingSoon && (
+                        <div className='absolute top-0 right-0 z-10'>
+                            <Badge type={item.commingSoon && 'yellow'} text={`${translation.soon}`} />
+                        </div>
+                    )
+                }
                 <Link href={`/products/${encodeURIComponent(item.id)}`}>
                     <img src={item?.images["800"]?.main} alt={item?.name} layout="responsive" title={item.name} />
                 </Link>

@@ -67,13 +67,13 @@ p {
 
 .badge {
     font-size: 12px;
-    min-height: 32px;
+    min-height: 26px;
     border: none;
     border-radius: 4px;
     width: max-content;
     margin: 0;
-    margin-left: 15px;
-    margin-bottom: 15px;
+    // margin-left: 15px;
+    // margin-bottom: 15px;
     font-family: 'Clash Display Medium';
 
     &.ltr-badge {
@@ -88,7 +88,7 @@ p {
 
     &.orange {
         color: rgba(216, 124, 67, 1);
-        background-color: rgba(216, 124, 67, 0.12);
+        background-color: var(--primary-color);
     }
 
     &.green {
@@ -97,8 +97,10 @@ p {
     }
 
     &.yellow {
-        color: #D8A343;
-        background-color: #D8A3431F;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background-color: var(--primary-color);
     }
 
     &.red {
