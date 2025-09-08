@@ -66,8 +66,8 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
 
   // Update range visually when min or max changes
   useLayoutEffect(() => {
-    updateRangeBar();
-  }, [minVal, maxVal, updateRangeBar]);;
+   setTimeout(() => updateRangeBar(), 0);
+  }, [minVal, maxVal, updateRangeBar]);
 
   // Update again when accordion opens
   useEffect(() => {

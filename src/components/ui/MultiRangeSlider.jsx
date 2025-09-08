@@ -66,8 +66,8 @@ const MultiRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initially
 
   // Update range visually when min or max changes
   useLayoutEffect(() => {
-    updateRangeBar();
-  }, [minVal, maxVal, updateRangeBar]);;
+    setTimeout(() => updateRangeBar(), 0);
+  }, [minVal, maxVal, updateRangeBar]);
 
   // Update again when accordion opens
   useEffect(() => {

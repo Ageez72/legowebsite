@@ -264,12 +264,12 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, catalogEn
                     {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
                     <MultiAgesRangeSlider title={"Age Range"} min={0} max={17} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                     {
-                        categoryOpen && (
+                        categoryOpen && categoriesAllOptions?.length > 0 && (
                             <Select2Form title={"Themes"} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0} />
                         )
                     }
                     {
-                        catalogOpen && (
+                        catalogOpen && catalogsAllOptions?.length > 0 && (
                             <Select2Form title={translation.catalogs} options={catalogsAllOptions} name="catalog" handleMultiItem={changeMultiItem} initSelected={selectedCatalogsOptions} initiallyOpen={selectedCatalogsOptions.length > 0} />
                         )
                     }

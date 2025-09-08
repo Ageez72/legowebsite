@@ -223,5 +223,15 @@
     "avlQty":"الكمية المتوفرة",
     "orderQty":"الكمية المطلوبة",
     "overOrderedNotice": "لقد طلبت من المنتجات التالية كميات غير متوفرة حالياً",
-    "noRelatedProducts": "لا توجد منتجات ذات صلة حالياً."
+    "noRelatedProducts": "لا توجد منتجات ذات صلة حالياً.",
+    "batteryChargerIncluded": "متضمن شاحن البطارية",
+    "batteryDuration": "مدة البطارية",
+    "batteryType": "نوع البطارية",
+    "characters": "الشخصية",
+    "groupPlay": "اللعب الجماعي",
+    "maxSpeed": "السرعة القصوى",
+    "maxWeight": "الحد الأقصى للوزن أو التحمل",
+    "countryOfOrigin": "بلد التصنيع",
+    "colors": "اللون",
+    "language": "اللغة"
 }
