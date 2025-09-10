@@ -262,7 +262,7 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, catalogEn
                 <div className="filter-body">
                     {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
                     {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
-                    <MultiAgesRangeSlider title={"Age Range"} min={0} max={17} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
+                    <MultiAgesRangeSlider title={"Age Range"} min={0} max={18} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                     {
                         categoryOpen && categoriesAllOptions?.length > 0 && (
                             <Select2Form title={"Themes"} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0} />
