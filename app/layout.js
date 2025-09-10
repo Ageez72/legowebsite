@@ -25,14 +25,14 @@ const silentLogin = async () => {
 };
 
 const getBrands = async () => {
-    try {
-      const res = await axios.get(`${BASE_API + endpoints.home.brandsSwiper}&token=${Cookies.get("legoToken")}`);
-      // console.log(res.data[0].brandID);
-      Cookies.set("brandID", res.data[0].brandID);
-    } catch (err) {
-      console.error("Fetching brands failed:", err);
-    }
-  };
+  try {
+    const res = await axios.get(`${BASE_API + endpoints.home.brandsSwiper}&token=${Cookies.get("legoToken")}`);
+    // console.log(res.data[0].brandID);
+    Cookies.set("brandID", res.data[0].brandID);
+  } catch (err) {
+    console.error("Fetching brands failed:", err);
+  }
+};
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -50,8 +50,8 @@ export default function RootLayout({ children }) {
     const loginAndInit = async () => {
       const token = Cookies.get("legoToken");
       // if (token) {
-        await silentLogin();
-        await getBrands();
+      await silentLogin();
+      await getBrands();
       // }
 
       const WOW = require("wowjs");
@@ -85,6 +85,21 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="EN" dir="ltr">
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KC3WYXJ1F1"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KC3WYXJ1F1');
+          `}
+        </Script>
+      </head>
       <body className={`antialiased ${!isAuthPage ? "header-padding" : ""}`}>
         <ReactQueryProvider>
           <AppProvider>
@@ -107,19 +122,6 @@ export default function RootLayout({ children }) {
             <ContactTools />
           </AppProvider>
         </ReactQueryProvider>
-
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-KC3WYXJ1F1"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-KC3WYXJ1F1');
-          `}
-        </Script>
       </body>
     </html>
   );

@@ -37,7 +37,7 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
   });
 
   const [maxVal, setMaxVal] = useState(() => {
-    if ( toAge) {
+    if (toAge) {
       return toAge ?? max;
     }
     return max;
@@ -66,7 +66,7 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
 
   // Update range visually when min or max changes
   useLayoutEffect(() => {
-   setTimeout(() => updateRangeBar(), 0);
+    setTimeout(() => updateRangeBar(), 0);
   }, [minVal, maxVal, updateRangeBar]);
 
   // Update again when accordion opens
@@ -76,6 +76,14 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
       setTimeout(() => updateRangeBar(), 50);
     }
   }, [open, updateRangeBar]);
+
+
+  const getYearText = (num) => {
+    if (num === 0) return <span> {translation.year}</span>;
+    if (num === 1) return <span> {translation.year}</span>;
+    // if (num >= 3 && num <= 100) return <span> {translation.yearss}</span>;
+    return <span> {translation.yearss}</span>;
+  };
 
 
   return (
@@ -105,7 +113,7 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
                     Number(event.target.value),
                     maxVal - 1
                   );
-                  setMinVal(value);              
+                  setMinVal(value);
                   handleAgeFrom(Number(event.target.value))
                 }}
                 className="thumb thumb--left"
@@ -121,7 +129,7 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
                     Number(event.target.value),
                     minVal + 1
                   );
-                  setMaxVal(value); 
+                  setMaxVal(value);
                   handleAgeTo(Number(event.target.value))
                 }}
                 className="thumb thumb--right"
@@ -132,9 +140,11 @@ const MultiAgesRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initi
                 <div ref={range} className="slider__range" />
                 <div className="slider__right-value">
                   <span>{maxVal}</span>
+                  <span> {getYearText(maxVal)}</span>
                 </div>
                 <div className="slider__left-value">
                   <span>{minVal}</span>
+                  <span> {getYearText(minVal)}</span>
                 </div>
               </div>
             </div>

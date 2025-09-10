@@ -223,7 +223,7 @@
   "avlQty": "Available Quantity",
   "orderQty": "Ordered Quantity",
   "overOrderedNotice": "You have requested quantities for the following products that are currently unavailable.",
-  "noRelatedProducts": "No related products found at the moment.", 
+  "noRelatedProducts": "No related products found at the moment.",
   "batteryChargerIncluded": "Battery charger included",
   "batteryDuration": "Battery duration",
   "batteryType": "Battery type",
@@ -233,5 +233,7 @@
   "maxWeight": "Maximum Load",
   "countryOfOrigin": "Country of Origin",
   "colors": "Color",
-  "language": "Language"
+  "language": "Language",
+  "year": "Year",
+  "yearss": "Years"
 }
