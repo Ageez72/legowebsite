@@ -247,7 +247,7 @@ export default function Page() {
               details.constants.MAX_SPEED.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.maxSpeed}</strong></div>
-                  <div className="info w-1/2" dir='ltr'>{details?.constants.MAX_SPEED}</div>
+                  <div className="info w-1/2">{details?.constants.MAX_SPEED}</div>
                 </div>
               )
             }
