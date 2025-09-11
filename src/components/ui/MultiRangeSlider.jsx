@@ -30,7 +30,7 @@ const MultiRangeSlider = ({ min, max, selectedFrom, selectedTo, title, initially
   const range = useRef(null);
 
   const [minVal, setMinVal] = useState(() => {
-    if (toAge) {
+    if (fromAge) {
       return fromAge ?? min;
     }
     return min;
