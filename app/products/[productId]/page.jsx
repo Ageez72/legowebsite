@@ -183,7 +183,7 @@ export default function Page() {
               details?.grossWeightKg ? (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.weight}</strong></div>
-                  <div className="info w-1/2">{details?.grossWeightKg} {translation.kg}</div>
+                  <div className="info w-1/2">{details?.grossWeightKg}</div>
                 </div>
               ): null
             }
@@ -191,7 +191,7 @@ export default function Page() {
               details?.netWeightKg && details?.netWeightKg > 0 ? (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.netWeight}</strong></div>
-                  <div className="info w-1/2">{details?.netWeightKg} {translation.kg}</div>
+                  <div className="info w-1/2">{details?.netWeightKg}</div>
                 </div>
               ) : null
             }
