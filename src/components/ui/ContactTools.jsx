@@ -29,7 +29,7 @@ const ContactTools = () => {
       <button onClick={scrollToTop} className={`back-to-top circle-icon-container ${showButton ? "show" : "not-allowed"}`}>
         <i className="icon-arrow-up"></i>
       </button>
-      <a href="https://wa.link/k82yre" target='_blank' className="contact-link circle-icon-container contact-btn">
+      <a href="https://wa.link/evj36j" target='_blank' className="contact-link circle-icon-container contact-btn">
         <i className="icon-whatsapp-brands"></i>
       </a>
     </div>
