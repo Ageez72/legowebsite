@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
-import logo from "../../assets/imgs/yellow-logo.svg";
+import logo from "../../assets/imgs/logo.png";
 import Image from "next/image";
 
 export default function Offcanvas({ isOffCanvas, handleOffCanvas, scroll }) {
@@ -9,23 +9,22 @@ export default function Offcanvas({ isOffCanvas, handleOffCanvas, scroll }) {
     <>
       <div className="fix-area">
         <div
-          className={`offcanvas__info p-4 ${
-            isOffCanvas ? "active" : "not-active"
-          }`}
+          className={`offcanvas__info p-4 ${isOffCanvas ? "active" : "not-active"
+            }`}
         >
           <div className="offcanvas__wrapper">
             <div className="offcanvas__content">
               <div className="offcanvas__top mb-5 flex items-center justify-between">
                 <div className="offcanvas__logo">
-                <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                <Image
-                  className="logo-img"
-                  src={logo}
-                  alt="My Image"
-                  width={105}
-                  height={52}
-                />
-              </Link>
+                  <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                    <Image
+                      className="logo-img"
+                      src={logo}
+                      alt="My Image"
+                      width={71}
+                      height={60}
+                    />
+                  </Link>
                 </div>
                 <div className="offcanvas__close" onClick={handleOffCanvas}>
                   <i className="icon-multiplication-sign"></i>
@@ -39,9 +38,8 @@ export default function Offcanvas({ isOffCanvas, handleOffCanvas, scroll }) {
         </div>
       </div>
       <div
-        className={`offcanvas__overlay d-md-block d-lg-none ${
-          isOffCanvas ? "overlay-open" : ""
-        }`}
+        className={`offcanvas__overlay d-md-block d-lg-none ${isOffCanvas ? "overlay-open" : ""
+          }`}
         onClick={handleOffCanvas}
       />
     </>
