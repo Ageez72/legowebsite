@@ -367,6 +367,11 @@
             border: 1px solid #25D366;
             background-color: #25D366;
 
+            &:hover {
+                background-color: #10833b;
+                border-color: #10833b;
+            }
+
             i {
                 color: #fff;
                 font-size: 27px;
