@@ -201,7 +201,7 @@
   "new": "New",
   "reviews": "Reviews",
   "type": "Category",
-  "dimentions": "Pack Dimensions (L.D.H) in cm",
+  "dimensions": "Pack Dimensions (L × W × H) cm",
   "assembledDimensions": "Assembled Dimensions (L × W × H) cm",
   "weight": "Gross Weight (kg)",
   "netWeight": "Net Weight (kg)",
