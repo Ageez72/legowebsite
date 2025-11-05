@@ -14,7 +14,7 @@ import { useAppContext } from '../../../context/AppContext';
 
 
 
-export default function FilterBar({ isProductsPage, resetUpperFilters, catalogEndpoint, categoriesEndpoint, sortItem, pageSizeItem, searchTerm, onClose }) {
+export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSections, categoriesEndpoint, sortItem, pageSizeItem, searchTerm, onClose }) {
     const { state = {}, dispatch = () => { } } = useAppContext() || {};
     const [translation, setTranslation] = useState(en); // default fallback
     useEffect(() => {
@@ -63,7 +63,7 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, catalogEn
     const [selectedCatalogsOptions, setSelectedCatalogsOptions] = useState([])
     const [categoryOpen, setCategoryOpen] = useState(false)
     const [catalogOpen, setCatalogOpen] = useState(false)
-    
+
     const handleApplyFilters = () => {
 
         if (isProductsPage) {
@@ -194,10 +194,8 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, catalogEn
     }
 
     const fetchCatalogsOptions = async () => {
-        const lang = Cookies.get('lang') || 'EN';
-        const res = await axios.get(`${BASE_API}${catalogEndpoint}&lang=EN&token=${Cookies.get("legoToken")}`, {});
-        setCatalogsAllOptions(res.data);
-        const arr = res?.data?.catalogs?.filter(item => catalog.includes(item.code));
+        setCatalogsAllOptions(filtersSections?.catalogs);
+        const arr = filtersSections?.catalogs?.filter(item => catalog.includes(item.code));
         let selected = [];
         arr?.map(item => (
             selected.push({
@@ -237,54 +235,57 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, catalogEn
     return (
         <>
             <div className='filter-products-page'>
-            <div className={`filter-bar card`}>
-                <div className="filter-header flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <i className="icon-filter-search"></i>
-                        <span className='filter-title'>{translation.filterResults}</span>
-                    </div>
-                    {
-                        <div className="close-filter">
-                            <i className="icon-multiplication-sign cursor-pointer" onClick={() => {
-                                if (onClose) {
-                                    onClose();
-                                }
-                                const filterElement = document.querySelector(".filter-products-page");
-                                if (filterElement) {
-                                    filterElement.classList.remove("active");
-                                    document.documentElement.classList.remove("html-overflow");
-                                }
-                            }}></i>
+                <div className={`filter-bar card`}>
+                    <div className="filter-header flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <i className="icon-filter-search"></i>
+                            <span className='filter-title'>{translation.filterResults}</span>
                         </div>
+                        {
+                            <div className="close-filter">
+                                <i className="icon-multiplication-sign cursor-pointer" onClick={() => {
+                                    if (onClose) {
+                                        onClose();
+                                    }
+                                    const filterElement = document.querySelector(".filter-products-page");
+                                    if (filterElement) {
+                                        filterElement.classList.remove("active");
+                                        document.documentElement.classList.remove("html-overflow");
+                                    }
+                                }}></i>
+                            </div>
 
-                    }
-                </div>
-                <div className="filter-body">
-                    {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
-                    {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
-                    <MultiAgesRangeSlider title={"Age Range"} min={0} max={18} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
-                    {
-                        categoryOpen && categoriesAllOptions?.length > 0 && (
-                            <Select2Form title={"Themes"} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0} />
-                        )
-                    }
-                    {
-                        catalogOpen && catalogsAllOptions?.length > 0 && (
-                            <Select2Form title={translation.catalogs} options={catalogsAllOptions} name="catalog" handleMultiItem={changeMultiItem} initSelected={selectedCatalogsOptions} initiallyOpen={selectedCatalogsOptions.length > 0} />
-                        )
-                    }
-                    {/* <FilterSingleItem title={translation.availablity} selected={itemStatus} options={StatusOptions} name="itemStatus" handleSingleItem={changeSingleItem} /> */}
+                        }
+                    </div>
+                    <div className="filter-body">
+                        {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
+                        {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
+                        <MultiAgesRangeSlider title={"Age Range"} min={0} max={18} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
+                        {
+                            categoryOpen && categoriesAllOptions?.length > 0 && (
+                                <Select2Form title={"Themes"} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0} />
+                            )
+                        }
 
-                    <div className="action-btns flex gap-3 mt-4">
-                        <button className="primary-btn flex-1" onClick={handleApplyFilters}>{translation.apply}</button>
-                        {showClearButton && (
-                            <button className="gray-btn flex-1" onClick={handleClearFilter}>
-                                {translation.clear}
-                            </button>
-                        )} 
+                        {
+                            filtersSections && (
+                                catalogOpen && catalogsAllOptions?.length > 0 && (
+                                    <Select2Form title={translation.catalogs} options={catalogsAllOptions} name="catalog" handleMultiItem={changeMultiItem} initSelected={selectedCatalogsOptions} initiallyOpen={selectedCatalogsOptions.length > 0} />
+                                )
+                            )
+                        }
+                        {/* <FilterSingleItem title={translation.availablity} selected={itemStatus} options={StatusOptions} name="itemStatus" handleSingleItem={changeSingleItem} /> */}
+
+                        <div className="action-btns flex gap-3 mt-4">
+                            <button className="primary-btn flex-1" onClick={handleApplyFilters}>{translation.apply}</button>
+                            {showClearButton && (
+                                <button className="gray-btn flex-1" onClick={handleClearFilter}>
+                                    {translation.clear}
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </>
     )

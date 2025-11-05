@@ -81,49 +81,49 @@ export default function Page() {
           ) : null
         }
         <div className="specifications-table lg:w-1/2 mb-10">
-            {
-              details?.brand.description && (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.brand}</strong></div>
-                  <div className="info w-1/2">{details?.brand.description}</div>
-                </div>
-              )
-            }
-            {
-              details?.category.description && (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.type}</strong></div>
-                  <div className="info w-1/2">{details?.category.description}</div>
-                </div>
-              )
-            }
-            {
-              details?.id && (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.productNumber}</strong></div>
-                  <div className="info w-1/2">{details?.id}</div>
-                </div>
-              )
-            }
-            {
-              details?.barcode && (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.barcode}</strong></div>
-                  <div className="info w-1/2">{details?.barcode}</div>
-                </div>
-              )
-            }
-            {
-              Array.isArray(details?.constants.AGES) &&
-              details.constants.AGES.some(el => el.trim() !== "") && (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.age}</strong></div>
-                  <div className="info w-1/2">{details?.constants.AGES}</div>
-                </div>
-              )
-            }
-            {
-              Array.isArray(details?.constants["GROUP-PLAY"]) ?
+          {
+            details?.brand.description && (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.brand}</strong></div>
+                <div className="info w-1/2">{details?.brand.description}</div>
+              </div>
+            )
+          }
+          {
+            details?.category.description && (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.type}</strong></div>
+                <div className="info w-1/2">{details?.category.description}</div>
+              </div>
+            )
+          }
+          {
+            details?.id && (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.productNumber}</strong></div>
+                <div className="info w-1/2">{details?.id}</div>
+              </div>
+            )
+          }
+          {
+            details?.barcode && (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.barcode}</strong></div>
+                <div className="info w-1/2">{details?.barcode}</div>
+              </div>
+            )
+          }
+          {
+            Array.isArray(details?.constants.AGES) &&
+            details.constants.AGES.some(el => el.trim() !== "") && (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.age}</strong></div>
+                <div className="info w-1/2">{details?.constants.AGES}</div>
+              </div>
+            )
+          }
+          {
+            Array.isArray(details?.constants["GROUP-PLAY"]) ?
               details.constants["GROUP-PLAY"].some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.groupPlay}</strong></div>
@@ -131,9 +131,9 @@ export default function Page() {
                   {/* <div className="info w-1/2">+{getAge(details?.constants.AGES)} {translation.years}</div> */}
                 </div>
               ) : null
-            }
-            {
-              Array.isArray(details?.constants.CHARACTERS) ?
+          }
+          {
+            Array.isArray(details?.constants.CHARACTERS) ?
               details.constants.CHARACTERS.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.characters}</strong></div>
@@ -144,9 +144,9 @@ export default function Page() {
                   }</div>
                 </div>
               ) : null
-            }
-            {
-              Array.isArray(details?.constants.GENDER) ?
+          }
+          {
+            Array.isArray(details?.constants.GENDER) ?
               details.constants.GENDER.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.gender}</strong></div>
@@ -163,9 +163,9 @@ export default function Page() {
                   </div>
                 </div>
               ) : null
-            }
-            {
-              Array.isArray(details?.constants.MATERIAL) ?
+          }
+          {
+            Array.isArray(details?.constants.MATERIAL) ?
               details.constants.MATERIAL.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.material}</strong></div>
@@ -178,25 +178,25 @@ export default function Page() {
               )
               :
               null
-            }
-            {
-              details?.grossWeightKg ? (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.weight}</strong></div>
-                  <div className="info w-1/2">{details?.grossWeightKg}</div>
-                </div>
-              ): null
-            }
-            {
-              details?.netWeightKg && details?.netWeightKg > 0 ? (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.netWeight}</strong></div>
-                  <div className="info w-1/2">{details?.netWeightKg}</div>
-                </div>
-              ) : null
-            }
-            {
-              Array.isArray(details?.constants?.COUNTRY_OF_ORIGIN) ?
+          }
+          {
+            details?.grossWeightKg ? (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.weight}</strong></div>
+                <div className="info w-1/2">{details?.grossWeightKg}</div>
+              </div>
+            ) : null
+          }
+          {
+            details?.netWeightKg && details?.netWeightKg > 0 ? (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.netWeight}</strong></div>
+                <div className="info w-1/2">{details?.netWeightKg}</div>
+              </div>
+            ) : null
+          }
+          {
+            Array.isArray(details?.constants?.COUNTRY_OF_ORIGIN) ?
               details.constants.COUNTRY_OF_ORIGIN.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.countryOfOrigin}</strong></div>
@@ -204,8 +204,8 @@ export default function Page() {
                   {/* <div className="info w-1/2">+{getAge(details?.constants.AGES)} {translation.years}</div> */}
                 </div>
               ) : null
-            }
-            {/* {
+          }
+          {/* {
               Array.isArray(details?.constants.COLOR) &&
               details.constants.COLOR.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
@@ -214,54 +214,54 @@ export default function Page() {
                 </div>
               )
             } */}
-            {
-              Array.isArray(details?.constants.B_TYPES) ?
+          {
+            Array.isArray(details?.constants.B_TYPES) ?
               details.constants.B_TYPES.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.batteryType}</strong></div>
                   <div className="info w-1/2">{details?.constants.B_TYPES}</div>
                   {/* <div className="info w-1/2">+{getAge(details?.constants.AGES)} {translation.years}</div> */}
                 </div>
-              ): null
-            }
-            {
-              Array.isArray(details?.constants.BATTERY_CHARGER_INCLUDED) ?
+              ) : null
+          }
+          {
+            Array.isArray(details?.constants.BATTERY_CHARGER_INCLUDED) ?
               details.constants.BATTERY_CHARGER_INCLUDED.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.batteryChargerIncluded}</strong></div>
                   <div className="info w-1/2">{details?.constants.BATTERY_CHARGER_INCLUDED}</div>
                 </div>
               ) : null
-            }
-            {
-              Array.isArray(details?.constants.BATTERY_DURATION) ?
+          }
+          {
+            Array.isArray(details?.constants.BATTERY_DURATION) ?
               details.constants.BATTERY_DURATION.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.batteryDuration}</strong></div>
                   <div className="info w-1/2">{details?.constants.BATTERY_DURATION}</div>
                 </div>
               ) : null
-            }
-            {
-              Array.isArray(details?.constants.MAX_WEIGHT) ?
+          }
+          {
+            Array.isArray(details?.constants.MAX_WEIGHT) ?
               details.constants.MAX_WEIGHT.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.maxWeight}</strong></div>
                   <div className="info w-1/2">{details?.constants.MAX_WEIGHT}</div>
                 </div>
               ) : null
-            }
+          }
 
-            {
-              Array.isArray(details?.constants.MAX_SPEED) ?
+          {
+            Array.isArray(details?.constants.MAX_SPEED) ?
               details.constants.MAX_SPEED.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.maxSpeed}</strong></div>
                   <div className="info w-1/2">{details?.constants.MAX_SPEED}</div>
                 </div>
               ) : null
-            }
-            {/* {
+          }
+          {/* {
               Array.isArray(details?.constants.LANGUAGE) &&
               details.constants.LANGUAGE.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
@@ -270,24 +270,24 @@ export default function Page() {
                 </div>
               )
             } */}
-            {
-              details?.dimentions ? (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.dimentions}</strong></div>
-                  <div className="info w-1/2">{details?.dimentions}</div>
-                </div>
-              ) : null
-            }
-            {
-              details?.assembledDimensionsCentimeters ? (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.assembledDimensions}</strong></div>
-                  <div className="info w-1/2">{details?.assembledDimensionsCentimeters}</div>
-                </div>
-              ) : null
-            }
+          {
+            details?.dimensions ? (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.dimensions}</strong></div>
+                <div className="info w-1/2">{details?.dimensions}</div>
+              </div>
+            ) : null
+          }
+          {
+            details?.assembledDimensionsCentimeters ? (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.assembledDimensions}</strong></div>
+                <div className="info w-1/2">{details?.assembledDimensionsCentimeters}</div>
+              </div>
+            ) : null
+          }
 
-          </div>
+        </div>
         {
           details?.warning && (
             <>

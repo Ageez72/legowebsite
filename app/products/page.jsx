@@ -133,7 +133,11 @@ export default function Page() {
   }, [apiParams]);
 
   async function fetchProducts() {
-    const res = await axios.get(`${BASE_API}${endpoints.products.list}&${queryString}&lang=EN&token=${Cookies.get("legoToken")}`, {});
+    if (searchParams.get("page") || searchParams.get("fromAge") || searchParams.get("toAge")) {
+      const res = await axios.get(`${BASE_API}${endpoints.products.list}&${queryString}&pagesToken=${Cookies.get('b2bPagesToken')}&lang=EN&token=${Cookies.get('token')}`, {});
+      return res;
+    }
+    const res = await axios.get(`${BASE_API}${endpoints.products.list}&${queryString}&lang=EN&token=${Cookies.get('token')}`, {});
     return res;
   }
   const { push } = useRouter();
@@ -229,7 +233,11 @@ export default function Page() {
       <div className="flex gap-4 filters-gap">
         <div className="products-filter-side">
           <Suspense fallback={<div>Loading filters...</div>}>
-            <FilterBar resetUpperFilters={handleSortingPageSize} key={queryString} isProductsPage={true} searchParams={queryString || []} catalogEndpoint={`${endpoints.products.catalogList}`} categoriesEndpoint={`${endpoints.products.categoriesList}`} searchTerm={searchTerm} sortItem={sortItem} pageSizeItem={pageSizeItem} />
+            {
+              data?.data?.filters && (
+                <FilterBar resetUpperFilters={handleSortingPageSize} key={queryString} isProductsPage={true} searchParams={queryString || []} catalogEndpoint={`${endpoints.products.catalogList}`} categoriesEndpoint={`${endpoints.products.categoriesList}`} searchTerm={searchTerm} sortItem={sortItem} pageSizeItem={pageSizeItem} filtersSections={data?.data?.filters} />
+              )
+            }
           </Suspense>
           <div className="back" onClick={() => handleFilterOnMobile("close")}></div>
         </div>

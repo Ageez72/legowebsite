@@ -5,7 +5,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 import { useAppContext } from '../../../context/AppContext';
 
 export default function Select2Form({ title, name, initiallyOpen = false, options, handleMultiItem, initSelected }) {
-  const { state = {}, dispatch = () => {} } = useAppContext() || {};
+  const { state = {}, dispatch = () => { } } = useAppContext() || {};
 
   // Ensure component is hydrated before rendering dynamic UI
   const [hydrated, setHydrated] = useState(false);
@@ -22,7 +22,7 @@ export default function Select2Form({ title, name, initiallyOpen = false, option
   // Memoize newOptions to prevent regeneration on every render
   const newOptions = useMemo(() => {
     if (name === 'catalog') {
-      return options?.catalogs?.map(item => ({
+      return options?.map(item => ({
         label: item.name,
         value: item.code,
       })) || [];
