@@ -23,6 +23,7 @@ import bambiniJO from "../src/assets/imgs/places/bambiniJO.jpg";
 import tales from "../src/assets/imgs/places/tales.jpg";
 import tabooshToys from "../src/assets/imgs/places/tabooshToys.png";
 import theOutfit from "../src/assets/imgs/places/theOutfit.png";
+import hamleys from "../src/assets/imgs/places/hamleys.png";
 import jocell from "../src/assets/imgs/places/jocell-logo.png";
 import wb from "../src/assets/imgs/places/WB.png";
 import union from "../src/assets/imgs/patterns/union.png";
@@ -628,6 +629,42 @@ export default function Home() {
                     </div>
                     <div className="card-content">
                       <h3 className="card-title">The Outfit</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="relative card group flex items-center justify-center"
+                  onClick={() => (isMobile ? toggleTooltip("hamleys") : null)}
+                >
+                  <div
+                    className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "hamleys" ? "opacity-100" : "opacity-0"
+                      } 
+                    group-hover:opacity-100 pointer-events-none
+                  `}
+                  >
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Hamleys
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img
+                        // className="tall-image"
+                        style={{ height: '65px' }}
+                        src={hamleys.src}
+                        alt="hamleys"
+                      />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Hamleys</h3>
                     </div>
                   </div>
                 </div>
