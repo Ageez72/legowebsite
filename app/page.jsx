@@ -24,6 +24,8 @@ import tales from "../src/assets/imgs/places/tales.jpg";
 import tabooshToys from "../src/assets/imgs/places/tabooshToys.png";
 import theOutfit from "../src/assets/imgs/places/theOutfit.png";
 import hamleys from "../src/assets/imgs/places/hamleys.png";
+import checkpoints from "../src/assets/imgs/places/checkpoints.png";
+import electrobuzz from "../src/assets/imgs/places/electrobuzz.png";
 import jocell from "../src/assets/imgs/places/jocell-logo.png";
 import wb from "../src/assets/imgs/places/WB.png";
 import union from "../src/assets/imgs/patterns/union.png";
@@ -665,6 +667,76 @@ export default function Home() {
                     </div>
                     <div className="card-content">
                       <h3 className="card-title">Hamleys</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="relative card group flex items-center justify-center"
+                  onClick={() => (isMobile ? toggleTooltip("checkpoints") : null)}
+                >
+                  <div
+                    className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "checkpoints" ? "opacity-100" : "opacity-0"
+                      } 
+                    group-hover:opacity-100 pointer-events-none
+                  `}
+                  >
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Check Point
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img
+                        // className="tall-image"
+                        src={checkpoints.src}
+                        alt="checkpoints"
+                      />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Check Point</h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="relative card group flex items-center justify-center"
+                  onClick={() => (isMobile ? toggleTooltip("electrobuzz") : null)}
+                >
+                  <div
+                    className={`
+                    absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 
+                    transition-opacity duration-300
+                    ${activeTooltip === "electrobuzz" ? "opacity-100" : "opacity-0"
+                      } 
+                    group-hover:opacity-100 pointer-events-none
+                  `}
+                  >
+                    <div className="relative w-max px-3 py-2 text-sm text-white bg-gray-800 rounded-md shadow">
+                      Electrobuzz.
+                      <div className="absolute top-[90%] left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <div className="flex items-center justify-center">
+                    <div className="card-image">
+                      <img
+                        // className="tall-image"
+                        src={electrobuzz.src}
+                        alt="electrobuzz"
+                      />
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">Electrobuzz.</h3>
                     </div>
                   </div>
                 </div>
