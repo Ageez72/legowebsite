@@ -205,21 +205,28 @@ export default function Page() {
                 </div>
               ) : null
           }
-          {/* {
-              Array.isArray(details?.constants.COLOR) &&
-              details.constants.COLOR.some(el => el.trim() !== "") && (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.colors}</strong></div>
-                  <div className="info w-1/2">{details?.constants.COLOR}</div>
-                </div>
-              )
-            } */}
+          {
+            Array.isArray(details?.constants.COLOR) &&
+            details.constants.COLOR.some(el => el.trim() !== "") && (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.colors}</strong></div>
+                <div className="info w-1/2">{details?.constants.COLOR}</div>
+              </div>
+            )
+          }
           {
             Array.isArray(details?.constants.B_TYPES) ?
               details.constants.B_TYPES.some(el => el.trim() !== "") && (
                 <div className="item flex w-full">
                   <div className="title w-1/2"><strong>{translation.batteryType}</strong></div>
-                  <div className="info w-1/2">{details?.constants.B_TYPES}</div>
+                  <div className="info flex-col w-1/2">
+                    {parts.map((part, index) => (
+                      <span className={`${index == parts.length - 1 ? '' : 'mb-2'}`} key={index}>
+                        {part.trim()}
+                        {index < parts.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </div>
                   {/* <div className="info w-1/2">+{getAge(details?.constants.AGES)} {translation.years}</div> */}
                 </div>
               ) : null
@@ -261,15 +268,15 @@ export default function Page() {
                 </div>
               ) : null
           }
-          {/* {
-              Array.isArray(details?.constants.LANGUAGE) &&
-              details.constants.LANGUAGE.some(el => el.trim() !== "") && (
-                <div className="item flex w-full">
-                  <div className="title w-1/2"><strong>{translation.language}</strong></div>
-                  <div className="info w-1/2">{details?.constants.LANGUAGE}</div>
-                </div>
-              )
-            } */}
+          {
+            Array.isArray(details?.constants.LANGUAGE) &&
+            details.constants.LANGUAGE.some(el => el.trim() !== "") && (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.language}</strong></div>
+                <div className="info w-1/2">{details?.constants.LANGUAGE}</div>
+              </div>
+            )
+          }
           {
             details?.dimensions ? (
               <div className="item flex w-full">
@@ -286,6 +293,14 @@ export default function Page() {
               </div>
             ) : null
           }
+          {
+            details?.cartonPack && details?.cartonPack > 0 && !state.isCorporate ? (
+              <div className="item flex w-full">
+                <div className="title w-1/2"><strong>{translation.cartonPack}</strong></div>
+                <div className="info w-1/2">{details?.cartonPack}</div>
+              </div>
+            ) : null
+          }
 
         </div>
         {
@@ -299,7 +314,7 @@ export default function Page() {
         {
           details?.catalogs.length && (
             <>
-              <h3 className="sub-title mb-5">{translation.catalogs}</h3>
+              <h3 className="sub-title mb-5">{translation.sections}</h3>
               <div className="badges flex flex-wrap gap-2">
                 {
                   details?.catalogs?.map(b => (

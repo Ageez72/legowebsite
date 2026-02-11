@@ -176,10 +176,10 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
     // get all options
     const fetchCategoriesOptions = async (ch, brands = []) => {
 
-        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get("legoToken")}`, {});
+        // const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get("legoToken")}`, {});
 
-        setCategoriesAllOptions(res.data);
-        const arr = res.data.filter(item => category.includes(item.categoryId));
+        setCategoriesAllOptions(filtersSections?.categories);
+        const arr = filtersSections?.categories?.filter(item => category.includes(item.categoryId));
         let selected = [];
         arr?.map(item => (
             selected.push({
@@ -260,17 +260,17 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
                     <div className="filter-body">
                         {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
                         {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
-                        <MultiAgesRangeSlider title={"Age Range"} min={0} max={18} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
+                        <MultiAgesRangeSlider initiallyOpen={true} title={"Age Range"} min={Math.floor(parseFloat(filtersSections?.age_min))} max={Math.floor(parseFloat(filtersSections?.age_max))} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                         {
-                            categoryOpen && categoriesAllOptions?.length > 0 && (
-                                <Select2Form title={"Themes"} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0} />
+                            categoriesAllOptions?.length > 0 && (
+                                <Select2Form title={"Themes"} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0 || true} />
                             )
                         }
 
                         {
                             filtersSections && (
-                                catalogOpen && catalogsAllOptions?.length > 0 && (
-                                    <Select2Form title={translation.catalogs} options={catalogsAllOptions} name="catalog" handleMultiItem={changeMultiItem} initSelected={selectedCatalogsOptions} initiallyOpen={selectedCatalogsOptions.length > 0} />
+                                catalogsAllOptions?.length > 0 && (
+                                    <Select2Form title={translation.sections} options={catalogsAllOptions} name="catalog" handleMultiItem={changeMultiItem} initSelected={selectedCatalogsOptions} initiallyOpen={selectedCatalogsOptions.length > 0 || true} />
                                 )
                             )
                         }

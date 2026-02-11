@@ -111,6 +111,7 @@
   "sectors": "Sectors",
   "categories": "Categories",
   "catalogs": "Usages",
+  "sections": "Sections",
   "apply": "Apply",
   "clear": "Clear",
   "resultsFound": "Found",
@@ -210,6 +211,7 @@
   "brand": "Brand",
   "kg": "KG",
   "years": "Years",
+  "cartonPack": "Carton Pack (Pieces)",
   "itemRemoved": "Item has been removed from the cart",
   "chooseItem": "Please select a product",
   "chooseQty": "Please specify the quantity",
@@ -237,5 +239,6 @@
   "colors": "Color",
   "language": "Language",
   "year": "Year",
+  "sortBy": "Sort By",
   "yearss": "Years"
 }
