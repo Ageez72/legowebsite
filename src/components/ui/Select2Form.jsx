@@ -3,8 +3,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Select from 'react-select';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { useAppContext } from '../../../context/AppContext';
+import Cookies from 'js-cookie';
 
-export default function Select2Form({ title, name, initiallyOpen = false, options, handleMultiItem, initSelected }) {
+export default function Select2Form({ title, name, initiallyOpen = false, isProductsPage, options, handleMultiItem, initSelected }) {
   const { state = {}, dispatch = () => { } } = useAppContext() || {};
 
   // Ensure component is hydrated before rendering dynamic UI
@@ -21,8 +22,21 @@ export default function Select2Form({ title, name, initiallyOpen = false, option
 
   // Memoize newOptions to prevent regeneration on every render
   const newOptions = useMemo(() => {
+    if (isProductsPage) {
+      if (name === 'catalog') {
+        return options?.map(item => ({
+          label: item.name,
+          value: item.code,
+        })) || [];
+      } else if (name === 'categories') {
+        return options?.map(item => ({
+          label: item.description,
+          value: item.categoryId,
+        })) || [];
+      }
+    }
     if (name === 'catalog') {
-      return options?.map(item => ({
+      return options?.catalogs?.map(item => ({
         label: item.name,
         value: item.code,
       })) || [];
@@ -37,6 +51,7 @@ export default function Select2Form({ title, name, initiallyOpen = false, option
 
   const handleSelectChange = selected => {
     setSelectedOptions(selected);
+    Cookies.set('filterstatus', "filter");
     handleMultiItem(name, selected);
   };
 
@@ -50,20 +65,21 @@ export default function Select2Form({ title, name, initiallyOpen = false, option
           <DisclosureButton
             className="accordion-item w-full flex items-center justify-between cursor-pointer"
           >
-            <span className="title">{title}</span>
+            <div className='flex items-center gap-1'>
+              <span className="title">{title}</span>
+            </div>
             <i className={`icon-arrow-down-01-round arrow-down ${isOpen ? 'rotate-180' : ''}`}></i>
           </DisclosureButton>
 
           <DisclosurePanel className="text-gray-500 pp">
             <Select
               className="multi-select"
-              placeholder={state.LANG === 'EN' ? 'Select' : 'Select'}
-              // isRtl={state.LANG === 'AR'}
+              placeholder={'Select'}
               isMulti
               options={newOptions}
               value={selectedOptions}
               onChange={handleSelectChange}
-              noOptionsMessage={() => state.LANG === 'EN' ? 'No Options' : 'No Options'}
+              noOptionsMessage={() => 'No Options'}
             />
           </DisclosurePanel>
         </div>

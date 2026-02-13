@@ -11,7 +11,7 @@ import { BASE_API } from '../../../constant/endpoints';
 import en from "../../../locales/en.json";
 import ar from "../../../locales/ar.json";
 import { useAppContext } from '../../../context/AppContext';
-
+import { getProfile } from '@/actions/utils';
 
 
 export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSections, categoriesEndpoint, sortItem, pageSizeItem, searchTerm, onClose }) {
@@ -21,6 +21,7 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
         setTranslation(state.LANG === "EN" ? en : en);
     }, [state.LANG]);
     const [showClearButton, setShowClearButton] = useState(false);
+    const profileData = getProfile()
 
     const itemTypeOptions = [
         {
@@ -175,11 +176,15 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
 
     // get all options
     const fetchCategoriesOptions = async (ch, brands = []) => {
+        console.log(Cookies.get("brandID"));
+        console.log(brand);
 
-        // const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get("legoToken")}`, {});
 
-        setCategoriesAllOptions(filtersSections?.categories);
-        const arr = filtersSections?.categories?.filter(item => category.includes(item.categoryId));
+        const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get("legoToken")}`, {});
+        setCategoriesAllOptions(res.data);
+        const arr = res.data.filter(item => category.includes(item.categoryId));
+        // setCategoriesAllOptions(filtersSections?.categories);
+        // const arr = filtersSections?.categories?.filter(item => category.includes(item.categoryId));
         let selected = [];
         arr?.map(item => (
             selected.push({
@@ -225,12 +230,22 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
             return !(key === 'itemStatus' && value === 'ALL');
         });
 
-        if (meaningfulParams.length > 1) {
+        console.log(meaningfulParams);
+
+
+        if (meaningfulParams.length > 3) {
             setShowClearButton(true);
         } else {
             setShowClearButton(false);
         }
     }, [useParams.toString()]);
+
+    useEffect(() => {
+        const filterstatus = Cookies.get('filterstatus');
+        if (isProductsPage && filterstatus && filterstatus === "filter") {
+            handleApplyFilters();
+        }
+    }, [itemType, brand, catalog, category, itemStatus, sortItem, pageSizeItem]);
 
     return (
         <>
@@ -260,30 +275,39 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
                     <div className="filter-body">
                         {/* <FilterSingleItem title={translation.sectors} selected={itemType} options={itemTypeOptions} name="itemType" handleSingleItem={changeSingleItem} /> */}
                         {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
-                        <MultiAgesRangeSlider initiallyOpen={true} title={"Age Range"} min={Math.floor(parseFloat(filtersSections?.age_min))} max={Math.floor(parseFloat(filtersSections?.age_max))} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
                         {
-                            categoriesAllOptions?.length > 0 && (
-                                <Select2Form title={"Themes"} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0 || true} />
-                            )
+                            filtersSections?.age_min >= 0 && filtersSections?.age_max ? (
+                                <MultiAgesRangeSlider initiallyOpen={true} title={"Age Range"} min={Math.floor(parseFloat(filtersSections?.age_min))} max={Math.floor(parseFloat(filtersSections?.age_max))} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
+                            ) : null
+                        }
+                        {
+                            categoriesAllOptions?.length > 0 ? (
+                                // categoryOpen && (
+                                <Select2Form title={profileData.isCorporate || profileData.hideTargetSOA ? translation.categories : translation.categories} options={categoriesAllOptions} name="categories" handleMultiItem={changeMultiItem} initSelected={selectedCategoriesOptions} initiallyOpen={selectedCategoriesOptions.length > 0 || true} />
+                                // )
+                            ) : null
                         }
 
                         {
-                            filtersSections && (
-                                catalogsAllOptions?.length > 0 && (
-                                    <Select2Form title={translation.sections} options={catalogsAllOptions} name="catalog" handleMultiItem={changeMultiItem} initSelected={selectedCatalogsOptions} initiallyOpen={selectedCatalogsOptions.length > 0 || true} />
-                                )
-                            )
+                            catalogsAllOptions?.length > 0 ? (
+                                // catalogOpen && (
+                                <Select2Form title={translation.sections} options={catalogsAllOptions} name="catalog" handleMultiItem={changeMultiItem} initSelected={catalogsAllOptions.filter(item => catalog.includes(item.code)).map(item => ({
+                                    label: item.name,
+                                    value: item.code,
+                                }))} initiallyOpen={selectedCatalogsOptions.length > 0 || true} isProductsPage={isProductsPage} />
+                                // )
+                            ) : null
                         }
                         {/* <FilterSingleItem title={translation.availablity} selected={itemStatus} options={StatusOptions} name="itemStatus" handleSingleItem={changeSingleItem} /> */}
 
-                        <div className="action-btns flex gap-3 mt-4">
-                            <button className="primary-btn flex-1" onClick={handleApplyFilters}>{translation.apply}</button>
-                            {showClearButton && (
+                        {showClearButton && (
+                            <div className="action-btns flex gap-3 mt-4">
+                                {/* <button className="primary-btn flex-1" onClick={handleApplyFilters}>{translation.apply}</button> */}
                                 <button className="gray-btn flex-1" onClick={handleClearFilter}>
                                     {translation.clear}
                                 </button>
-                            )}
-                        </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
