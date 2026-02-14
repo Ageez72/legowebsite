@@ -69,23 +69,34 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
 
         if (isProductsPage) {
             const query = new URLSearchParams();
+            const params = new URLSearchParams(window.location.search);
 
-            // if (fromPrice) query.set('fromPrice', fromPrice);
-            // if (toPrice) query.set('toPrice', toPrice);
-            if (fromAge) query.set('fromAge', fromAge);
+            if (fromPrice >= 0) query.set('fromPrice', fromPrice);
+            if (toPrice) query.set('toPrice', toPrice);
+            if (fromAge >= 0) query.set('fromAge', fromAge);
             if (toAge) query.set('toAge', toAge);
             if (itemType) query.set('itemType', itemType);
             if (itemStatus) query.set('itemStatus', itemStatus);
             if (sortItem) query.set('sort', sortItem);
             if (pageSizeItem) query.set('pageSize', pageSizeItem);
             if (searchTerm) query.set('search', searchTerm);
-            if (brand && brand.length > 0) query.set('brand', `${Cookies.get("brandID")}`);
+            if (brand && brand.length > 0) query.set('brand', brand.join(','));
             if (category && category.length > 0) query.set('category', category.join(','));
             if (catalog && catalog.length > 0) query.set('catalog', catalog.join(','));
+            if (Cookies.get('filterstatus') === "pagination") {
+                if (params.has('page')) {
+                    const pageValue = params.get('page');
+                    query.set('page', pageValue);
+                }
+            } else {
+                query.delete('page');
+            }
             // Clear pagination token when filters change
             Cookies.remove('pagesToken');
+            // Cookies.remove('filterstatus');
+            document.body.classList.remove("html-overflow");
             // Push new query to URL
-            router.push(`/products?${query.toString()}`);
+            router.push(`/products?${query.toString()}`);;
         } else {
             const searchParams = new URLSearchParams(); // This will be used for building query
             let searchItems = '';
@@ -130,7 +141,7 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
             resetUpperFilters && resetUpperFilters()
 
             // Push clean URL
-            router.push(`/products?itemStatus=ALL&brand=${Cookies.get("brandID")}`);
+            router.push(`/products?itemStatus=ALL&pageSize=12&brand=${Cookies.get("brandID")}`);
         } else {
             Cookies.remove('store_filters');
             onClose && onClose()
@@ -277,7 +288,7 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
                         {/* <MultiRangeSlider title={translation.priceRange} min={0} max={1000} selectedFrom={fromPrice} selectedTo={toPrice} handlePriceFrom={changePriceFrom} handlePriceTo={changePriceTo} /> */}
                         {
                             filtersSections?.age_min >= 0 && filtersSections?.age_max ? (
-                                <MultiAgesRangeSlider initiallyOpen={true} title={"Age Range"} min={Math.floor(parseFloat(filtersSections?.age_min))} max={Math.floor(parseFloat(filtersSections?.age_max))} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} />
+                                <MultiAgesRangeSlider initiallyOpen={true} title={translation.ageRange} min={Math.floor(parseFloat(filtersSections?.age_min))} max={Math.floor(parseFloat(filtersSections?.age_max))} selectedFrom={fromAge} selectedTo={toAge} handleAgeFrom={changeAgeFrom} handleAgeTo={changeAgeTo} isProductsPage={isProductsPage} onSubmitRange={handleApplyFilters} onClearRange={handleClearFilter} />
                             ) : null
                         }
                         {

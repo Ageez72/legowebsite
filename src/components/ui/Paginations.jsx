@@ -1,5 +1,5 @@
 'use client'
-
+import Cookies from 'js-cookie';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Pagination({ currentPage, totalPages }) {
@@ -10,6 +10,7 @@ export default function Pagination({ currentPage, totalPages }) {
     const params = new URLSearchParams(searchParams.toString());
     params.set('page', page.toString());
 
+    Cookies.set('filterstatus', "pagination");
     router.push(`?${params.toString()}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
