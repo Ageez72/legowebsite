@@ -187,10 +187,6 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
 
     // get all options
     const fetchCategoriesOptions = async (ch, brands = []) => {
-        console.log(Cookies.get("brandID"));
-        console.log(brand);
-
-
         const res = await axios.get(`${BASE_API}${categoriesEndpoint}&brand=${Cookies.get("brandID")}&lang=EN&token=${Cookies.get("legoToken")}`, {});
         setCategoriesAllOptions(res.data);
         const arr = res.data.filter(item => category.includes(item.categoryId));
@@ -240,9 +236,6 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
         const meaningfulParams = entries.filter(([key, value]) => {
             return !(key === 'itemStatus' && value === 'ALL');
         });
-
-        console.log(meaningfulParams);
-
 
         if (meaningfulParams.length > 3) {
             setShowClearButton(true);
