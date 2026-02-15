@@ -80,7 +80,6 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
             if (sortItem) query.set('sort', sortItem);
             if (pageSizeItem) query.set('pageSize', pageSizeItem);
             if (searchTerm) query.set('search', searchTerm);
-            if (brand && brand.length > 0) query.set('brand', brand.join(','));
             if (category && category.length > 0) query.set('category', category.join(','));
             if (catalog && catalog.length > 0) query.set('catalog', catalog.join(','));
             if (Cookies.get('filterstatus') === "pagination") {
