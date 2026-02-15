@@ -207,7 +207,7 @@ export default function Page() {
 
   function checkFilterParams(queryString) {
     const paramsToCheck = ['fromAge', 'toAge', 'catalog', 'category'];
-    let count = 0;
+    let count = -1;
 
     paramsToCheck.forEach(param => {
       if (queryString.includes(`${param}=`)) {

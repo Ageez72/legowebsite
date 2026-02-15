@@ -71,8 +71,6 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
             const query = new URLSearchParams();
             const params = new URLSearchParams(window.location.search);
 
-            if (fromPrice >= 0) query.set('fromPrice', fromPrice);
-            if (toPrice) query.set('toPrice', toPrice);
             if (fromAge >= 0) query.set('fromAge', fromAge);
             if (toAge) query.set('toAge', toAge);
             if (itemType) query.set('itemType', itemType);
@@ -248,7 +246,7 @@ export default function FilterBar({ isProductsPage, resetUpperFilters, filtersSe
         if (isProductsPage && filterstatus && filterstatus === "filter") {
             handleApplyFilters();
         }
-    }, [itemType, brand, catalog, category, itemStatus, sortItem, pageSizeItem]);
+    }, [itemType, catalog, category, itemStatus, sortItem, pageSizeItem]);
 
     return (
         <>
